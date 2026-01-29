@@ -1,0 +1,268 @@
+/**
+ * Single Product Page - Purchase Confirmation Modal Styles
+ * 
+ * این فایل شامل استایل‌های مربوط به پاپ‌آپ تایید خرید است:
+ * - مودال اصلی با overlay
+ * - محتوای مودال با انیمیشن‌های زیبا
+ * - بخش خلاصه محصول
+ * - دکمه‌های تایید و انصراف
+ * - طراحی responsive برای موبایل
+ * 
+ * @package khane_irani
+ * @version 1.0.0
+ */
+
+/* Purchase Confirmation Modal */
+.zs-purchase-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.zs-modal-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(5px);
+}
+
+.zs-modal-content {
+    position: relative;
+    background: white;
+    border-radius: 20px;
+    max-width: 500px;
+    width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+    animation: zsModalSlideIn 0.4s ease-out;
+}
+
+.zs-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px;
+    border-bottom: 1px solid var(--zs-border-color);
+    background: var(--zs-bg-primary);
+    border-radius: 20px 20px 0 0;
+}
+
+.zs-modal-header h3 {
+    margin: 0;
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: var(--zs-text-primary);
+}
+
+.zs-modal-close {
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: var(--zs-text-muted);
+    padding: 4px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.zs-modal-close:hover {
+    background: var(--zs-bg-secondary);
+    color: var(--zs-text-primary);
+}
+
+.zs-modal-body {
+    padding: 24px;
+}
+
+.zs-product-summary {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+.zs-product-image {
+    flex-shrink: 0;
+    width: 120px;
+    height: 120px;
+    border-radius: 12px;
+    overflow: hidden;
+    background: var(--zs-bg-secondary);
+}
+
+.zs-product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.zs-no-image {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--zs-text-muted);
+    font-size: 2rem;
+}
+
+.zs-product-details {
+    flex: 1;
+}
+
+.zs-product-name {
+    margin: 0 0 8px 0;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--zs-text-primary);
+    line-height: 1.3;
+}
+
+.zs-product-description {
+    margin: 0 0 16px 0;
+    color: var(--zs-text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.zs-price-section {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 16px;
+}
+
+.zs-price-label {
+    font-size: 0.9rem;
+    color: var(--zs-text-muted);
+    font-weight: 500;
+}
+
+.zs-price-amount {
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: var(--zs-accent-primary);
+}
+
+.zs-features-summary {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.zs-feature-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.9rem;
+    color: var(--zs-text-secondary);
+}
+
+.zs-feature-item i {
+    color: var(--zs-success);
+    font-size: 1rem;
+}
+
+.zs-modal-footer {
+    padding: 24px;
+    border-top: 1px solid var(--zs-border-color);
+    background: var(--zs-bg-primary);
+    border-radius: 0 0 20px 20px;
+}
+
+.zs-action-buttons {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.zs-confirm-add-to-cart,
+.zs-confirm-buy-now {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 10px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.zs-confirm-add-to-cart {
+    background: linear-gradient(135deg, var(--zs-accent-primary), var(--zs-accent-secondary));
+    color: var(--zs-btn-primary-text);
+}
+
+.zs-confirm-buy-now {
+    background: var(--zs-success);
+    color: white;
+}
+
+.zs-confirm-add-to-cart:hover,
+.zs-confirm-buy-now:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.zs-cancel-btn {
+    width: 100%;
+    padding: 10px;
+    background: none;
+    border: 1px solid var(--zs-border-color);
+    border-radius: 8px;
+    color: var(--zs-text-muted);
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.zs-cancel-btn:hover {
+    background: var(--zs-bg-secondary);
+    color: var(--zs-text-primary);
+}
+
+@keyframes zsModalSlideIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9) translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+/* Mobile Responsive Styles */
+@media (max-width: 768px) {
+    .zs-modal-content {
+        width: 95%;
+        max-height: 95vh;
+    }
+    
+    .zs-product-summary {
+        flex-direction: column;
+        gap: 16px;
+        text-align: center;
+    }
+    
+    .zs-product-image {
+        width: 100px;
+        height: 100px;
+        margin: 0 auto;
+    }
+    
+    .zs-action-buttons {
+        flex-direction: column;
+        gap: 8px;
+    }
+}

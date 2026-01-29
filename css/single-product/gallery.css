@@ -1,0 +1,459 @@
+/**
+ * Single Product Page - Gallery & Product Info Styles
+ * 
+ * این فایل شامل استایل‌های مربوط به بخش گالری و اطلاعات محصول است:
+ * - گالری ساده‌شده (فقط تصویر شاخص)
+ * - بخش اطلاعات محصول
+ * - دکمه سفارش بهبود یافته
+ * - اطلاعات سریع محصول
+ * - طراحی responsive برای موبایل
+ * 
+ * @package khane_irani
+ * @version 1.0.0
+ */
+
+/* Simplified Gallery Styles */
+.zs-gallery-section .zs-gallery-card {
+    background: #fff;
+    border: 1px solid var(--zs-card-border);
+    border-radius: 20px;
+    padding: 0;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Product Gallery Container */
+.zs-product-gallery {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.zs-gallery-main {
+    position: relative;
+    width: 100%;
+}
+
+.zs-featured-image-container {
+    position: relative;
+    width: 100%;
+    height: 500px;
+    overflow: hidden;
+    max-width: 100%;
+    border-radius: 16px;
+    background: #f8fafc;
+    cursor: pointer;
+}
+
+.zs-featured-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+    max-width: 100%;
+}
+
+.zs-featured-image-container:hover .zs-featured-image {
+    transform: scale(1.05);
+}
+
+/* Thumbnail Gallery */
+.zs-gallery-thumbnails {
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    padding: 8px 0;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(0, 167, 150, 0.3) transparent;
+}
+
+.zs-gallery-thumbnails::-webkit-scrollbar {
+    height: 6px;
+}
+
+.zs-gallery-thumbnails::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.zs-gallery-thumbnails::-webkit-scrollbar-thumb {
+    background: rgba(0, 167, 150, 0.3);
+    border-radius: 3px;
+}
+
+.zs-gallery-thumbnails::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 167, 150, 0.5);
+}
+
+.zs-thumbnail-item {
+    flex-shrink: 0;
+    width: 80px;
+    height: 80px;
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+    background: #f8fafc;
+}
+
+.zs-thumbnail-item:hover {
+    border-color: var(--zs-teal-medium, #37C3B3);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 167, 150, 0.2);
+}
+
+.zs-thumbnail-item.active {
+    border-color: var(--zs-teal-dark, #00A796);
+    box-shadow: 0 4px 12px rgba(0, 167, 150, 0.3);
+}
+
+.zs-thumbnail-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.zs-thumbnail-item:hover img {
+    transform: scale(1.1);
+}
+
+.zs-image-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.3) 100%);
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-start;
+    padding: 20px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.zs-featured-image-container:hover .zs-image-overlay {
+    opacity: 1;
+}
+
+.zs-image-badge {
+    background: rgba(255,255,255,0.9);
+    color: var(--zs-text-primary);
+    padding: 8px 16px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.2);
+}
+
+.zs-image-badge i {
+    font-size: 1rem;
+    color: var(--zs-accent-primary);
+}
+
+.zs-no-image-placeholder {
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: var(--zs-bg-secondary);
+    color: var(--zs-text-muted);
+    gap: 16px;
+}
+
+.zs-no-image-placeholder i {
+    font-size: 3rem;
+    opacity: 0.5;
+}
+
+.zs-no-image-placeholder p {
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin: 0;
+}
+
+/* Service Hero Grid Layout */
+.service-hero-grid {
+    display: grid;
+    grid-template-columns: 1.2fr .8fr;
+    gap: 48px;
+    align-items: start;
+    position: relative;
+    z-index: 2;
+    width: 100%;
+}
+
+/* Prevent grid children from forcing overflow */
+.service-hero-grid > * { min-width: 0; }
+
+.service-info-section {
+    background: #fff;
+    border-radius: 20px;
+    padding: 32px 28px;
+    border: 1px solid var(--zs-card-border);
+    position: relative;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.service-info-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, rgba(52,152,219,.05) 0%, transparent 70%);
+    border-radius: 50%;
+    transform: translate(50%,-50%);
+}
+
+.service-info-container {
+    position: relative;
+    z-index: 2;
+    min-width: 0;
+}
+
+/* Enhanced Cart Section */
+.zs-enhanced-cart-section {
+    margin-top: 24px;
+    padding-top: 24px;
+    border-top: 1px solid var(--zs-border-color);
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+.zs-cart-actions {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 20px;
+    max-width: 100%;
+    flex-wrap: wrap;
+}
+
+.zs-add-to-cart-btn,
+.zs-buy-now-btn {
+    flex: 1;
+    min-width: 140px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 16px 24px;
+    border: none;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    max-width: 100%;
+}
+
+.zs-add-to-cart-btn i,
+.zs-buy-now-btn i { 
+    flex-shrink: 0; 
+}
+
+.zs-add-to-cart-btn span,
+.zs-buy-now-btn span { 
+    min-width: 0; 
+    overflow: hidden; 
+    text-overflow: ellipsis; 
+    white-space: nowrap; 
+}
+
+.zs-primary-btn {
+    background: linear-gradient(135deg, var(--zs-teal-medium, #37C3B3), var(--zs-teal-dark, #00A796));
+    color: #ffffff;
+    box-shadow: 0 8px 20px rgba(0, 167, 150, 0.3);
+}
+
+.zs-primary-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px rgba(0, 167, 150, 0.4);
+}
+
+.zs-secondary-btn {
+    background: linear-gradient(135deg, #ffffff, #f8fafc);
+    color: var(--zs-teal-dark, #00A796);
+    border: 2px solid var(--zs-teal-dark, #00A796);
+    box-shadow: 0 4px 12px rgba(0, 167, 150, 0.15);
+}
+
+.zs-secondary-btn:hover {
+    background: linear-gradient(135deg, var(--zs-teal-dark, #00A796), var(--zs-teal-medium, #37C3B3));
+    color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 167, 150, 0.3);
+}
+
+.zs-quick-info {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.zs-info-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.9rem;
+    color: var(--zs-text-secondary);
+    font-weight: 500;
+}
+
+.zs-info-item i {
+    color: var(--zs-accent-primary);
+    font-size: 1rem;
+}
+
+/* WooCommerce Elements Styling */
+.zs-product-hero-section .service-info-section .product_title {
+    margin: 0 0 8px 0;
+    font-weight: 900;
+    letter-spacing: -0.3px;
+    color: var(--zs-text-primary);
+    font-size: 1.85rem;
+}
+
+.zs-product-hero-section .service-info-section .woocommerce-product-details__short-description {
+    color: var(--zs-text-secondary);
+    line-height: 1.95;
+    margin: 0 0 12px 0;
+}
+
+.zs-product-hero-section .service-info-section .price {
+    font-size: 1.4rem;
+    font-weight: 900;
+    color: var(--zs-text-primary);
+    margin: 8px 0 16px 0;
+}
+
+.zs-product-hero-section .service-info-section .price .amount {
+    color: var(--zs-accent-primary);
+    text-shadow: 0 1px 0 rgba(0,0,0,.02);
+}
+
+.zs-product-hero-section .service-info-section form.cart {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    margin-top: 8px;
+}
+
+.zs-product-hero-section .service-info-section form.cart .quantity {
+    display: none;
+}
+
+.zs-product-hero-section .service-info-section .single_add_to_cart_button {
+    background: linear-gradient(135deg, var(--zs-accent-primary), var(--zs-accent-secondary));
+    color: var(--zs-btn-primary-text);
+    border: none;
+    border-radius: 14px;
+    padding: 15px 22px;
+    font-weight: 900;
+    box-shadow: 0 12px 28px rgba(0,54,197,.25);
+    transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.zs-product-hero-section .service-info-section .single_add_to_cart_button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 22px 44px rgba(0,54,197,.35);
+}
+
+.zs-product-hero-section .service-info-section .product_meta {
+    margin-top: 14px;
+    color: var(--zs-text-muted);
+    font-size: .85rem;
+    max-width: 100%;
+    box-sizing: border-box;
+    overflow-wrap: anywhere;
+}
+
+/* Hide default WooCommerce elements */
+.single-product .woocommerce-breadcrumb {
+    display: none;
+}
+
+.single-product .single_add_to_cart_button {
+    display: none !important;
+}
+
+/* Mobile Responsive Styles */
+@media (max-width: 1200px) {
+    .service-hero-grid {
+        grid-template-columns: 1fr !important;
+        gap: clamp(16px, 3vw, 30px) !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .zs-featured-image-container {
+        height: auto !important;
+        aspect-ratio: 16 / 10 !important;
+        min-height: 250px;
+        max-height: 350px;
+    }
+    
+    .zs-gallery-thumbnails {
+        gap: 8px;
+    }
+    
+    .zs-thumbnail-item {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .zs-featured-image {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+        object-position: center !important;
+    }
+    
+    .service-info-section { padding: 20px 16px !important; }
+    
+    .zs-cart-actions {
+        gap: 10px;
+        flex-direction: column;
+    }
+    
+    .zs-add-to-cart-btn,
+    .zs-buy-now-btn {
+        width: 100%;
+        padding: 14px 20px;
+        font-size: 0.95rem;
+        min-width: auto;
+    }
+    
+    .zs-quick-info {
+        flex-direction: column;
+        gap: 8px;
+    }
+    
+    .zs-info-item {
+        justify-content: center;
+        font-size: 0.85rem;
+    }
+    
+    .zs-product-hero-section .service-info-section .single_add_to_cart_button {
+        padding: 14px 20px;
+        border-radius: 12px;
+        width: 100%;
+    }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+    .service-info-section { padding: 16px 12px !important; }
+}

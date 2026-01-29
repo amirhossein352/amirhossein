@@ -1,0 +1,255 @@
+/**
+ * Desktop Sidebar Navigation - منوی مینیمال ثابت کنار صفحه
+ * 
+ * @package khane_irani
+ */
+
+/* Sidebar Navigation Container - Modern Design with Eslimi */
+.zs-sidebar-nav {
+    position: fixed;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 9998;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(250, 251, 252, 0.95) 100%);
+    border-radius: 20px;
+    padding: 16px 10px;
+    box-shadow: 0 8px 32px rgba(0, 167, 150, 0.15), 0 2px 8px rgba(0, 0, 0, 0.08);
+    border: 2px solid rgba(0, 167, 150, 0.1);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-50%) translateX(120px) scale(0.8);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    overflow: visible;
+}
+
+/* Eslimi Pattern for Sidebar */
+.zs-sidebar-nav::before {
+    content: '';
+    position: absolute;
+    top: -30px;
+    right: -30px;
+    width: 120px;
+    height: 120px;
+    background-image: url('../../images/image-home/خانه ایرانی (6).png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.06;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.zs-sidebar-nav.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(-50%) translateX(0) scale(1);
+}
+
+.zs-sidebar-nav.hide {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-50%) translateX(120px) scale(0.8);
+}
+
+/* Navigation List */
+.zs-sidebar-nav-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    position: relative;
+    z-index: 1;
+}
+
+.zs-sidebar-nav-list li {
+    margin: 0;
+    padding: 0;
+}
+
+/* Navigation Link - Modern Design */
+.zs-nav-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    text-decoration: none;
+    color: #64748b;
+    font-size: 1.2rem;
+    border-radius: 12px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    background: rgba(255, 255, 255, 0.6);
+    border: 1px solid rgba(0, 167, 150, 0.08);
+    margin-bottom: 8px;
+    z-index: 1;
+}
+
+.zs-nav-link:hover {
+    background: linear-gradient(135deg, rgba(0, 167, 150, 0.1), rgba(55, 195, 179, 0.1));
+    color: var(--zs-teal-dark, #00A796);
+    transform: translateX(-4px) scale(1.05);
+    box-shadow: 0 4px 12px rgba(0, 167, 150, 0.2);
+    border-color: rgba(0, 167, 150, 0.2);
+}
+
+.zs-nav-link.active {
+    background: linear-gradient(135deg, var(--zs-teal-medium, #37C3B3), var(--zs-teal-dark, #00A796));
+    color: #ffffff;
+    box-shadow: 0 6px 20px rgba(0, 167, 150, 0.35);
+    transform: translateX(-4px) scale(1.08);
+    border-color: var(--zs-teal-dark, #00A796);
+}
+
+/* Active Indicator - Modern Dot (using a wrapper approach) */
+.zs-nav-link.active {
+    position: relative;
+}
+
+/* Active indicator - only show when not hovering (to avoid conflict with tooltip) */
+.zs-nav-link.active:not(:hover)::after {
+    content: '';
+    position: absolute;
+    right: -12px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 4px;
+    height: 24px;
+    background: linear-gradient(135deg, var(--zs-teal-medium, #37C3B3), var(--zs-teal-dark, #00A796));
+    border-radius: 2px;
+    z-index: 1;
+    box-shadow: 0 0 8px rgba(0, 167, 150, 0.4);
+    pointer-events: none;
+    opacity: 1;
+    visibility: visible;
+    border: none;
+    width: 4px;
+    height: 24px;
+}
+
+/* Hide text on icons, show only icons */
+.zs-nav-link span {
+    display: none;
+}
+
+.zs-nav-link i {
+    font-size: 1.15rem;
+    display: block;
+    line-height: 1;
+}
+
+/* Tooltip on Hover */
+.zs-nav-link {
+    position: relative;
+}
+
+.zs-nav-link::before {
+    content: attr(data-tooltip);
+    position: absolute;
+    right: calc(100% + 12px);
+    top: 50%;
+    transform: translateY(-50%) scale(0.9);
+    background: rgba(0, 0, 0, 0.9);
+    color: #ffffff;
+    padding: 8px 14px;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    pointer-events: none;
+    z-index: 10001;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    font-family: 'IranYekan', 'Tahoma', sans-serif;
+}
+
+.zs-nav-link::after {
+    content: '';
+    position: absolute;
+    right: calc(100% + 4px);
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 6px 0 6px 6px;
+    border-color: transparent transparent transparent rgba(0, 0, 0, 0.9);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    pointer-events: none;
+    z-index: 10002;
+}
+
+.zs-nav-link:hover::before {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(-50%) scale(1);
+}
+
+.zs-nav-link:hover::after {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(-50%);
+}
+
+/* Hide on Mobile */
+@media (max-width: 768px) {
+    .zs-sidebar-nav {
+        display: none !important;
+    }
+    
+    .zs-sidebar-nav::before {
+        display: none !important;
+        background-image: none !important;
+        opacity: 0 !important;
+        visibility: hidden !important;
+    }
+}
+
+/* Dark Mode Support */
+ .zs-sidebar-nav {
+    background: linear-gradient(135deg, rgba(26, 26, 26, 0.95) 0%, rgba(30, 30, 30, 0.95) 100%);
+    border-color: rgba(0, 167, 150, 0.2);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), 0 2px 8px rgba(0, 167, 150, 0.1);
+}
+
+ .zs-sidebar-nav::before {
+    opacity: 0.04;
+}
+
+ .zs-nav-link {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(0, 167, 150, 0.15);
+    color: #94a3b8;
+}
+
+ .zs-nav-link:hover {
+    background: linear-gradient(135deg, rgba(0, 167, 150, 0.15), rgba(55, 195, 179, 0.15));
+    color: var(--zs-teal-light, #6DE0D0);
+    border-color: rgba(0, 167, 150, 0.3);
+}
+
+ .zs-nav-link.active {
+    background: linear-gradient(135deg, var(--zs-teal-medium, #37C3B3), var(--zs-teal-dark, #00A796));
+    color: #ffffff;
+    box-shadow: 0 6px 20px rgba(0, 167, 150, 0.4);
+}
+
+ .zs-nav-link.active::after {
+    box-shadow: 0 0 12px rgba(0, 167, 150, 0.5);
+}
+
+ .zs-nav-link::after {
+    background: rgba(255, 255, 255, 0.95);
+    color: var(--zs-text-primary);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+

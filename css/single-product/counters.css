@@ -1,0 +1,76 @@
+/* Counters (Stats) Section - Dedicated Styles */
+
+.zs-counters-section { margin: 48px 0 !important; }
+.zs-counters-header { text-align: center !important; margin-bottom: 28px !important; }
+.zs-counters-title { font-size: 1.8rem !important; font-weight: 900 !important; margin: 0 0 8px 0 !important; color: var(--zs-text-primary) !important; }
+.zs-counters-subtitle { font-size: 1.05rem !important; color: var(--zs-text-secondary) !important; margin: 0 !important; }
+
+.zs-counters-grid { display: grid !important; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)) !important; gap: 16px !important; }
+
+.zs-counter { background: #fff !important; border: 1px solid var(--zs-card-border) !important; border-radius: 16px !important; padding: 18px !important; display: grid !important; grid-template-columns: 56px 1fr !important; align-items: center !important; gap: 12px !important; transition: box-shadow .2s ease, transform .2s ease !important; }
+.zs-counter:hover { transform: translateY(-2px) !important; box-shadow: 0 12px 24px rgba(2,6,23,.08) !important; }
+
+.zs-counter-icon { width: 56px !important; height: 56px !important; border-radius: 50% !important; background: radial-gradient(120px 120px at 50% 0%, rgba(0,54,197,.12), rgba(0,54,197,0)) !important; display: grid !important; place-items: center !important; border: 1px solid var(--zs-card-border) !important; }
+.zs-counter-icon i { color: var(--zs-accent-primary) !important; font-size: 1.2rem !important; }
+
+.zs-counter-content { display: flex !important; flex-direction: column !important; gap: 6px !important; }
+.zs-counter-value { font-size: 1.6rem !important; font-weight: 900 !important; color: var(--zs-text-primary) !important; line-height: 1 !important; }
+.zs-counter-label { color: var(--zs-text-secondary) !important; font-weight: 600 !important; font-size: .95rem !important; }
+
+@media (max-width: 768px){
+  .zs-counters-section {
+    margin: 32px 15px !important;
+    padding: 0 !important;
+  }
+  
+  .zs-counters-header {
+    margin-bottom: 20px !important;
+    padding: 0 !important;
+  }
+  
+  .zs-counters-title {
+    font-size: 1.3rem !important;
+    line-height: 1.3 !important;
+    margin-bottom: 6px !important;
+  }
+  
+  .zs-counters-subtitle {
+    font-size: 0.9rem !important;
+    line-height: 1.4 !important;
+  }
+  
+  .zs-counters-grid { 
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important; 
+    gap: 12px !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+  
+  .zs-counter { 
+    grid-template-columns: 44px 1fr !important; 
+    padding: 14px 12px !important;
+    border-radius: 14px !important;
+    gap: 10px !important;
+  }
+  
+  .zs-counter-icon { 
+    width: 44px !important; 
+    height: 44px !important;
+  }
+  
+  .zs-counter-icon i {
+    font-size: 1rem !important;
+  }
+  
+  .zs-counter-value { 
+    font-size: 1.3rem !important;
+    line-height: 1 !important;
+  }
+  
+  .zs-counter-label {
+    font-size: 0.8rem !important;
+    line-height: 1.3 !important;
+  }
+}
+
+

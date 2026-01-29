@@ -1,0 +1,1075 @@
+/**
+ * Single Product Page - Product Details Styles
+ * 
+ * این فایل شامل استایل‌های مربوط به بخش جزئیات محصول است:
+ * - FAQ Section با accordion بهبود یافته
+ * - Description Section
+ * - Reviews Section
+ * - Portfolio Section با کارت‌های مدرن
+ * - Counters Section با انیمیشن شمارش
+ * - طراحی responsive برای موبایل
+ * 
+ * @package khane_irani
+ * @version 1.0.0
+ */
+
+/* Product Details Section */
+.zs-product-details-section {
+    background: var(--zs-bg-primary);
+    position: relative;
+    overflow: hidden;
+}
+
+.zs-product-details-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(600px 300px at 20% 20%, rgba(0, 54, 197, 0.02) 0%, transparent 50%),
+        radial-gradient(600px 300px at 80% 80%, rgba(26, 74, 224, 0.02) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+.details-container {
+    background: #fff;
+    border-radius: 24px;
+    padding: 30px 8px;
+    border: 1px solid var(--zs-card-border);
+    position: relative;
+    z-index: 2;
+}
+
+.zs-section-title {
+    font-size: 1.8rem;
+    font-weight: 900;
+    color: var(--zs-text-primary);
+    margin: 0 0 16px 0;
+    background: linear-gradient(135deg, var(--zs-text-primary), var(--zs-accent-primary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Enhanced FAQ Section */
+.zs-faq-section {
+    margin-bottom: 48px;
+}
+
+.zs-faq-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.zs-faq-title {
+    font-size: 1.8rem;
+    font-weight: 900;
+    margin: 0 0 8px 0;
+    color: var(--zs-text-primary);
+    background: linear-gradient(135deg, var(--zs-text-primary), var(--zs-accent-primary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.zs-faq-subtitle {
+    font-size: 1.1rem;
+    color: var(--zs-text-secondary);
+    margin: 0;
+    font-weight: 400;
+}
+
+.zs-faq-container {
+    background: #fff;
+    border-radius: 20px;
+    padding: 32px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    border: 1px solid var(--zs-card-border);
+}
+
+.zs-faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.zs-faq-item {
+    position: relative;
+}
+
+.zs-faq-card {
+    background: #fff;
+    border: 1px solid var(--zs-border-color);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.zs-faq-card:hover {
+    border-color: var(--zs-accent-primary);
+    box-shadow: 0 12px 30px rgba(0, 54, 197, 0.15);
+    transform: translateY(-2px);
+}
+
+.zs-faq-question {
+    width: 100%;
+    padding: 0;
+    border: none;
+    background: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.zs-faq-question-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 24px;
+    text-align: right;
+}
+
+.zs-faq-question-text {
+    flex: 1;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--zs-text-primary);
+    line-height: 1.4;
+}
+
+.zs-faq-question-icon {
+    margin-right: 16px;
+    width: 40px;
+    height: 40px;
+    background: var(--zs-bg-primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.zs-faq-card:hover .zs-faq-question-icon {
+    background: var(--zs-accent-primary);
+    transform: scale(1.1);
+}
+
+.zs-faq-question-icon i {
+    color: var(--zs-text-secondary);
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+}
+
+.zs-faq-card:hover .zs-faq-question-icon i {
+    color: #fff;
+}
+
+.zs-faq-item.active .zs-faq-question-icon {
+    background: var(--zs-accent-primary);
+    transform: rotate(45deg);
+}
+
+.zs-faq-item.active .zs-faq-question-icon i {
+    color: #fff;
+}
+
+.zs-faq-answer {
+    display: none;
+    padding: 0 24px 24px;
+    background: var(--zs-bg-primary);
+}
+
+.zs-faq-item.active .zs-faq-answer {
+    display: block;
+    animation: zsFaqSlideDown 0.4s ease-out;
+}
+
+.zs-faq-answer-content {
+    padding: 20px 0;
+}
+
+.zs-faq-answer-content p {
+    color: var(--zs-text-secondary);
+    line-height: 1.7;
+    margin: 0;
+    font-size: 1.1rem;
+}
+
+@keyframes zsFaqSlideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-15px);
+        max-height: 0;
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+        max-height: 200px;
+    }
+}
+
+/* Enhanced Product Description Section */
+.zs-description-section {
+    padding: 60px 0;
+    background: #fff;
+    position: relative;
+    overflow: hidden;
+}
+
+.zs-description-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(600px 300px at 20% 20%, rgba(0, 54, 197, 0.02) 0%, transparent 50%),
+        radial-gradient(600px 300px at 80% 80%, rgba(26, 74, 224, 0.02) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+.zs-description-container {
+    background: #fff;
+    border-radius: 24px;
+    padding: 48px 40px;
+    border: 1px solid var(--zs-card-border);
+    position: relative;
+    z-index: 2;
+}
+
+.zs-description-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.zs-description-title {
+    font-size: 2rem;
+    font-weight: 900;
+    margin: 0 0 12px 0;
+    color: var(--zs-text-primary);
+    background: linear-gradient(135deg, var(--zs-text-primary), var(--zs-accent-primary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Unified section title decorations (icon ring + animated underline) */
+.zs-section-title,
+.zs-description-title,
+.zs-faq-title,
+.zs-reviews-title,
+.zs-portfolio-title,
+.zs-counters-title,
+.zs-trust-title {
+    position: relative;
+    display: inline-block;
+    padding-bottom: 14px;
+}
+
+/* Explicit icon element next to titles (Font Awesome classes) */
+.zs-title-icon {
+    position: absolute;
+    top: 50%;
+    right: -48px; /* tighter on mobile */
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    background: radial-gradient(60px 60px at 50% 0%, rgba(0,54,197,.12), rgba(0,54,197,0));
+    border: 1px solid var(--zs-card-border);
+    color: var(--zs-accent-primary);
+    font-size: 0.95rem;
+}
+.zs-title-icon svg { width: 18px; height: 18px; display: block; }
+
+.zs-section-title::after,
+.zs-description-title::after,
+.zs-faq-title::after,
+.zs-reviews-title::after,
+.zs-portfolio-title::after,
+.zs-counters-title::after,
+.zs-trust-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 50%;
+    transform: translateX(50%);
+    height: 4px;
+    width: 64px;
+    border-radius: 2px;
+    background: linear-gradient(90deg, var(--zs-accent-primary), var(--zs-accent-secondary));
+}
+
+.zs-section-title::before,
+.zs-description-title::before,
+.zs-faq-title::before,
+.zs-reviews-title::before,
+.zs-portfolio-title::before,
+.zs-counters-title::before,
+.zs-trust-title::before {
+    content: var(--zs-title-icon);
+    position: absolute;
+    top: 50%;
+    right: -48px; /* tighter on mobile */
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    background: radial-gradient(60px 60px at 50% 0%, rgba(0,54,197,.12), rgba(0,54,197,0));
+    border: 1px solid var(--zs-card-border);
+    color: var(--zs-accent-primary);
+    font-family: "Font Awesome 6 Free", "Font Awesome 5 Free";
+    font-weight: 900; /* solid */
+    font-size: 0.95rem;
+}
+
+/* If an explicit data-icon is provided, use it (overrides variable) */
+.zs-section-title[data-icon]::before,
+.zs-description-title[data-icon]::before,
+.zs-faq-title[data-icon]::before,
+.zs-reviews-title[data-icon]::before,
+.zs-portfolio-title[data-icon]::before,
+.zs-counters-title[data-icon]::before,
+.zs-trust-title[data-icon]::before {
+    content: attr(data-icon);
+    font-family: "Font Awesome 6 Free", "Font Awesome 5 Free";
+    font-weight: 900;
+}
+
+/* Default icons via data attributes fallback on specific titles */
+.zs-description-title { --zs-title-icon: "\f15c"; }
+.zs-faq-title { --zs-title-icon: "\f059"; }
+.zs-reviews-title { --zs-title-icon: "\f005"; }
+.zs-portfolio-title { --zs-title-icon: "\f009"; }
+.zs-counters-title { --zs-title-icon: "\f201"; }
+.zs-trust-title { --zs-title-icon: "\f3ed"; }
+
+/* Override example: set different icon by redefining --zs-title-icon on the element */
+
+.zs-description-subtitle {
+    font-size: 1.1rem;
+    color: var(--zs-text-secondary);
+    margin: 0;
+    font-weight: 400;
+}
+
+.zs-description-content {
+    position: relative;
+}
+
+/* TOC (Table of Contents) chips */
+.zs-desc-toc { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; margin: 0 0 20px 0; }
+.zs-desc-chip { background: #fff; border: 1px solid var(--zs-card-border); color: var(--zs-text-primary); padding: 8px 12px; border-radius: 999px; font-weight: 700; font-size: .95rem; cursor: pointer; transition: all .2s ease; }
+.zs-desc-chip:hover { box-shadow: 0 8px 16px rgba(2,6,23,.08); transform: translateY(-2px); }
+.zs-desc-chip[aria-current="true"] { background: var(--zs-bg-primary); border-color: var(--zs-accent-primary); color: var(--zs-accent-primary); }
+
+.zs-description-text {
+    color: var(--zs-text-secondary);
+    line-height: 1.8;
+    font-size: 1.1rem;
+}
+
+/* Callouts */
+.zs-callout { border: 1px solid var(--zs-card-border); border-radius: 12px; padding: 16px; margin: 24px 0; background: var(--zs-bg-primary); }
+.zs-callout.success { border-color: #bbf7d0; background: #f0fdf4; color: #065f46; }
+.zs-callout.info { border-color: #bae6fd; background: #eff6ff; color: #075985; }
+.zs-callout.warn { border-color: #fde68a; background: #fffbeb; color: #92400e; }
+
+.zs-description-text h1,
+.zs-description-text h2,
+.zs-description-text h3,
+.zs-description-text h4,
+.zs-description-text h5,
+.zs-description-text h6 {
+    color: var(--zs-text-primary);
+    margin: 32px 0 20px 0;
+    font-weight: 800;
+    line-height: 1.3;
+}
+
+.zs-description-text h1 {
+    font-size: 1.8rem;
+}
+
+.zs-description-text h2 {
+    font-size: 1.6rem;
+}
+
+.zs-description-text h3 {
+    font-size: 1.4rem;
+}
+
+.zs-description-text h4 {
+    font-size: 1.2rem;
+}
+
+.zs-description-text p {
+    margin: 0 0 20px 0;
+    line-height: 1.8;
+}
+
+.zs-description-text ul,
+.zs-description-text ol {
+    margin: 20px 0;
+    padding-right: 24px;
+}
+
+.zs-description-text li {
+    margin: 12px 0;
+    line-height: 1.7;
+}
+
+.zs-description-text blockquote {
+    background: var(--zs-bg-primary);
+    border-right: 4px solid var(--zs-accent-primary);
+    padding: 24px;
+    margin: 32px 0;
+    border-radius: 12px;
+    font-style: italic;
+    color: var(--zs-text-primary);
+}
+
+.zs-description-text img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
+    margin: 24px 0;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.zs-description-text table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 24px 0;
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.zs-description-text th,
+.zs-description-text td {
+    padding: 16px;
+    text-align: right;
+    border-bottom: 1px solid var(--zs-border-color);
+}
+
+.zs-description-text th {
+    background: var(--zs-bg-primary);
+    font-weight: 700;
+    color: var(--zs-text-primary);
+}
+
+/* Enhanced Reviews Section */
+.zs-reviews-section {
+    margin-bottom: 48px;
+}
+
+.zs-reviews-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.zs-reviews-title {
+    font-size: 1.8rem;
+    font-weight: 900;
+    margin: 0 0 8px 0;
+    color: var(--zs-text-primary);
+    background: linear-gradient(135deg, var(--zs-text-primary), var(--zs-accent-primary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.zs-reviews-subtitle {
+    font-size: 1.1rem;
+    color: var(--zs-text-secondary);
+    margin: 0;
+    font-weight: 400;
+}
+
+.zs-reviews-container {
+    background: #fff;
+    border-radius: 20px;
+    padding: 32px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    border: 1px solid var(--zs-card-border);
+}
+
+.zs-reviews-wrapper {
+    position: relative;
+}
+
+/* WooCommerce Reviews Styling */
+.zs-reviews-wrapper .woocommerce-Reviews {
+    margin: 0;
+}
+
+.zs-reviews-wrapper .woocommerce-Reviews-title {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--zs-text-primary);
+    margin: 0 0 24px 0;
+    text-align: center;
+}
+
+.zs-reviews-wrapper .commentlist {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.zs-reviews-wrapper .commentlist .review {
+    background: var(--zs-bg-primary);
+    border-radius: 16px;
+    padding: 24px;
+    margin-bottom: 20px;
+    border: 1px solid var(--zs-border-color);
+    transition: all 0.3s ease;
+}
+
+.zs-reviews-wrapper .commentlist .review:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.zs-reviews-wrapper .commentlist .review .comment-text {
+    margin-top: 16px;
+}
+
+.zs-reviews-wrapper .commentlist .review .comment-text p {
+    color: var(--zs-text-secondary);
+    line-height: 1.6;
+    margin: 0;
+}
+
+.zs-reviews-wrapper .commentlist .review .meta {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.zs-reviews-wrapper .commentlist .review .meta .woocommerce-review__author {
+    font-weight: 700;
+    color: var(--zs-text-primary);
+}
+
+.zs-reviews-wrapper .commentlist .review .meta .woocommerce-review__published-date {
+    color: var(--zs-text-muted);
+    font-size: 0.9rem;
+}
+
+.zs-reviews-wrapper .commentlist .review .star-rating {
+    margin: 8px 0;
+}
+
+.zs-reviews-wrapper .commentlist .review .star-rating span {
+    color: var(--zs-teal-light, #6DE0D0);
+}
+
+/* Review Form Styling is centralized in css/single-product/reviews.css */
+
+/* Enhanced Portfolio Section */
+.zs-portfolio-section {
+    margin-bottom: 48px;
+}
+
+.zs-portfolio-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.zs-portfolio-title {
+    font-size: 1.8rem;
+    font-weight: 900;
+    margin: 0 0 8px 0;
+    color: var(--zs-text-primary);
+    background: linear-gradient(135deg, var(--zs-text-primary), var(--zs-accent-primary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.zs-portfolio-subtitle {
+    font-size: 1.1rem;
+    color: var(--zs-text-secondary);
+    margin: 0;
+    font-weight: 400;
+}
+
+.zs-portfolio-showcase {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 32px;
+}
+
+.zs-portfolio-item {
+    background: #fff;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    border: 1px solid var(--zs-card-border);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.zs-portfolio-item:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 25px 50px rgba(0, 54, 197, 0.15);
+    border-color: var(--zs-accent-primary);
+}
+
+.zs-portfolio-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    height: 100%;
+}
+
+.zs-portfolio-image-container {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+}
+
+.zs-portfolio-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.zs-portfolio-item:hover .zs-portfolio-image-container img {
+    transform: scale(1.08);
+}
+
+.zs-portfolio-gradient {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(0, 54, 197, 0.1), rgba(26, 74, 224, 0.2));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.zs-portfolio-item:hover .zs-portfolio-gradient {
+    opacity: 1;
+}
+
+.zs-portfolio-badge {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transform: scale(0.8);
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.zs-portfolio-item:hover .zs-portfolio-badge {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.zs-portfolio-badge i {
+    color: var(--zs-accent-primary);
+    font-size: 1.1rem;
+}
+
+.zs-portfolio-no-image {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, var(--zs-bg-secondary), var(--zs-bg-tertiary));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--zs-text-muted);
+    font-size: 3rem;
+}
+
+.zs-portfolio-info {
+    padding: 24px;
+}
+
+.zs-portfolio-name {
+    font-size: 1.3rem;
+    font-weight: 800;
+    margin: 0 0 12px 0;
+    color: var(--zs-text-primary);
+    line-height: 1.3;
+}
+
+.zs-portfolio-action {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: var(--zs-text-secondary);
+    font-size: 0.95rem;
+    font-weight: 600;
+}
+
+.zs-portfolio-action span {
+    transition: color 0.3s ease;
+}
+
+.zs-portfolio-item:hover .zs-portfolio-action span {
+    color: var(--zs-accent-primary);
+}
+
+.zs-portfolio-action i {
+    transition: transform 0.3s ease;
+}
+
+.zs-portfolio-item:hover .zs-portfolio-action i {
+    transform: translateX(-4px);
+}
+
+/* Enhanced Counters Section */
+.zs-counters-section {
+    margin-bottom: 48px;
+}
+
+.zs-counters-header {
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.zs-counters-title {
+    font-size: 1.8rem;
+    font-weight: 900;
+    margin: 0 0 8px 0;
+    color: var(--zs-text-primary);
+}
+
+.zs-counters-subtitle {
+    font-size: 1.1rem;
+    color: var(--zs-text-secondary);
+    margin: 0;
+    font-weight: 400;
+}
+
+.zs-counters-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 24px;
+}
+
+.zs-counter {
+    background: #fff;
+    border: 1px solid var(--zs-card-border);
+    border-radius: 16px;
+    padding: 32px 24px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.zs-counter:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 15px 30px rgba(0, 54, 197, 0.1);
+    border-color: var(--zs-accent-primary);
+}
+
+.zs-counter-icon {
+    margin-bottom: 16px;
+}
+
+.zs-counter-icon i {
+    font-size: 2rem;
+    color: var(--zs-accent-primary);
+}
+
+.zs-counter-content {
+    position: relative;
+    z-index: 2;
+}
+
+.zs-counter-value {
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: var(--zs-text-primary);
+    margin-bottom: 8px;
+    line-height: 1;
+}
+
+.zs-counter-label {
+    color: var(--zs-text-secondary);
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+/* Mobile Responsive Styles */
+@media (max-width: 768px) {
+    .zs-product-details-section {
+        margin: 0 !important;
+    }
+    
+    .details-container {
+        border-radius: 16px !important;
+        margin: 0 !important;
+    }
+    
+    .zs-section-title {
+        font-size: 1.3rem !important;
+        line-height: 1.3 !important;
+        margin-bottom: 8px !important;
+    }
+    
+    /* Description Mobile */
+    .zs-description-section {
+        margin: 0 !important;
+    }
+    
+    .zs-description-container {
+        padding: 24px 20px !important;
+        border-radius: 16px !important;
+        margin: 0 !important;
+    }
+    
+    .zs-description-header {
+        margin-bottom: 20px !important;
+    }
+    
+    .zs-description-title {
+        font-size: 1.3rem !important;
+        line-height: 1.3 !important;
+        margin-bottom: 8px !important;
+        position: relative !important;
+        padding-right: 40px !important; /* reserve space for icon inside box */
+        display: inline-block !important;
+    }
+    /* Keep icon inside the title box even when title wraps */
+    .zs-description-title::before,
+    .zs-description-title .zs-title-icon {
+        right: 0 !important;
+        top: 0.15em !important; /* align near first line */
+        transform: none !important;
+        width: 28px !important;
+        height: 28px !important;
+    }
+
+    .zs-description-header { overflow: hidden !important; }
+    
+    .zs-description-subtitle {
+        font-size: 0.9rem !important;
+        line-height: 1.4 !important;
+    }
+    
+    .zs-description-text {
+        font-size: 0.9rem !important;
+        line-height: 1.6 !important;
+    }
+    
+    .zs-description-text h1 {
+        font-size: 1.3rem !important;
+        line-height: 1.3 !important;
+        margin-bottom: 12px !important;
+    }
+    
+    .zs-description-text h2 {
+        font-size: 1.2rem !important;
+        line-height: 1.3 !important;
+        margin-bottom: 10px !important;
+    }
+    
+    .zs-description-text h3 {
+        font-size: 1.1rem !important;
+        line-height: 1.3 !important;
+        margin-bottom: 8px !important;
+    }
+    
+    .zs-description-text h4 {
+        font-size: 1rem !important;
+        line-height: 1.3 !important;
+        margin-bottom: 8px !important;
+    }
+    
+    .zs-description-text p {
+        margin-bottom: 12px !important;
+    }
+    
+    .zs-description-text ul,
+    .zs-description-text ol {
+        margin: 12px 0 !important;
+        padding-right: 20px !important;
+    }
+    
+    .zs-description-text li {
+        margin-bottom: 6px !important;
+    }
+    
+    /* FAQ Mobile */
+    .zs-faq-section {
+        margin-bottom: 32px !important;
+        padding: 0 !important;
+    }
+    
+    .zs-faq-header {
+        margin-bottom: 24px !important;
+        padding: 0 !important;
+    }
+    
+    .zs-faq-title {
+        font-size: 1.3rem !important;
+        line-height: 1.3 !important;
+        margin-bottom: 8px !important;
+    }
+    
+    .zs-faq-subtitle {
+        font-size: 0.9rem !important;
+        line-height: 1.4 !important;
+    }
+    
+    .zs-faq-container {
+        padding: 20px 16px !important;
+        border-radius: 16px !important;
+        margin: 0 !important;
+    }
+    
+    .zs-faq-list {
+        gap: 12px !important;
+    }
+    
+    .zs-faq-item {
+        border-radius: 12px !important;
+    }
+    
+    .zs-faq-question-content {
+        padding: 16px !important;
+        flex-wrap: wrap !important;
+    }
+    
+    .zs-faq-question-text {
+        font-size: 0.95rem !important;
+        line-height: 1.4 !important;
+    }
+    
+    .zs-faq-question-icon {
+        width: 32px !important;
+        height: 32px !important;
+        margin-right: 10px !important;
+        flex-shrink: 0 !important;
+    }
+    
+    .zs-faq-answer {
+        padding: 0 16px 16px !important;
+    }
+    
+    .zs-faq-answer-content {
+        padding: 12px 0 !important;
+    }
+    
+    .zs-faq-answer-content p {
+        font-size: 0.9rem !important;
+        line-height: 1.6 !important;
+    }
+    
+    /* Reviews Mobile */
+    .zs-reviews-section {
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+    
+    .zs-reviews-header {
+        margin-bottom: 24px !important;
+        padding: 0 !important;
+    }
+    
+    .zs-reviews-title {
+        font-size: 1.3rem !important;
+        line-height: 1.3 !important;
+        margin-bottom: 8px !important;
+    }
+    
+    .zs-reviews-subtitle {
+        font-size: 0.9rem !important;
+        line-height: 1.4 !important;
+    }
+    
+    .zs-reviews-container {
+        padding: 16px 12px !important;
+        border-radius: 14px !important;
+        margin: 0 !important;
+        box-shadow: none !important;
+        border-color: rgba(0,0,0,0.06) !important;
+    }
+    
+    /* Portfolio Mobile */
+    .zs-portfolio-section {
+        padding: 32px 15px !important;
+        margin: 0 !important;
+    }
+    
+    .zs-portfolio-header {
+        margin-bottom: 24px !important;
+        padding: 0 !important;
+    }
+    
+    .zs-portfolio-title {
+        font-size: 1.3rem !important;
+        line-height: 1.3 !important;
+        margin-bottom: 8px !important;
+    }
+    
+    .zs-portfolio-subtitle {
+        font-size: 0.9rem !important;
+        line-height: 1.4 !important;
+    }
+    
+    .zs-reviews-wrapper .commentlist .review {
+        padding: 12px !important;
+        border-radius: 12px !important;
+        margin-bottom: 10px !important;
+        border-color: rgba(0,0,0,0.06) !important;
+        box-shadow: none !important;
+    }
+    
+    .zs-reviews-wrapper .comment-respond {
+        padding: 16px 12px !important;
+        border-radius: 12px !important;
+        margin-top: 16px !important;
+        box-shadow: none !important;
+        border-color: rgba(0,0,0,0.06) !important;
+    }
+    /* Keep title icons inside container */
+    .zs-title-icon,
+    .zs-section-title::before,
+    .zs-description-title::before,
+    .zs-faq-title::before,
+    .zs-reviews-title::before,
+    .zs-portfolio-title::before,
+    .zs-counters-title::before,
+    .zs-trust-title::before {
+        right: -36px !important;
+        width: 32px !important;
+        height: 32px !important;
+    }
+    .zs-section-title,
+    .zs-description-title,
+    .zs-faq-title,
+    .zs-reviews-title,
+    .zs-portfolio-title,
+    .zs-counters-title,
+    .zs-trust-title { padding-bottom: 10px !important; }
+
+    /* Reduce nested borders on mobile */
+    .zs-faq-card { border-color: rgba(0,0,0,0.06) !important; box-shadow: none !important; }
+}

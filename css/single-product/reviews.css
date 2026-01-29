@@ -1,0 +1,639 @@
+/* Reviews Section - Dedicated Styles */
+/* Version: 1.1 - Cache bust */
+
+.zs-reviews-section { margin-bottom: 60px !important; position: relative !important; overflow: hidden !important; }
+.zs-reviews-header { text-align: center !important; margin-bottom: 40px !important; }
+
+.zs-reviews-summary { display: grid !important; grid-template-columns: minmax(0, .6fr) minmax(0, 1.4fr); gap: 20px !important; align-items: start !important; margin-bottom: 24px !important; }
+.zs-reviews-summary-card { display: grid !important; grid-template-columns: 45px 1fr; align-items: center !important; gap: 12px !important; background: #fff !important; border: 1px solid var(--zs-card-border) !important; border-radius: 16px !important; padding: 9px 13px !important; box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06) !important; }
+.zs-reviews-average-number { font-size: 1.8rem !important; font-weight: 800 !important; color: var(--zs-text-primary) !important; line-height: 1 !important; }
+.zs-reviews-count { font-size: .95rem !important; color: var(--zs-text-secondary) !important; }
+
+.zs-reviews-distribution { display: flex !important; flex-direction: column !important; gap: 6px !important; min-width: 0 !important; max-width: 100% !important; }
+.zs-reviews-summary > * { min-width: 0 !important; }
+.zs-distribution-row { display: grid !important; grid-template-columns: auto 1fr auto; gap: 8px !important; align-items: center !important; }
+.zs-distribution-label { color: var(--zs-text-secondary) !important; font-weight: 600 !important; }
+.zs-distribution-bar { background: var(--zs-bg-secondary) !important; border-radius: 999px !important; height: 6px !important; overflow: hidden !important; }
+.zs-distribution-fill { background: linear-gradient(90deg, var(--zs-teal-dark, #00A796), var(--zs-teal-dark, #00A796)) !important; height: 100% !important; border-radius: 999px !important; }
+
+.zs-reviews-actions { display: flex !important; align-items: center !important; gap: 12px !important; justify-content: flex-end !important; flex-wrap: wrap !important; }
+.zs-reviews-write-btn { display: inline-flex !important; align-items: center !important; gap: 8px !important; padding: 10px 16px !important; border-radius: 999px !important; background: var(--zs-teal-night, #042326) !important; color: #fff !important; border: 1px solid var(--zs-teal-night, #042326) !important; cursor: pointer !important; box-shadow: 0 6px 16px rgba(15,23,42,.25) !important; }
+.zs-reviews-filters select { padding: 8px 12px !important; border: 1px solid var(--zs-input-border) !important; border-radius: 10px !important; background: #fff !important; }
+.zs-reviews-filters { display: flex !important; align-items: center !important; gap: 8px !important; flex-wrap: wrap !important; }
+.zs-filter { display: inline-flex !important; align-items: center !important; gap: 8px !important; color: var(--zs-text-secondary) !important; background: #fff !important; border: 1px solid var(--zs-input-border) !important; padding: 8px 12px !important; border-radius: 999px !important; }
+.zs-filter input[type="checkbox"] { width: 16px !important; height: 16px !important; accent-color: var(--zs-accent-primary) !important; }
+
+/* Verified badge emphasis (Woo outputs the span by default) */
+.woocommerce-review__verified { background: #e6ffed !important; color: #047857 !important; border: 1px solid #bbf7d0 !important; padding: 2px 8px !important; border-radius: 999px !important; font-size: .8rem !important; margin-right: 8px !important; }
+
+/* Helpful controls */
+.zs-review-actions { display: flex !important; align-items: center !important; gap: 12px !important; margin-top: 12px !important; }
+.zs-helpful { display: inline-flex !important; align-items: center !important; gap: 6px !important; padding: 6px 10px !important; border: 1px solid var(--zs-input-border) !important; border-radius: 10px !important; background: #fff !important; cursor: pointer !important; }
+.zs-helpful[data-active="1"] { border-color: var(--zs-accent-primary) !important; box-shadow: 0 0 0 3px rgba(0,54,197,.08) !important; }
+.zs-helpful-count { color: var(--zs-text-secondary) !important; font-weight: 600 !important; }
+.zs-review-readmore { background: none !important; border: none !important; color: var(--zs-accent-primary) !important; font-weight: 700 !important; padding: 0 !important; margin-top: 8px !important; cursor: pointer !important; }
+
+/* Modern review card layout using default Woo markup */
+.commentlist { list-style: none !important; padding: 0 !important; margin: 0 !important; }
+.commentlist .review { background: #fff !important; border-radius: 16px !important; padding: 20px !important; margin-bottom: 16px !important; border: 1px solid var(--zs-card-border) !important; transition: transform .25s ease, box-shadow .25s ease !important; position: relative !important; }
+.commentlist .review:hover { transform: translateY(-2px) !important; box-shadow: 0 12px 28px rgba(2, 6, 23, 0.12) !important; border-color: rgba(2,6,23,.15) !important; }
+.commentlist .review::before { content: '' !important; position: absolute !important; top: 0 !important; left: 0 !important; right: 0 !important; height: 3px !important; background: linear-gradient(90deg, var(--zs-teal-dark, #00A796), var(--zs-teal-dark, #00A796)) !important; opacity: 0 !important; transition: all 0.3s ease !important; }
+.commentlist .review:hover::before { opacity: 1 !important; }
+
+.commentlist .comment_container { display: grid !important; grid-template-columns: 56px 1fr !important; gap: 16px !important; align-items: start !important; }
+.commentlist .comment_container img.avatar { width: 56px !important; height: 56px !important; border-radius: 50% !important; object-fit: cover !important; border: 1px solid var(--zs-card-border) !important; }
+.commentlist .comment-text { margin: 0 !important; color: var(--zs-text-secondary) !important; line-height: 1.7 !important; font-size: 1rem !important; }
+.commentlist .comment-text, .commentlist .description { word-wrap: break-word !important; overflow-wrap: anywhere !important; }
+.commentlist .comment-text img, .commentlist .description img { max-width: 100% !important; height: auto !important; border-radius: 8px !important; }
+.commentlist .meta { display: flex !important; align-items: center !important; gap: 10px !important; margin: 0 0 8px 0 !important; flex-wrap: wrap !important; }
+.commentlist .meta .woocommerce-review__verified { order: 2 !important; }
+.commentlist .meta .woocommerce-review__author { order: 1 !important; }
+
+@media (max-width: 768px){
+  .commentlist .comment_container { grid-template-columns: 40px 1fr !important; gap: 12px !important; }
+  .commentlist .comment_container img.avatar { width: 40px !important; height: 40px !important; }
+  .zs-reviews-summary { grid-template-columns: 1fr !important; }
+  .zs-reviews-actions { flex-wrap: wrap !important; justify-content: flex-start !important; }
+}
+
+/* Ultra-compact mobile spacing to remove nested paddings */
+@media (max-width: 768px){
+  .zs-reviews-section { padding: 0 !important; margin: 0 !important; }
+  .zs-reviews-container { padding: 12px 10px !important; border-radius: 12px !important; box-shadow: none !important; border-color: rgba(0,0,0,0.06) !important; }
+  .zs-reviews-header { margin-bottom: 16px !important; }
+  .zs-reviews-title { margin-bottom: 4px !important; }
+  .zs-reviews-summary-card { padding: 8px 10px !important; gap: 8px !important; }
+  .zs-reviews-average-number { font-size: 1.4rem !important; }
+  .zs-reviews-distribution { gap: 4px !important; }
+  .zs-distribution-row { gap: 6px !important; }
+  .zs-reviews-actions { gap: 8px !important; }
+  .zs-reviews-filters { gap: 6px !important; }
+  .zs-filter { padding: 6px 10px !important; }
+  .commentlist .review { padding: 10px !important; border-radius: 12px !important; box-shadow: none !important; border-color: rgba(0,0,0,0.06) !important; }
+  .commentlist .meta { margin: 0 0 6px 0 !important; gap: 8px !important; }
+  .commentlist .comment-text { margin-top: 8px !important; }
+  .comment-respond { padding: 12px 10px !important; border-radius: 12px !important; box-shadow: none !important; border-color: rgba(0,0,0,0.06) !important; }
+  #review_form_wrapper .comment-reply-title,
+  #review_form .comment-reply-title,
+  .woocommerce-Reviews .comment-reply-title,
+  .comment-respond .comment-reply-title { margin-bottom: 12px !important; }
+}
+
+/* Medium screens: improve stacking earlier to avoid overflow on tablets */
+@media (max-width: 1024px){
+  .zs-reviews-summary { grid-template-columns: 1fr !important; }
+  .commentlist .comment_container { grid-template-columns: 48px 1fr !important; }
+}
+
+/* Ensure containers don’t overflow viewport */
+.zs-reviews-section, .zs-reviews-container, .woocommerce-Reviews, .comment-respond { max-width: 100% !important; box-sizing: border-box !important; }
+
+/* Empty State: No reviews */
+.zs-reviews-section .woocommerce-noreviews {
+    margin: 16px 0 !important;
+    padding: 20px 24px !important;
+    background: var(--zs-bg-secondary) !important;
+    border: 1px dashed var(--zs-border-color) !important;
+    color: var(--zs-text-secondary) !important;
+    border-radius: 14px !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 12px !important;
+}
+
+.zs-reviews-section .woocommerce-noreviews::before {
+    content: "★" !important;
+    display: inline-flex !important;
+    width: 28px !important;
+    height: 28px !important;
+    align-items: center !important;
+    justify-content: center !important;
+    border-radius: 50% !important;
+    background: var(--zs-card-bg) !important;
+    color: var(--zs-accent-primary) !important;
+    box-shadow: 0 2px 8px var(--zs-shadow) !important;
+    font-size: 14px !important;
+}
+
+/* Modern chips + extended summary (optional classes) */
+.zs-review-filters { display: flex !important; flex-wrap: wrap !important; gap: 8px !important; margin-top: 12px !important; }
+.zs-filter-chip { display: inline-flex !important; align-items: center !important; gap: 6px !important; padding: 8px 12px !important; background: var(--zs-bg-secondary) !important; border: 1px solid var(--zs-border-color) !important; color: var(--zs-text-primary) !important; border-radius: 999px !important; font-weight: 600 !important; cursor: pointer !important; transition: all .2s ease !important; text-decoration: none !important; }
+.zs-filter-chip:hover { border-color: var(--zs-accent-primary) !important; transform: translateY(-1px) !important; }
+.zs-filter-chip.is-active { background: linear-gradient(135deg, var(--zs-accent-primary), var(--zs-accent-secondary)) !important; color: var(--zs-btn-primary-text) !important; border-color: transparent !important; box-shadow: 0 6px 16px rgba(0,54,197,.2) !important; }
+
+.zs-rating-breakdown { display: flex !important; flex-direction: column !important; gap: 10px !important; }
+.zs-rating-row { display: grid !important; grid-template-columns: 60px 1fr 48px !important; gap: 10px !important; align-items: center !important; }
+.zs-rating-row .zs-label { color: var(--zs-text-secondary) !important; font-weight: 700 !important; }
+.zs-rating-bar { position: relative !important; height: 10px !important; background: var(--zs-bg-secondary) !important; border-radius: 999px !important; overflow: hidden !important; border: 1px solid var(--zs-border-color) !important; }
+.zs-rating-bar .zs-fill { position: absolute !important; inset: 0 100% 0 0 !important; width: var(--p, 0%) !important; background: linear-gradient(90deg, var(--zs-accent-primary), var(--zs-accent-secondary)) !important; }
+.zs-rating-row .zs-percent { color: var(--zs-text-secondary) !important; font-variant-numeric: tabular-nums !important; text-align: left !important; }
+
+/* Modern Review Form - Simplified and scoped */
+.zs-reviews-section .comment-respond {
+    border-radius: 20px !important;
+    padding: 0 !important;
+    margin: 32px 0 !important;
+}
+
+/* Desktop-only comfortable padding for review form */
+@media (min-width: 769px){
+  .zs-reviews-section .comment-respond{ padding: 32px 28px !important; }
+}
+
+.zs-reviews-section .comment-reply-title { 
+    font-size: 1.8rem !important; 
+    font-weight: 800 !important; 
+    color: var(--zs-text-primary) !important; 
+    margin: 0 0 28px 0 !important; 
+    text-align: center !important; 
+    background: linear-gradient(135deg, #1a1a1a, var(--zs-accent-primary)) !important; 
+    -webkit-background-clip: text !important; 
+    -webkit-text-fill-color: transparent !important; 
+    background-clip: text !important; 
+}
+
+/* Form Fields Layout */
+.zs-reviews-section .comment-form,
+.zs-reviews-section .comment-respond form,
+.zs-review-form {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 20px !important;
+}
+
+.zs-reviews-section .comment-form p,
+.zs-reviews-section .comment-respond form p,
+.zs-review-form p {
+    margin: 0 !important;
+}
+
+/* Field Labels */
+#review_form_wrapper form label,
+#review_form form label,
+#commentform label,
+form#commentform label,
+#review_form_wrapper .comment-form label,
+#review_form .comment-form label,
+.woocommerce-Reviews .comment-form label,
+.comment-respond .comment-form label,
+.comment-respond form label,
+.zs-review-form .zs-field-label,
+.zs-field-label,
+.zs-review-form label { 
+    display: block !important; 
+    font-weight: 700 !important; 
+    color: var(--zs-text-primary) !important; 
+    margin-bottom: 8px !important; 
+    font-size: 0.95rem !important;
+}
+
+/* Input Fields - Multiple Selectors for Maximum Coverage */
+#review_form_wrapper form input[type="text"],
+#review_form_wrapper form input[type="email"],
+#review_form_wrapper form textarea,
+#review_form form input[type="text"],
+#review_form form input[type="email"],
+#review_form form textarea,
+#commentform input[type="text"],
+#commentform input[type="email"],
+#commentform textarea,
+form#commentform input[type="text"],
+form#commentform input[type="email"],
+form#commentform textarea,
+#review_form_wrapper .comment-form input[type="text"],
+#review_form_wrapper .comment-form input[type="email"],
+#review_form_wrapper .comment-form textarea,
+#review_form .comment-form input[type="text"],
+#review_form .comment-form input[type="email"],
+#review_form .comment-form textarea,
+.woocommerce-Reviews .comment-form input[type="text"],
+.woocommerce-Reviews .comment-form input[type="email"],
+.woocommerce-Reviews .comment-form textarea,
+.comment-respond .comment-form input[type="text"],
+.comment-respond .comment-form input[type="email"],
+.comment-respond .comment-form textarea,
+.comment-respond form input[type="text"],
+.comment-respond form input[type="email"],
+.comment-respond form textarea,
+.zs-input,
+.zs-review-form .zs-input, 
+.zs-review-form textarea, 
+.zs-review-form input[type="text"], 
+.zs-review-form input[type="email"],
+.comment-form input[type="text"],
+.comment-form input[type="email"],
+.comment-form textarea { 
+    width: 100% !important; 
+    padding: 14px 16px !important; 
+    border: 2px solid var(--zs-input-border) !important; 
+    border-radius: 12px !important; 
+    background: var(--zs-input-bg) !important; 
+    color: var(--zs-input-text) !important; 
+    font-size: 1rem !important;
+    font-family: inherit !important;
+    transition: all .25s ease !important; 
+    box-sizing: border-box !important;
+}
+
+#review_form_wrapper form textarea,
+#review_form form textarea,
+#commentform textarea,
+form#commentform textarea,
+#review_form_wrapper .comment-form textarea,
+#review_form .comment-form textarea,
+.woocommerce-Reviews .comment-form textarea,
+.comment-respond .comment-form textarea,
+.comment-respond form textarea,
+.zs-review-form textarea,
+.comment-form textarea {
+    min-height: 140px !important;
+    resize: vertical !important;
+    line-height: 1.6 !important;
+}
+
+#review_form_wrapper form input::placeholder,
+#review_form_wrapper form textarea::placeholder,
+#review_form form input::placeholder,
+#review_form form textarea::placeholder,
+#commentform input::placeholder,
+#commentform textarea::placeholder,
+form#commentform input::placeholder,
+form#commentform textarea::placeholder,
+#review_form_wrapper .comment-form input::placeholder,
+#review_form_wrapper .comment-form textarea::placeholder,
+#review_form .comment-form input::placeholder,
+#review_form .comment-form textarea::placeholder,
+.woocommerce-Reviews .comment-form input::placeholder,
+.woocommerce-Reviews .comment-form textarea::placeholder,
+.comment-respond .comment-form input::placeholder,
+.comment-respond .comment-form textarea::placeholder,
+.comment-respond form input::placeholder,
+.comment-respond form textarea::placeholder,
+.zs-input::placeholder,
+.zs-review-form .zs-input::placeholder,
+.zs-review-form textarea::placeholder,
+.comment-form input::placeholder,
+.comment-form textarea::placeholder {
+    color: var(--zs-text-muted) !important;
+    opacity: 0.6 !important;
+}
+
+#review_form_wrapper form input:focus,
+#review_form_wrapper form textarea:focus,
+#review_form form input:focus,
+#review_form form textarea:focus,
+#commentform input:focus,
+#commentform textarea:focus,
+form#commentform input:focus,
+form#commentform textarea:focus,
+#review_form_wrapper .comment-form input:focus,
+#review_form_wrapper .comment-form textarea:focus,
+#review_form .comment-form input:focus,
+#review_form .comment-form textarea:focus,
+.woocommerce-Reviews .comment-form input:focus,
+.woocommerce-Reviews .comment-form textarea:focus,
+.comment-respond .comment-form input:focus,
+.comment-respond .comment-form textarea:focus,
+.comment-respond form input:focus,
+.comment-respond form textarea:focus,
+.zs-input:focus,
+.zs-review-form .zs-input:focus, 
+.zs-review-form textarea:focus,
+.comment-form input:focus,
+.comment-form textarea:focus { 
+    outline: none !important; 
+    border-color: var(--zs-accent-primary) !important; 
+    box-shadow: 0 0 0 4px rgba(0, 54, 197, 0.1) !important; 
+    background: #ffffff !important;
+}
+
+/* Two Column Layout for Name and Email */
+#review_form_wrapper .comment-form-author,
+#review_form_wrapper .comment-form-email,
+#review_form .comment-form-author,
+#review_form .comment-form-email,
+#commentform .comment-form-author,
+#commentform .comment-form-email,
+form#commentform .comment-form-author,
+form#commentform .comment-form-email,
+.woocommerce-Reviews .comment-form-author,
+.woocommerce-Reviews .comment-form-email,
+.comment-respond .comment-form-author,
+.comment-respond .comment-form-email,
+.comment-form-author,
+.comment-form-email {
+    flex: 1 !important;
+    min-width: 0 !important;
+}
+
+@media (min-width: 768px) {
+    #review_form_wrapper .comment-form-author + .comment-form-email,
+    #review_form .comment-form-author + .comment-form-email,
+    .woocommerce-Reviews .comment-form-author + .comment-form-email,
+    .comment-respond .comment-form-author + .comment-form-email,
+    .comment-form-author + .comment-form-email {
+        margin-right: 16px !important;
+    }
+    
+    #review_form_wrapper .comment-form-author,
+    #review_form_wrapper .comment-form-email,
+    #review_form .comment-form-author,
+    #review_form .comment-form-email,
+    .woocommerce-Reviews .comment-form-author,
+    .woocommerce-Reviews .comment-form-email,
+    .comment-respond .comment-form-author,
+    .comment-respond .comment-form-email,
+    .comment-form-author,
+    .comment-form-email {
+        display: inline-block !important;
+        width: calc(50% - 8px) !important;
+        vertical-align: top !important;
+    }
+}
+
+/* Rating Section */
+#review_form_wrapper .comment-form-rating,
+#review_form .comment-form-rating,
+.woocommerce-Reviews .comment-form-rating,
+.comment-respond .comment-form-rating,
+.comment-form-rating {
+    margin-bottom: 4px !important;
+}
+
+#review_form_wrapper .comment-form-rating label,
+#review_form .comment-form-rating label,
+.woocommerce-Reviews .comment-form-rating label,
+.comment-respond .comment-form-rating label,
+.comment-form-rating label { 
+    font-weight: 700 !important; 
+    color: var(--zs-text-primary) !important; 
+    margin-bottom: 10px !important; 
+    display: block !important; 
+    font-size: 0.95rem !important;
+}
+
+#review_form_wrapper .comment-form-rating select#rating,
+#review_form .comment-form-rating select#rating,
+.woocommerce-Reviews .comment-form-rating select#rating,
+.comment-respond .comment-form-rating select#rating,
+.comment-form-rating select#rating { 
+    display: none !important; 
+}
+
+.zs-rating-stars { 
+    display: inline-flex !important; 
+    gap: 8px !important; 
+    font-size: 26px !important; 
+    cursor: pointer !important; 
+    color: #e2e8f0 !important; 
+    line-height: 1 !important;
+}
+
+.zs-rating-stars .star { 
+    color: #e2e8f0 !important; 
+    transition: all .2s ease !important; 
+    cursor: pointer !important;
+}
+
+.zs-rating-stars .star:hover {
+    transform: scale(1.1) !important;
+}
+
+.zs-rating-stars .star.is-filled { 
+    color: var(--zs-teal-light, #6DE0D0) !important; 
+    text-shadow: 0 2px 4px rgba(255, 193, 7, 0.3) !important;
+}
+
+/* Submit Button */
+#review_form_wrapper .form-submit,
+#review_form .form-submit,
+.woocommerce-Reviews .form-submit,
+.comment-respond .form-submit,
+.form-submit {
+    margin-top: 8px !important;
+    text-align: center !important;
+}
+
+#review_form_wrapper .form-submit input[type="submit"],
+#review_form_wrapper form input[type="submit"],
+#review_form_wrapper #submit,
+#review_form_wrapper .zs-review-submit,
+#review_form .form-submit input[type="submit"],
+#review_form form input[type="submit"],
+#review_form #submit,
+#review_form .zs-review-submit,
+#commentform .form-submit input[type="submit"],
+#commentform form input[type="submit"],
+#commentform #submit,
+form#commentform .form-submit input[type="submit"],
+form#commentform form input[type="submit"],
+form#commentform #submit,
+.woocommerce-Reviews .form-submit input[type="submit"],
+.woocommerce-Reviews .zs-review-submit,
+.comment-respond .form-submit input[type="submit"],
+.comment-respond form input[type="submit"],
+.comment-respond .zs-review-submit,
+.form-submit input[type="submit"],
+form input[type="submit"]#submit,
+.zs-review-submit,
+.button.zs-review-submit { 
+    background: linear-gradient(135deg, var(--zs-accent-primary), var(--zs-accent-secondary)) !important; 
+    color: var(--zs-btn-primary-text) !important; 
+    border: none !important; 
+    padding: 16px 32px !important; 
+    border-radius: 12px !important; 
+    font-weight: 800 !important; 
+    font-size: 1rem !important;
+    cursor: pointer !important; 
+    box-shadow: 0 8px 24px rgba(0,54,197,.25) !important; 
+    transition: all .25s ease !important;
+    min-width: 160px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: auto !important;
+    transform: translateY(0) !important;
+}
+
+#review_form_wrapper .form-submit input[type="submit"]:hover,
+#review_form_wrapper form input[type="submit"]:hover,
+#review_form_wrapper #submit:hover,
+#review_form_wrapper .zs-review-submit:hover,
+#review_form .form-submit input[type="submit"]:hover,
+#review_form form input[type="submit"]:hover,
+#review_form #submit:hover,
+#review_form .zs-review-submit:hover,
+#commentform .form-submit input[type="submit"]:hover,
+#commentform form input[type="submit"]:hover,
+#commentform #submit:hover,
+form#commentform .form-submit input[type="submit"]:hover,
+form#commentform form input[type="submit"]:hover,
+form#commentform #submit:hover,
+.woocommerce-Reviews .form-submit input[type="submit"]:hover,
+.woocommerce-Reviews .zs-review-submit:hover,
+.comment-respond .form-submit input[type="submit"]:hover,
+.comment-respond form input[type="submit"]:hover,
+.comment-respond .zs-review-submit:hover,
+.form-submit input[type="submit"]:hover,
+form input[type="submit"]#submit:hover,
+.zs-review-submit:hover,
+.button.zs-review-submit:hover { 
+    transform: translateY(-2px) !important; 
+    box-shadow: 0 12px 30px rgba(0,54,197,.35) !important; 
+}
+
+#review_form_wrapper .form-submit input[type="submit"]:active,
+#review_form_wrapper .zs-review-submit:active,
+#review_form .form-submit input[type="submit"]:active,
+#review_form .zs-review-submit:active,
+.zs-review-submit:active {
+    transform: translateY(0) !important;
+}
+
+/* Comment Form Textarea */
+#review_form_wrapper .comment-form-comment,
+#review_form .comment-form-comment,
+#commentform .comment-form-comment,
+form#commentform .comment-form-comment,
+.woocommerce-Reviews .comment-form-comment,
+.comment-respond .comment-form-comment,
+.comment-form-comment {
+    width: 100% !important;
+}
+
+/* Cookies Consent Checkbox */
+#review_form_wrapper .comment-form-cookies-consent,
+#review_form .comment-form-cookies-consent,
+#commentform .comment-form-cookies-consent,
+form#commentform .comment-form-cookies-consent,
+.comment-form-cookies-consent {
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    margin-top: 12px !important;
+}
+
+#review_form_wrapper .comment-form-cookies-consent input[type="checkbox"],
+#review_form .comment-form-cookies-consent input[type="checkbox"],
+#commentform .comment-form-cookies-consent input[type="checkbox"],
+form#commentform .comment-form-cookies-consent input[type="checkbox"],
+.comment-form-cookies-consent input[type="checkbox"] {
+    width: 18px !important;
+    height: 18px !important;
+    accent-color: var(--zs-accent-primary) !important;
+    cursor: pointer !important;
+}
+
+#review_form_wrapper .comment-form-cookies-consent label,
+#review_form .comment-form-cookies-consent label,
+#commentform .comment-form-cookies-consent label,
+form#commentform .comment-form-cookies-consent label,
+.comment-form-cookies-consent label {
+    margin: 0 !important;
+    font-weight: 500 !important;
+    font-size: 0.9rem !important;
+    color: var(--zs-text-secondary) !important;
+    cursor: pointer !important;
+}
+
+/* Comment Notes */
+#review_form_wrapper .comment-notes,
+#review_form .comment-notes,
+#commentform .comment-notes,
+form#commentform .comment-notes,
+.comment-notes {
+    font-size: 0.9rem !important;
+    color: var(--zs-text-secondary) !important;
+    margin-bottom: 20px !important;
+    text-align: center !important;
+}
+
+#review_form_wrapper .comment-notes .required,
+#review_form .comment-notes .required,
+#commentform .comment-notes .required,
+form#commentform .comment-notes .required,
+.comment-notes .required {
+    color: var(--zs-danger) !important;
+}
+
+/* Required Field Indicator */
+#review_form_wrapper .comment-form label .required,
+#review_form .comment-form label .required,
+.woocommerce-Reviews .comment-form label .required,
+.comment-respond .comment-form label .required,
+.zs-review-form .zs-field-label::after {
+    color: var(--zs-danger) !important;
+    font-weight: 900 !important;
+    margin-right: 2px !important;
+}
+
+.zs-review-form .zs-field-label::after {
+    content: ' *' !important;
+}
+
+@media (max-width: 768px){
+  #review_form_wrapper .comment-respond,
+  #review_form .comment-respond,
+  .woocommerce-Reviews .comment-respond,
+  .comment-respond { 
+    padding: 16px 12px !important; 
+    border-radius: 16px !important; 
+  }
+  
+  #review_form_wrapper .comment-reply-title,
+  #review_form .comment-reply-title,
+  .woocommerce-Reviews .comment-reply-title,
+  .comment-respond .comment-reply-title {
+    font-size: 1.5rem !important;
+    margin-bottom: 20px !important;
+  }
+  
+  #review_form_wrapper .comment-form-author,
+  #review_form_wrapper .comment-form-email,
+  #review_form .comment-form-author,
+  #review_form .comment-form-email,
+  .woocommerce-Reviews .comment-form-author,
+  .woocommerce-Reviews .comment-form-email,
+  .comment-respond .comment-form-author,
+  .comment-respond .comment-form-email,
+  .comment-form-author,
+  .comment-form-email {
+    width: 100% !important;
+    display: block !important;
+  }
+  
+  #review_form_wrapper .comment-form-author + .comment-form-email,
+  #review_form .comment-form-author + .comment-form-email,
+  .woocommerce-Reviews .comment-form-author + .comment-form-email,
+  .comment-respond .comment-form-author + .comment-form-email,
+  .comment-form-author + .comment-form-email {
+    margin-right: 0 !important;
+    margin-top: 20px !important;
+  }
+  
+  #review_form_wrapper .form-submit input[type="submit"],
+  #review_form_wrapper .zs-review-submit,
+  #review_form .form-submit input[type="submit"],
+  #review_form .zs-review-submit,
+  .woocommerce-Reviews .form-submit input[type="submit"],
+  .woocommerce-Reviews .zs-review-submit,
+  .comment-respond .form-submit input[type="submit"],
+  .comment-respond .zs-review-submit,
+  .form-submit input[type="submit"],
+  .zs-review-submit {
+    width: 100% !important;
+    padding: 12px 18px !important;
+  }
+  
+  .zs-rating-stars {
+    font-size: 24px !important;
+    gap: 6px !important;
+  }
+}
+
+/* Small phones: reduce container padding to avoid nested padding squeeze */
+@media (max-width: 480px){
+  .zs-reviews-container { padding: 12px !important; }
+}
+
+

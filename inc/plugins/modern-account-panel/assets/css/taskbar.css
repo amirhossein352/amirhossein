@@ -1,0 +1,892 @@
+/* ============================================
+   Windows 11 Style Taskbar - تسک‌بار شبیه ویندوز 11
+   همه استایل‌ها فقط برای حساب کاربری - Scoped to body.modern-account-panel-page
+   ============================================ */
+
+:root {
+    --taskbar-bg: rgba(20, 20, 25, 0.95);
+    --taskbar-blur: blur(40px);
+    --taskbar-border: rgba(255, 255, 255, 0.1);
+    --taskbar-hover: rgba(255, 255, 255, 0.1);
+    --taskbar-active: rgba(255, 255, 255, 0.15);
+    
+    --icon-dashboard: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --icon-orders: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    --icon-downloads: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    --icon-address: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+    --icon-payment: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+    --icon-account: linear-gradient(135deg, #30cfd0 0%, #330867 100%);
+    --icon-start: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+    --icon-notification: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+    --icon-message: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+}
+
+/* Desktop - Taskbar مخفی */
+@media (min-width: 769px) {
+    .modern-account-panel-taskbar,
+    .modern-account-panel-taskbar,
+body.modern-account-panel-page .taskbar {
+        display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+    }
+}
+
+/* Mobile - Taskbar Fixed */
+@media (max-width: 768px) {
+    .modern-account-panel-taskbar,
+    .modern-account-panel-taskbar,
+body.modern-account-panel-page .taskbar {
+        position: fixed !important;
+        bottom: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        width: 100% !important;
+        height: var(--taskbar-height, 56px) !important;
+        background: var(--taskbar-bg) !important;
+        backdrop-filter: var(--taskbar-blur) !important;
+        -webkit-backdrop-filter: var(--taskbar-blur) !important;
+        border-top: 1px solid var(--taskbar-border) !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        padding: 0 0.25rem !important;
+        z-index: 10000 !important;
+        box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.4), 0 -1px 0 rgba(255, 255, 255, 0.1) inset !important;
+        margin: 0 !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+    }
+}
+
+/* Taskbar Center */
+.modern-account-panel-taskbar,
+body.modern-account-panel-page .taskbar-center {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    height: 100%;
+}
+
+/* Taskbar Left Section */
+.modern-account-panel-taskbar,
+body.modern-account-panel-page .taskbar-left {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    height: 100%;
+}
+
+.modern-account-panel-taskbar,
+body.modern-account-panel-page .taskbar-item {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.75rem;
+    background: linear-gradient(135deg, rgba(168, 237, 234, 0.3) 0%, rgba(254, 214, 227, 0.3) 100%);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.1) inset;
+}
+
+.modern-account-panel-taskbar,
+body.modern-account-panel-page .taskbar-item .taskbar-emoji {
+    font-size: 1.3rem;
+    line-height: 1;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.4));
+    transition: all 0.3s ease;
+}
+
+.modern-account-panel-taskbar,
+body.modern-account-panel-page .taskbar-item[title]::after {
+    content: attr(title);
+    position: absolute;
+    bottom: calc(100% + 10px);
+    left: 50%;
+    transform: translateX(-50%) translateY(5px);
+    background: rgba(20, 20, 25, 0.95);
+    color: rgba(255, 255, 255, 0.95);
+    padding: 0.5rem 0.75rem;
+    border-radius: 0.5rem;
+    font-size: 0.75rem;
+    font-weight: 500;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 10001;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.modern-account-panel-taskbar,
+body.modern-account-panel-page .taskbar-item[title]::before {
+    content: '';
+    position: absolute;
+    bottom: calc(100% + 4px);
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 6px solid rgba(20, 20, 25, 0.95);
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 10002;
+}
+
+.modern-account-panel-taskbar,
+body.modern-account-panel-page .taskbar-item[title]:hover::after,
+.modern-account-panel-taskbar,
+body.modern-account-panel-page .taskbar-item[title]:hover::before {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
+.modern-account-panel-taskbar,
+body.modern-account-panel-page .taskbar-item:hover {
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.2) inset;
+    border-color: rgba(255, 255, 255, 0.4);
+    filter: brightness(1.2);
+}
+
+.modern-account-panel-taskbar,
+body.modern-account-panel-page .taskbar-item:hover .taskbar-emoji {
+    transform: scale(1.15);
+}
+
+.modern-account-panel-taskbar,
+body.modern-account-panel-page .taskbar-item:active {
+    transform: scale(0.95) translateY(0);
+}
+
+.modern-account-panel-taskbar,
+body.modern-account-panel-page .taskbar-start {
+    margin-left: 0.5rem;
+}
+
+.modern-account-panel-taskbar,
+body.modern-account-panel-page .taskbar-start-label {
+    display: none;
+}
+
+@media (min-width: 769px) {
+    .modern-account-panel-taskbar,
+body.modern-account-panel-page .taskbar-start,
+    .modern-account-panel-taskbar,
+body.modern-account-panel-page .taskbar-start-label {
+        display: none !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .modern-account-panel-taskbar,
+body.modern-account-panel-page .taskbar-start {
+        display: flex !important;
+        position: relative;
+        margin-left: 0.5rem;
+        flex-direction: column;
+        gap: 0.25rem;
+        padding: 0.5rem 0.75rem;
+        width: auto;
+        min-width: 60px;
+        height: auto;
+        min-height: 50px;
+    }
+    
+    .modern-account-panel-taskbar,
+body.modern-account-panel-page .taskbar-start-label {
+        display: block;
+        font-size: 0.625rem;
+        font-weight: 600;
+        color: rgba(255, 255, 255, 0.95);
+        text-align: center;
+        line-height: 1;
+        margin-top: 0.125rem;
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    }
+    
+    .modern-account-panel-taskbar,
+body.modern-account-panel-page .taskbar-start .taskbar-emoji {
+        font-size: 1.5rem;
+    }
+    
+    .modern-account-panel-taskbar,
+body.modern-account-panel-page .taskbar-start::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: calc(100% + 8px);
+        height: calc(100% + 8px);
+        border-radius: 0.75rem;
+        background: rgba(168, 237, 234, 0.2);
+        animation: taskbar-pulse 2s infinite;
+        z-index: -1;
+    }
+    
+    @keyframes taskbar-pulse {
+        0% {
+            transform: translate(-50%, -50%) scale(1);
+            opacity: 0.6;
+        }
+        50% {
+            transform: translate(-50%, -50%) scale(1.15);
+            opacity: 0.3;
+        }
+        100% {
+            transform: translate(-50%, -50%) scale(1);
+            opacity: 0.6;
+        }
+    }
+    
+    .modern-account-panel-taskbar,
+body.modern-account-panel-page .taskbar-start:hover {
+        transform: translateY(-3px) scale(1.05);
+        box-shadow: 0 6px 20px rgba(168, 237, 234, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.3) inset;
+    }
+    
+    .modern-account-panel-taskbar,
+body.modern-account-panel-page .taskbar-start:active {
+        transform: scale(0.95) translateY(0);
+    }
+    
+    .modern-account-panel-taskbar,
+body.modern-account-panel-page .taskbar-center {
+        display: none;
+    }
+    
+    .modern-account-panel-taskbar,
+body.modern-account-panel-page .taskbar-apps {
+        display: none;
+    }
+    
+    .modern-account-panel-taskbar,
+body.modern-account-panel-page .taskbar-time {
+        min-width: 60px;
+        padding: 0 0.5rem;
+    }
+    
+    body.modern-account-panel-page .time-display {
+        font-size: 0.6875rem;
+    }
+    
+    body.modern-account-panel-page .date-display {
+        font-size: 0.5625rem;
+    }
+    
+    body.modern-account-panel-page .start-menu {
+        width: calc(100% - 1rem);
+        right: 0.5rem;
+        left: 0.5rem;
+        max-height: 70vh;
+    }
+    
+    body.modern-account-panel-page .start-menu-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .modern-account-panel-taskbar,
+body.modern-account-panel-page .taskbar-item[title]::after,
+    .modern-account-panel-taskbar,
+body.modern-account-panel-page .taskbar-app[title]::after,
+    .modern-account-panel-taskbar,
+body.modern-account-panel-page .taskbar-icon[title]::after {
+        font-size: 0.6875rem;
+        padding: 0.375rem 0.625rem;
+        bottom: calc(100% + 8px);
+    }
+    
+    .modern-account-panel-taskbar,
+body.modern-account-panel-page .taskbar-item[title]::before,
+    .modern-account-panel-taskbar,
+body.modern-account-panel-page .taskbar-app[title]::before,
+    .modern-account-panel-taskbar,
+body.modern-account-panel-page .taskbar-icon[title]::before {
+        bottom: calc(100% + 2px);
+        border-top-width: 5px;
+        border-left-width: 5px;
+        border-right-width: 5px;
+    }
+}
+
+.modern-account-panel-taskbar,
+body.modern-account-panel-page .taskbar-start.active {
+    box-shadow: 0 0 0 3px rgba(168, 237, 234, 0.6), 0 4px 12px rgba(0, 0, 0, 0.3);
+    border-color: rgba(255, 255, 255, 0.5);
+    filter: brightness(1.25);
+}
+
+.modern-account-panel-taskbar,
+body.modern-account-panel-page .taskbar-divider {
+    width: 1px;
+    height: 32px;
+    background: rgba(255, 255, 255, 0.15);
+    margin: 0 0.5rem;
+    border-radius: 1px;
+}
+
+.modern-account-panel-taskbar,
+body.modern-account-panel-page .taskbar-apps {
+    display: flex;
+    align-items: center;
+    gap: 0.375rem;
+    height: 100%;
+    padding: 0 0.25rem;
+    justify-content: center;
+}
+
+.modern-account-panel-taskbar,
+body.modern-account-panel-page .taskbar-app {
+    width: 42px;
+    height: 42px;
+    min-width: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.75rem;
+    background: rgba(255, 255, 255, 0.08);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    text-decoration: none;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.modern-account-panel-taskbar,
+body.modern-account-panel-page .taskbar-app[title]::after {
+    content: attr(title);
+    position: absolute;
+    bottom: calc(100% + 10px);
+    left: 50%;
+    transform: translateX(-50%) translateY(5px);
+    background: rgba(20, 20, 25, 0.95);
+    color: rgba(255, 255, 255, 0.95);
+    padding: 0.5rem 0.75rem;
+    border-radius: 0.5rem;
+    font-size: 0.75rem;
+    font-weight: 500;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 10001;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.modern-account-panel-taskbar,
+body.modern-account-panel-page .taskbar-app[title]::before {
+    content: '';
+    position: absolute;
+    bottom: calc(100% + 4px);
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 6px solid rgba(20, 20, 25, 0.95);
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 10002;
+}
+
+.modern-account-panel-taskbar,
+body.modern-account-panel-page .taskbar-app[title]:hover::after,
+.modern-account-panel-taskbar,
+body.modern-account-panel-page .taskbar-app[title]:hover::before {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
+.modern-account-panel-taskbar,
+body.modern-account-panel-page .taskbar-emoji {
+    font-size: 1.5rem;
+    line-height: 1;
+    display: block;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.4));
+    transition: all 0.3s ease;
+}
+
+.modern-account-panel-taskbar,
+body.modern-account-panel-page .taskbar-app[data-page="dashboard"] {
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.3) 0%, rgba(118, 75, 162, 0.3) 100%);
+    border-color: rgba(102, 126, 234, 0.4);
+}
+
+.modern-account-panel-taskbar,
+body.modern-account-panel-page .taskbar-app[data-page="orders"] {
+    background: linear-gradient(135deg, rgba(240, 147, 251, 0.3) 0%, rgba(245, 87, 108, 0.3) 100%);
+    border-color: rgba(240, 147, 251, 0.4);
+}
+
+.modern-account-panel-taskbar,
+body.modern-account-panel-page .taskbar-app[data-page="downloads"] {
+    background: linear-gradient(135deg, rgba(79, 172, 254, 0.3) 0%, rgba(0, 242, 254, 0.3) 100%);
+    border-color: rgba(79, 172, 254, 0.4);
+}
+
+.modern-account-panel-taskbar,
+body.modern-account-panel-page .taskbar-app[data-page="edit-address"] {
+    background: linear-gradient(135deg, rgba(67, 233, 123, 0.3) 0%, rgba(56, 249, 215, 0.3) 100%);
+    border-color: rgba(67, 233, 123, 0.4);
+}
+
+.modern-account-panel-taskbar,
+body.modern-account-panel-page .taskbar-app[data-page="payment-methods"] {
+    background: linear-gradient(135deg, rgba(250, 112, 154, 0.3) 0%, rgba(254, 225, 64, 0.3) 100%);
+    border-color: rgba(250, 112, 154, 0.4);
+}
+
+.modern-account-panel-taskbar,
+body.modern-account-panel-page .taskbar-app[data-page="edit-account"] {
+    background: linear-gradient(135deg, rgba(48, 207, 208, 0.3) 0%, rgba(51, 8, 103, 0.3) 100%);
+    border-color: rgba(48, 207, 208, 0.4);
+}
+
+.modern-account-panel-taskbar,
+body.modern-account-panel-page .taskbar-app:hover {
+    transform: translateY(-3px) scale(1.1);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.2) inset;
+    filter: brightness(1.2);
+}
+
+.modern-account-panel-taskbar,
+body.modern-account-panel-page .taskbar-app:hover .taskbar-emoji {
+    transform: scale(1.15);
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.5));
+}
+
+.modern-account-panel-taskbar,
+body.modern-account-panel-page .taskbar-app:active {
+    transform: scale(0.95) translateY(0);
+}
+
+.modern-account-panel-taskbar,
+body.modern-account-panel-page .taskbar-app.active {
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3), 0 6px 16px rgba(0, 0, 0, 0.4);
+    transform: translateY(-2px);
+    filter: brightness(1.25);
+}
+
+.modern-account-panel-taskbar,
+body.modern-account-panel-page .taskbar-app.active .taskbar-emoji {
+    transform: scale(1.1);
+    filter: drop-shadow(0 4px 8px rgba(255, 255, 255, 0.3));
+}
+
+.modern-account-panel-taskbar,
+body.modern-account-panel-page .taskbar-app.active::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 36px;
+    height: 4px;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.6));
+    border-radius: 0 0 4px 4px;
+    box-shadow: 0 2px 8px rgba(255, 255, 255, 0.4);
+}
+
+.modern-account-panel-taskbar,
+body.modern-account-panel-page .taskbar-right {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.modern-account-panel-taskbar,
+body.modern-account-panel-page .taskbar-tray {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    height: 100%;
+}
+
+.modern-account-panel-taskbar,
+body.modern-account-panel-page .taskbar-icon {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.75rem;
+    background: rgba(255, 255, 255, 0.08);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.modern-account-panel-taskbar,
+body.modern-account-panel-page .taskbar-icon .taskbar-emoji {
+    font-size: 1.3rem;
+    line-height: 1;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.4));
+    transition: all 0.3s ease;
+}
+
+.modern-account-panel-taskbar,
+body.modern-account-panel-page .taskbar-icon[title]::after {
+    content: attr(title);
+    position: absolute;
+    bottom: calc(100% + 10px);
+    left: 50%;
+    transform: translateX(-50%) translateY(5px);
+    background: rgba(20, 20, 25, 0.95);
+    color: rgba(255, 255, 255, 0.95);
+    padding: 0.5rem 0.75rem;
+    border-radius: 0.5rem;
+    font-size: 0.75rem;
+    font-weight: 500;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 10001;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.modern-account-panel-taskbar,
+body.modern-account-panel-page .taskbar-icon[title]::before {
+    content: '';
+    position: absolute;
+    bottom: calc(100% + 4px);
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 6px solid rgba(20, 20, 25, 0.95);
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 10002;
+}
+
+.modern-account-panel-taskbar,
+body.modern-account-panel-page .taskbar-icon[title]:hover::after,
+.modern-account-panel-taskbar,
+body.modern-account-panel-page .taskbar-icon[title]:hover::before {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
+.modern-account-panel-taskbar,
+body.modern-account-panel-page .taskbar-icon#taskbarNotifications {
+    background: linear-gradient(135deg, rgba(255, 154, 158, 0.3) 0%, rgba(254, 207, 239, 0.3) 100%);
+    border-color: rgba(255, 154, 158, 0.4);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.modern-account-panel-taskbar,
+body.modern-account-panel-page .taskbar-icon#taskbarMessages {
+    background: linear-gradient(135deg, rgba(255, 236, 210, 0.3) 0%, rgba(252, 182, 159, 0.3) 100%);
+    border-color: rgba(255, 236, 210, 0.4);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.modern-account-panel-taskbar,
+body.modern-account-panel-page .taskbar-icon:hover {
+    transform: translateY(-2px) scale(1.08);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.2) inset;
+    border-color: rgba(255, 255, 255, 0.4);
+    filter: brightness(1.2);
+}
+
+.modern-account-panel-taskbar,
+body.modern-account-panel-page .taskbar-icon:hover .taskbar-emoji {
+    transform: scale(1.15);
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.5));
+}
+
+.modern-account-panel-taskbar,
+body.modern-account-panel-page .taskbar-icon:active {
+    transform: scale(0.95) translateY(0);
+}
+
+.modern-account-panel-taskbar,
+body.modern-account-panel-page .taskbar-badge {
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    background: linear-gradient(135deg, #ff6b6b, #ee5a6f);
+    color: white;
+    font-size: 0.625rem;
+    font-weight: 700;
+    padding: 0.125rem 0.375rem;
+    border-radius: 12px;
+    min-width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    box-shadow: 0 2px 8px rgba(255, 107, 107, 0.5);
+    border: 2px solid white;
+    z-index: 10;
+}
+
+.modern-account-panel-taskbar,
+body.modern-account-panel-page .taskbar-time {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+    padding: 0 0.875rem;
+    height: 40px;
+    min-width: 90px;
+    cursor: pointer;
+    border-radius: 0.75rem;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    margin-right: 0.5rem;
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.modern-account-panel-taskbar,
+body.modern-account-panel-page .taskbar-time:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    border-color: rgba(255, 255, 255, 0.25);
+}
+
+body.modern-account-panel-page .time-display {
+    font-size: 0.8125rem;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.95);
+    line-height: 1.3;
+    letter-spacing: 0.3px;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+body.modern-account-panel-page .date-display {
+    font-size: 0.6875rem;
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.3;
+    font-weight: 600;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+body.modern-account-panel-page .start-menu {
+    position: fixed;
+    bottom: calc(var(--taskbar-height, 56px) + 0.5rem);
+    right: calc(var(--sidebar-width, 260px) + 0.5rem);
+    width: 420px;
+    max-height: 600px;
+    background: rgba(30, 30, 30, 0.95);
+    backdrop-filter: blur(40px);
+    -webkit-backdrop-filter: blur(40px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 0.75rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 10001;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+body.modern-account-panel-page .start-menu.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+body.modern-account-panel-page .start-menu-header {
+    padding: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+body.modern-account-panel-page .start-menu-search {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+body.modern-account-panel-page .start-menu-search i {
+    position: absolute;
+    right: 0.75rem;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.875rem;
+}
+
+body.modern-account-panel-page .start-menu-search input {
+    width: 100%;
+    padding: 0.625rem 0.75rem 0.625rem 2.5rem;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 0.5rem;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.875rem;
+    transition: all 0.2s ease;
+}
+
+body.modern-account-panel-page .start-menu-search input:focus {
+    outline: none;
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+body.modern-account-panel-page .start-menu-search input::placeholder {
+    color: rgba(255, 255, 255, 0.4);
+}
+
+body.modern-account-panel-page .start-menu-content {
+    flex: 1;
+    overflow-y: auto;
+    padding: 1rem;
+}
+
+body.modern-account-panel-page .start-menu-content::-webkit-scrollbar {
+    width: 8px;
+}
+
+body.modern-account-panel-page .start-menu-content::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+body.modern-account-panel-page .start-menu-content::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+}
+
+body.modern-account-panel-page .start-menu-content::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+body.modern-account-panel-page .start-menu-section h3 {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 1);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 0.75rem;
+    padding: 0 0.5rem;
+}
+
+body.modern-account-panel-page .start-menu-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+body.modern-account-panel-page .start-menu-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem 0.75rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 0.5rem;
+    color: rgba(255, 255, 255, 1);
+    text-decoration: none;
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+body.modern-account-panel-page .start-menu-item:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+    color: rgba(255, 255, 255, 1);
+}
+
+body.modern-account-panel-page .start-menu-icon {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 0.5rem;
+    font-size: 1.5rem;
+    color: white;
+}
+
+body.modern-account-panel-page .start-menu-item span {
+    font-size: 0.75rem;
+    text-align: center;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 1);
+}
+
+body.modern-account-panel-page .start-menu-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.75rem 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(0, 0, 0, 0.2);
+}
+
+body.modern-account-panel-page .start-menu-footer-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 0.75rem;
+    border-radius: 0.375rem;
+    color: rgba(255, 255, 255, 1);
+    text-decoration: none;
+    font-size: 0.8125rem;
+    transition: all 0.2s ease;
+}
+
+body.modern-account-panel-page .start-menu-footer-item:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 1);
+}
+
+body.modern-account-panel-page .start-menu-footer-item span {
+    color: rgba(255, 255, 255, 1);
+}
+
+body.modern-account-panel-page .start-menu-footer-item i {
+    font-size: 0.875rem;
+}
+
+.modern-account-panel-taskbar,
+body.modern-account-panel-page .taskbar-item[title],
+.modern-account-panel-taskbar,
+body.modern-account-panel-page .taskbar-app[title],
+.modern-account-panel-taskbar,
+body.modern-account-panel-page .taskbar-icon[title] {
+    position: relative;
+}
+
+.modern-account-panel-taskbar,
+body.modern-account-panel-page .taskbar-item[title]:hover,
+.modern-account-panel-taskbar,
+body.modern-account-panel-page .taskbar-app[title]:hover,
+.modern-account-panel-taskbar,
+body.modern-account-panel-page .taskbar-icon[title]:hover {
+    position: relative;
+}

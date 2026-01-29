@@ -1,0 +1,10 @@
+/**
+ * Header Dynamic Styles
+ * This file contains dynamic styles that can be customized via theme settings
+ */
+
+/* Header Dynamic Styles - Uses CSS variables */
+.site-header {
+    background-color: var(--header-bg-color, #ffffff) !important;
+    color: var(--header-text-color, #333333) !important;
+}

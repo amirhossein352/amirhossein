@@ -1,0 +1,471 @@
+/**
+ * Single Product Page - Header Styles
+ * 
+ * این فایل شامل استایل‌های مربوط به هدر صفحه تک محصول است:
+ * - هدر اصلی با گرادیانت
+ * - Breadcrumb navigation
+ * - عنوان و زیرعنوان محصول
+ * - اطلاعات متا محصول (دسته‌بندی، برچسب‌ها، امتیاز)
+ * - دکمه‌های عملیاتی (اشتراک، چاپ، بازگشت)
+ * - المان‌های تزئینی و انیمیشن‌ها
+ * - طراحی responsive برای موبایل
+ * 
+ * @package khane_irani
+ * @version 1.0.0
+ */
+
+/* Enhanced Product Header Styles */
+.zs-product-page-header{
+background: linear-gradient(135deg, var(--zs-teal-medium, #37C3B3) 0%, var(--zs-teal-dark, #00A796) 50%, var(--zs-teal-medium, #37C3B3) 100%);
+    color: #fff;
+    padding: 17px 0 17px;
+    position: relative;
+    overflow: hidden;
+    min-height: 162px;
+    margin: 20px 0px;
+    border-radius: 24px;
+    box-shadow: 0 8px 32px rgba(0, 167, 150, 0.2);
+}
+
+/* Eslimi Patterns for Product Header */
+.zs-header-eslimi-pattern {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.12;
+    pointer-events: none;
+    z-index: 1;
+    transition: opacity 0.3s ease;
+}
+
+.zs-header-eslimi-top-left {
+    top: 20px;
+    left: 20px;
+    background-image: url('../../images/image-home/بانو.png');
+    width: 180px;
+    height: 180px;
+}
+
+.zs-header-eslimi-bottom-right {
+    bottom: 20px;
+    right: 20px;
+    background-image: url('../../images/image-home/نوجوان.png');
+    width: 200px;
+    height: 200px;
+}
+
+.zs-header-eslimi-center {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-image: url('../../images/image-home/خانه ایرانی (6).png');
+    width: 150px;
+    height: 150px;
+    opacity: 0.08;
+}
+
+.zs-product-page-header::after{
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: 
+        radial-gradient(600px 200px at 80% -20%, rgba(255,255,255,.15), transparent 60%),
+        radial-gradient(500px 180px at 10% 120%, rgba(255,255,255,.1), transparent 60%),
+        radial-gradient(400px 150px at 50% 50%, rgba(255,255,255,.05), transparent 70%);
+    pointer-events: none;
+}
+
+/* Breadcrumb Navigation */
+.zs-breadcrumb-nav{
+    margin-bottom: 24px;
+    position: relative;
+    z-index: 3;
+}
+
+.zs-product-page-header .container {
+    position: relative;
+    z-index: 3;
+}
+
+.zs-breadcrumb-list{
+    display: flex;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.zs-breadcrumb-item{
+    display: flex;
+    align-items: center;
+}
+
+.zs-breadcrumb-link{
+    color: rgba(255,255,255,.8);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    padding: 6px 12px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.zs-breadcrumb-link:hover{
+    color: #fff;
+    background: rgba(255,255,255,.1);
+    transform: translateY(-1px);
+}
+
+.zs-breadcrumb-separator{
+    color: rgba(255,255,255,.6);
+    font-size: 1.1rem;
+    font-weight: 300;
+}
+
+.zs-breadcrumb-current{
+    color: #fff;
+    font-weight: 600;
+    background: rgba(255,255,255,.1);
+    padding: 6px 12px;
+    border-radius: 8px;
+    border: 1px solid rgba(255,255,255,.2);
+}
+
+/* Header Content Layout */
+.zs-header-content{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 32px;
+    position: relative;
+    z-index: 3;
+}
+
+.zs-title-section{
+    flex: 1;
+}
+
+.zs-product-title-lg{
+    margin: 0 0 12px 0;
+    font-weight: 900;
+    letter-spacing: -0.02em;
+    font-size: 2.2rem;
+    line-height: 1.2;
+    text-shadow: 0 2px 4px rgba(0,0,0,.1);
+    color: #fff;
+}
+
+.zs-product-subtitle{
+    margin: 0 0 20px 0;
+    color: rgba(255,255,255,.9);
+    font-size: 1.1rem;
+    line-height: 1.6;
+    font-weight: 400;
+}
+
+/* Product Meta Information */
+.zs-product-meta{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 16px;
+}
+
+.zs-meta-item{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.zs-meta-label{
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: rgba(255,255,255,.8);
+    min-width: 80px;
+}
+
+.zs-meta-tags{
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.zs-meta-tag{
+    background: rgba(255,255,255,.15);
+    color: #fff;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    border: 1px solid rgba(255,255,255,.2);
+    transition: all 0.3s ease;
+}
+
+.zs-meta-tag:hover{
+    background: rgba(255,255,255,.25);
+    transform: translateY(-1px);
+}
+
+.zs-tag-small{
+    font-size: 0.8rem;
+    padding: 3px 10px;
+}
+
+/* Rating Display */
+.zs-rating-display{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.zs-stars{
+    display: flex;
+    gap: 2px;
+}
+
+.zs-star{
+    color: rgba(255,255,255,.4);
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+}
+
+.zs-star.filled{
+    color: var(--zs-teal-light, #6DE0D0);
+    text-shadow: 0 0 4px rgba(255,215,0,.3);
+}
+
+.zs-star.half{
+    background: linear-gradient(90deg, var(--zs-teal-light, #6DE0D0) 50%, rgba(255,255,255,.4) 50%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.zs-rating-text{
+    font-size: 0.85rem;
+    color: rgba(255,255,255,.7);
+}
+
+/* Action Buttons */
+.zs-header-actions{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-end;
+}
+
+.zs-action-btn{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255,255,255,.1);
+    color: #fff;
+    border: 1px solid rgba(255,255,255,.2);
+    padding: 10px 16px;
+    border-radius: 12px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    backdrop-filter: blur(10px);
+}
+
+.zs-action-btn:hover{
+    background: rgba(255,255,255,.2);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0,0,0,.2);
+}
+
+.zs-action-btn i{
+    font-size: 1rem;
+}
+
+/* Decorative Elements */
+.zs-header-decoration{
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.zs-floating-shapes{
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.zs-shape{
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255,255,255,.05);
+    animation: float 6s ease-in-out infinite;
+}
+
+.zs-shape-1{
+    width: 80px;
+    height: 80px;
+    top: 20%;
+    right: 10%;
+    animation-delay: 0s;
+}
+
+.zs-shape-2{
+    width: 60px;
+    height: 60px;
+    top: 60%;
+    right: 20%;
+    animation-delay: 2s;
+}
+
+.zs-shape-3{
+    width: 100px;
+    height: 100px;
+    top: 40%;
+    left: 15%;
+    animation-delay: 4s;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(180deg); }
+}
+
+/* Mobile Responsive Styles */
+@media (max-width: 768px) {
+    .zs-product-page-header {
+        padding: 16px 14px 18px !important;
+        min-height: auto !important;
+        margin: 12px 0 !important;
+        border-radius: 12px !important;
+        background: #ffffff !important;
+        box-shadow: 0 2px 12px rgba(0,0,0,0.06) !important;
+        color: #0f172a !important;
+    }
+    .zs-product-page-header::after { display: none !important; }
+    .zs-header-eslimi-pattern { display: none !important; }
+    .zs-header-eslimi-top-left,
+    .zs-header-eslimi-bottom-right,
+    .zs-header-eslimi-center {
+        display: none !important;
+        background-image: none !important;
+        opacity: 0 !important;
+        visibility: hidden !important;
+    }
+    
+    .container {
+        padding: 0 4px !important;
+    }
+    
+    .zs-breadcrumb-nav {
+        margin-bottom: 16px !important;
+    }
+    
+    .zs-breadcrumb-list {
+        font-size: 0.8rem !important;
+        gap: 4px !important;
+    }
+    
+    .zs-breadcrumb-link {
+        padding: 4px 8px !important;
+        font-size: 0.75rem !important;
+    }
+    
+    .zs-breadcrumb-separator {
+        font-size: 0.85rem !important;
+    }
+    
+    .zs-header-content {
+        flex-direction: column !important;
+        gap: 16px !important;
+        align-items: stretch !important;
+    }
+    
+    .zs-title-section {
+        width: 100% !important;
+    }
+    
+    .zs-product-title-lg {
+        font-size: 1.3rem !important;
+        line-height: 1.3 !important;
+        margin-bottom: 8px !important;
+        word-wrap: break-word !important;
+        color: #0f172a !important;
+        text-shadow: none !important;
+    }
+    
+    .zs-product-subtitle { display: none !important; }
+    
+    .zs-product-meta { display: none !important; }
+    
+    .zs-header-actions { display: none !important; }
+
+    /* Breadcrumb colors on white background */
+    .zs-breadcrumb-link {
+        color: #475569 !important;
+        background: transparent !important;
+    }
+    .zs-breadcrumb-link:hover { color: #0f172a !important; }
+    .zs-breadcrumb-current {
+        color: #0f172a !important;
+        background: transparent !important;
+        border: none !important;
+    }
+    .zs-breadcrumb-separator { color: #94a3b8 !important; }
+    .zs-breadcrumb-item { color: #475569 !important; }
+    .zs-breadcrumb-nav { margin-bottom: 10px !important; }
+    
+    .zs-action-btn i {
+        font-size: 1rem !important;
+    }
+    
+    /* Hide decorative shapes on mobile for better performance */
+    .zs-floating-shapes {
+        display: none !important;
+    }
+    
+    /* Adjust eslimi patterns for mobile */
+    .zs-header-eslimi-pattern {
+        width: 100px !important;
+        height: 100px !important;
+        opacity: 0.08 !important;
+    }
+    
+    .zs-header-eslimi-top-left {
+        top: 10px !important;
+        left: 10px !important;
+        width: 80px !important;
+        height: 80px !important;
+    }
+    
+    .zs-header-eslimi-bottom-right {
+        bottom: 10px !important;
+        right: 10px !important;
+        width: 100px !important;
+        height: 100px !important;
+    }
+    
+    .zs-header-eslimi-center {
+        width: 80px !important;
+        height: 80px !important;
+        opacity: 0.06 !important;
+    }
+}
+
+/* Header Eslimi Patterns */
+.zs-header-eslimi-pattern {
+    opacity: 0.06;
+}
+
+.zs-header-eslimi-center {
+    opacity: 0.04;
+}

@@ -1,0 +1,177 @@
+/* Downloads Page Styles - استایل‌های صفحه دانلودها */
+
+.downloads-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.download-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.5rem;
+    background: var(--gray-50);
+    border: 1px solid var(--gray-200);
+    border-radius: 0.75rem;
+    transition: var(--transition);
+}
+
+.download-item:hover {
+    background: white;
+    box-shadow: var(--shadow-md);
+    border-color: var(--primary-color);
+}
+
+.download-item.expired {
+    opacity: 0.6;
+    background: var(--gray-100);
+}
+
+.download-info {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    flex: 1;
+}
+
+.download-icon {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 0.5rem;
+    color: white;
+    font-size: 1.5rem;
+    flex-shrink: 0;
+}
+
+.download-item.expired .download-icon {
+    background: var(--gray-400);
+}
+
+.download-details {
+    flex: 1;
+}
+
+.download-details h4 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--gray-900);
+    margin-bottom: 0.5rem;
+}
+
+.download-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    font-size: 0.875rem;
+    color: var(--gray-600);
+    margin-bottom: 0.5rem;
+}
+
+.download-meta a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.download-meta a:hover {
+    color: var(--primary-dark);
+    text-decoration: underline;
+}
+
+.download-description {
+    font-size: 0.875rem;
+    color: var(--gray-500);
+    margin-top: 0.5rem;
+}
+
+.download-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.5rem;
+    margin-right: 1rem;
+}
+
+.download-expires {
+    font-size: 0.75rem;
+    color: var(--gray-500);
+    white-space: nowrap;
+}
+
+.download-expires.expired-text {
+    color: var(--danger-color);
+}
+
+.empty-state {
+    text-align: center;
+    padding: 4rem 2rem;
+    background: white;
+    border-radius: 0.75rem;
+    border: 1px solid var(--gray-200);
+}
+
+.empty-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--gray-100);
+    border-radius: 50%;
+    color: var(--gray-400);
+    font-size: 2.5rem;
+}
+
+.empty-state h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--gray-900);
+    margin-bottom: 0.75rem;
+}
+
+.empty-state p {
+    font-size: 1rem;
+    color: var(--gray-600);
+    margin-bottom: 2rem;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.card-subtitle {
+    font-size: 0.875rem;
+    color: var(--gray-600);
+    margin-top: 0.5rem;
+    font-weight: normal;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .download-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .download-actions {
+        width: 100%;
+        align-items: stretch;
+        margin-right: 0;
+        margin-top: 1rem;
+    }
+    
+    .download-actions .btn {
+        width: 100%;
+    }
+    
+    .download-meta {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+}
+

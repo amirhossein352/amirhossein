@@ -1,0 +1,1079 @@
+/* WooCommerce Phone Auth - Scoped Styles Only */
+
+/* User Dropdown for Desktop - Scoped to WCPA */
+.wcpa-user-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.wcpa-user-btn {
+    background: var(--wcpa-primary, #224190) !important;
+    color: white !important;
+    border: none !important;
+    padding: 10px 12px !important;
+    border-radius: 51px !important;
+    cursor: pointer !important;
+    font-size: 14px !important;
+    transition: all 0.3s !important;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    white-space: nowrap;
+}
+
+.wcpa-user-btn:hover {
+    background: var(--wcpa-primary, #224190) !important;
+    transform: translateY(-1px);
+}
+
+.wcpa-dropdown-arrow {
+    font-size: 10px;
+    transition: transform 0.3s;
+}
+
+.wcpa-user-dropdown:hover .wcpa-dropdown-arrow {
+    transform: rotate(180deg);
+}
+
+.wcpa-user-menu {
+    position: absolute;
+    top: calc(100% + 5px);
+    right: 0;
+    background: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    min-width: 160px;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.wcpa-user-dropdown:hover .wcpa-user-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.wcpa-user-menu a {
+    display: block;
+    padding: 12px 16px;
+    color: #333;
+    text-decoration: none;
+    transition: background 0.2s;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.wcpa-user-menu a:last-child {
+    border-bottom: none;
+}
+
+.wcpa-user-menu a:hover {
+    background: #f8f9fa;
+    color: var(--wcpa-primary, #224190);
+}
+
+/* Mobile Login Button - Scoped to WCPA */
+.wcpa-mobile-btn {
+    background: var(--wcpa-primary, #224190) !important;
+    color: white !important;
+    border: none !important;
+    padding: 10px 12px !important;
+    border-radius: 50px !important;
+    cursor: pointer !important;
+    font-size: 14px !important;
+    transition: all 0.3s !important;
+    text-decoration: none !important;
+    display: inline-block !important;
+}
+
+.wcpa-mobile-btn:hover {
+    background: var(--wcpa-primary, #224190) !important;
+    transform: translateY(-1px);
+}
+
+/* Login Button - Scoped to WCPA */
+.wcpa-login-btn {
+    background: var(--wcpa-primary, #224190) !important;
+    color: white !important;
+    border: none !important;
+    padding: 10px 20px !important;
+    border-radius: 5px !important;
+    cursor: pointer !important;
+    font-size: 14px !important;
+    transition: all 0.3s !important;
+    text-decoration: none !important;
+    display: inline-block !important;
+}
+
+.wcpa-login-btn:hover {
+    background: var(--wcpa-primary, #224190) !important;
+    transform: translateY(-1px);
+}
+
+/* Modal Styles - Scoped to WCPA */
+#wcpa-login-modal {
+    display: none !important;
+    position: fixed !important;
+    z-index: 999999 !important;
+    left: 0 !important;
+    top: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    max-width: 100vw !important;
+    max-height: 100vh !important;
+    background-color: rgba(0,0,0,0.5) !important;
+    backdrop-filter: blur(5px) !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+}
+
+#wcpa-login-modal[style*="display: block"],
+#wcpa-login-modal[style*="display:flex"],
+#wcpa-login-modal[style*="display: flex"],
+#wcpa-login-modal[style*="display: flex !important"],
+#wcpa-login-modal.show {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+}
+
+/* Force flex display when modal is visible */
+#wcpa-login-modal:not([style*="display: none"]):not([style=""]) {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+}
+
+#wcpa-login-modal .wcpa-modal-content {
+    background-color: #fefefe;
+    margin: auto !important;
+    padding: 0;
+    border: none;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 400px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    animation: wcpa-modalSlideIn 0.3s ease-out;
+    overflow: hidden;
+    position: relative !important;
+    z-index: 1000000 !important;
+    max-height: 90vh;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    transform: translateZ(0);
+}
+
+@keyframes wcpa-modalSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-50px) scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+#wcpa-login-modal .wcpa-modal-header {
+    background: linear-gradient(135deg, var(--wcpa-primary, #224190) 0%, var(--wcpa-primary, #1a3570) 100%);
+    color: white;
+    padding: 20px;
+    text-align: center;
+    position: relative;
+}
+
+#wcpa-login-modal .wcpa-modal-header h3 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 600;
+    color: white!important;
+}
+
+#wcpa-login-modal .wcpa-close {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: white;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: opacity 0.3s;
+    z-index: 1000001 !important;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+#wcpa-login-modal .wcpa-close:hover,
+#wcpa-login-modal .wcpa-close:active {
+    opacity: 0.7;
+    background: rgba(0, 0, 0, 0.2);
+}
+
+#wcpa-login-modal .wcpa-close:focus {
+    outline: 2px solid rgba(255, 255, 255, 0.5);
+    outline-offset: 2px;
+}
+
+#wcpa-login-modal .wcpa-modal-body {
+    padding: 30px;
+}
+
+/* General form styles for modal - Apply to all inputs */
+#wcpa-login-modal .wcpa-form-group {
+    margin-bottom: 25px;
+    width: 100%;
+}
+
+#wcpa-login-modal .wcpa-form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #333;
+    font-size: 14px;
+    text-align: right;
+    direction: rtl;
+}
+
+#wcpa-login-modal .wcpa-form-group input,
+#wcpa-login-modal input[type="tel"],
+#wcpa-login-modal input[type="text"],
+#wcpa-login-modal #wcpa-phone,
+#wcpa-login-modal #wcpa-code {
+    width: 100% !important;
+    padding: 15px !important;
+    border: 2px solid #e0e0e0 !important;
+    border-radius: 10px !important;
+    font-size: 16px !important;
+    transition: all 0.3s ease !important;
+    background: white !important;
+    box-sizing: border-box !important;
+    text-align: right !important;
+    direction: rtl !important;
+    font-family: inherit !important;
+}
+
+#wcpa-login-modal .wcpa-form-group input:focus,
+#wcpa-login-modal input[type="tel"]:focus,
+#wcpa-login-modal input[type="text"]:focus,
+#wcpa-login-modal #wcpa-phone:focus,
+#wcpa-login-modal #wcpa-code:focus {
+    outline: none !important;
+    border-color: var(--wcpa-primary, #224190) !important;
+    box-shadow: 0 0 0 3px rgba(34, 65, 144, 0.1) !important;
+    transform: translateY(-2px) !important;
+}
+
+/* Custom Login Form - Scoped to WCPA */
+.wcpa-login-form {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 40px;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+    border: 1px solid #e0e0e0;
+}
+
+.wcpa-login-form .wcpa-form-group {
+    margin-bottom: 25px;
+}
+
+.wcpa-login-form .wcpa-form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #333;
+    font-size: 14px;
+}
+
+.wcpa-login-form .wcpa-form-group input {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    background: white;
+    box-sizing: border-box;
+}
+
+.wcpa-login-form .wcpa-form-group input:focus {
+    outline: none;
+    border-color: var(--wcpa-primary, #224190);
+    box-shadow: 0 0 0 3px rgba(34, 65, 144, 0.1);
+    transform: translateY(-2px);
+}
+
+/* Resend Row - Scoped to WCPA */
+.wcpa-resend-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+#wcpa-resend, #page-resend {
+    background: transparent !important;
+    color: var(--wcpa-primary, #224190) !important;
+    border: 2px solid var(--wcpa-primary, #224190) !important;
+    padding: 8px 12px !important;
+    border-radius: 8px !important;
+    font-size: 14px !important;
+    width: auto !important;
+}
+
+#wcpa-resend:disabled, #page-resend:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+#wcpa-timer, #page-timer {
+    font-size: 13px;
+    color: #6b7280;
+}
+
+/* Button styles for modal - Apply to all buttons */
+#wcpa-login-modal .wcpa-submit-btn,
+#wcpa-login-modal #wcpa-send-code,
+#wcpa-login-modal #wcpa-submit-form,
+#wcpa-login-modal button[type="submit"],
+#wcpa-login-modal button[type="button"] {
+    width: 100% !important;
+    background: linear-gradient(135deg, var(--wcpa-primary, #224190) 0%, var(--wcpa-primary, #1a3570) 100%) !important;
+    color: white !important;
+    border: none !important;
+    padding: 15px !important;
+    border-radius: 10px !important;
+    font-size: 16px !important;
+    font-weight: 600 !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+    margin-top: 10px !important;
+    position: relative !important;
+    overflow: hidden !important;
+    font-family: inherit !important;
+    text-align: center !important;
+    display: block !important;
+}
+
+#wcpa-login-modal .wcpa-submit-btn:hover,
+#wcpa-login-modal #wcpa-send-code:hover,
+#wcpa-login-modal #wcpa-submit-form:hover,
+#wcpa-login-modal button[type="submit"]:hover,
+#wcpa-login-modal button[type="button"]:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 8px 25px rgba(34, 65, 144, 0.3) !important;
+}
+
+#wcpa-login-modal .wcpa-submit-btn:active,
+#wcpa-login-modal #wcpa-send-code:active,
+#wcpa-login-modal #wcpa-submit-form:active {
+    transform: translateY(0) !important;
+}
+
+#wcpa-login-modal .wcpa-submit-btn:disabled,
+#wcpa-login-modal #wcpa-send-code:disabled,
+#wcpa-login-modal #wcpa-submit-form:disabled {
+    opacity: 0.7 !important;
+    cursor: not-allowed !important;
+    transform: none !important;
+}
+
+#wcpa-login-modal .wcpa-submit-btn:disabled:hover,
+#wcpa-login-modal #wcpa-send-code:disabled:hover,
+#wcpa-login-modal #wcpa-submit-form:disabled:hover {
+    background: linear-gradient(135deg, var(--wcpa-primary, #224190) 0%, var(--wcpa-primary, #1a3570) 100%) !important;
+    transform: none !important;
+    box-shadow: none !important;
+}
+
+.wcpa-login-form , .wcpa-submit-btn {
+    width: 100%!important;
+    background: linear-gradient(135deg, var(--wcpa-primary, #224190) 0%, var(--wcpa-primary, #1a3570) 100%)!important;
+    color: white!important;
+    border: none!important;
+    padding: 15px!important;
+    border-radius: 10px!important;
+    font-size: 16px!important;
+    font-weight: 600!important;
+    cursor: pointer!important;
+    transition: all 0.3s ease!important;
+    margin-top: 10px!important;
+    position: relative!important;
+    overflow: hidden!important;
+}
+
+.wcpa-login-form , .wcpa-submit-btn:hover {
+    transform: translateY(-2px)!important;
+    box-shadow: 0 8px 25px rgba(34, 65, 144, 0.3)!important;
+}
+
+.wcpa-login-form , .wcpa-submit-btn:active {
+    transform: translateY(0)!important;
+}
+
+.wcpa-login-form , .wcpa-submit-btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.wcpa-login-form .wcpa-submit-btn:disabled:hover {
+    background: linear-gradient(135deg, var(--wcpa-primary, #224190) 0%, var(--wcpa-primary, #1a3570) 100%);
+    transform: none;
+    box-shadow: none;
+}
+
+/* Loading Spinner - Scoped to WCPA */
+.wcpa-loading-spinner {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border: 2px solid #f3f3f3;
+    border-top: 2px solid var(--wcpa-primary, #224190);
+    border-radius: 50%;
+    animation: wcpa-spin 1s linear infinite;
+    margin-left: 8px;
+}
+
+@keyframes wcpa-spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Message Types - Scoped to WCPA */
+#wcpa-message {
+    margin-top: 15px;
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    display: none;
+}
+
+#wcpa-message.wcpa-info {
+    background: #e3f2fd;
+    color: #1976d2;
+    border: 1px solid #bbdefb;
+}
+
+#wcpa-message.wcpa-success {
+    background: #e8f5e8;
+    color: #2e7d32;
+    border: 1px solid #c8e6c9;
+}
+
+#wcpa-message.wcpa-error {
+    background: #ffebee;
+    color: #c62828;
+    border: 1px solid #ffcdd2;
+}
+
+/* Form Footer - Scoped to WCPA */
+.wcpa-form-footer {
+    text-align: center;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #e0e0e0;
+}
+
+.wcpa-form-footer a {
+    color: var(--wcpa-primary, #224190);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.wcpa-form-footer a:hover {
+    text-decoration: underline;
+}
+
+/* Google Login Button - Scoped to WCPA */
+.google-login-section {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #e0e0e0;
+}
+
+.divider {
+    text-align: center;
+    margin: 20px 0;
+    position: relative;
+}
+
+.divider::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: #e0e0e0;
+}
+
+.divider span {
+    background: white;
+    padding: 0 15px;
+    color: #666;
+    font-size: 14px;
+    position: relative;
+}
+
+.btn-google {
+    width: 100% !important;
+    background: white !important;
+    color: #333 !important;
+    border: 2px solid #e0e0e0 !important;
+    padding: 15px !important;
+    border-radius: 10px !important;
+    font-size: 16px !important;
+    font-weight: 600 !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 10px !important;
+    margin-top: 10px !important;
+}
+
+.btn-google:hover {
+    background: #f8f9fa !important;
+    border-color: #dadce0 !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1) !important;
+}
+
+.btn-google:active {
+    transform: translateY(0) !important;
+}
+
+/* Page Login Forms - Scoped to WCPA with !important */
+.wcpa-page-login-form {
+    max-width: 500px !important;
+    margin: 20px auto !important;
+    padding: 40px !important;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%) !important;
+    border-radius: 20px !important;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1) !important;
+    border: 1px solid #e0e0e0 !important;
+    font-family: inherit !important;
+}
+
+.wcpa-page-login-form .form-container {
+    width: 100% !important;
+    max-width: none !important;
+}
+
+.wcpa-page-login-form .form-header {
+    text-align: center !important;
+    margin-bottom: 30px !important;
+}
+
+.wcpa-page-login-form .form-header h2 {
+    color: #333 !important;
+    font-size: 24px !important;
+    font-weight: 700 !important;
+    margin: 0 0 10px 0 !important;
+    text-align: center !important;
+}
+
+.wcpa-page-login-form .form-header p {
+    color: #666 !important;
+    font-size: 14px !important;
+    margin: 0 !important;
+    text-align: center !important;
+}
+
+.wcpa-page-login-form .wcpa-page-form {
+    width: 100% !important;
+}
+
+.wcpa-page-login-form .form-group {
+    margin-bottom: 25px !important;
+    width: 100% !important;
+}
+
+.wcpa-page-login-form .form-group label {
+    display: block !important;
+    margin-bottom: 8px !important;
+    font-weight: 600 !important;
+    color: #333 !important;
+    font-size: 14px !important;
+    text-align: right !important;
+}
+
+.wcpa-page-login-form .form-group input {
+    width: 100% !important;
+    padding: 15px !important;
+    border: 2px solid #e0e0e0 !important;
+    border-radius: 10px !important;
+    font-size: 16px !important;
+    transition: all 0.3s ease !important;
+    background: white !important;
+    box-sizing: border-box !important;
+    text-align: right !important;
+    direction: rtl !important;
+}
+
+.wcpa-page-login-form .form-group input:focus {
+    outline: none !important;
+    border-color: var(--wcpa-primary, #224190) !important;
+    box-shadow: 0 0 0 3px rgba(34, 65, 144, 0.1) !important;
+    transform: translateY(-2px) !important;
+}
+
+.wcpa-page-login-form .form-text {
+    display: block !important;
+    margin-top: 5px !important;
+    font-size: 12px !important;
+    color: #666 !important;
+    text-align: right !important;
+}
+
+.wcpa-page-login-form .wcpa-resend-row {
+    display: flex !important;
+    align-items: center !important;
+    gap: 10px !important;
+    margin-top: 8px !important;
+    justify-content: flex-end !important;
+}
+
+.wcpa-page-login-form .btn {
+    padding: 12px 20px !important;
+    border-radius: 8px !important;
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+    border: none !important;
+    text-decoration: none !important;
+    display: inline-block !important;
+    text-align: center !important;
+}
+
+.wcpa-page-login-form .btn-outline {
+    background: transparent !important;
+    color: var(--wcpa-primary, #224190) !important;
+    border: 2px solid var(--wcpa-primary, #224190) !important;
+    padding: 8px 12px !important;
+    font-size: 12px !important;
+    width: auto !important;
+}
+
+.wcpa-page-login-form .btn-outline:disabled {
+    opacity: 0.6 !important;
+    cursor: not-allowed !important;
+}
+
+.wcpa-page-login-form .btn-primary {
+    background: linear-gradient(135deg, var(--wcpa-primary, #224190) 0%, var(--wcpa-primary, #1a3570) 100%) !important;
+    color: white !important;
+    border: none !important;
+    width: 100% !important;
+    padding: 15px !important;
+    font-size: 16px !important;
+    font-weight: 600 !important;
+    margin-top: 10px !important;
+}
+
+.wcpa-page-login-form .btn-success {
+    background: linear-gradient(135deg, #27ae60 0%, #229954 100%) !important;
+    color: white !important;
+    border: none !important;
+    width: 100% !important;
+    padding: 15px !important;
+    font-size: 16px !important;
+    font-weight: 600 !important;
+    margin-top: 10px !important;
+}
+
+.wcpa-page-login-form .btn:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 8px 25px rgba(34, 65, 144, 0.3) !important;
+}
+
+.wcpa-page-login-form .btn:disabled {
+    opacity: 0.7 !important;
+    cursor: not-allowed !important;
+    transform: none !important;
+}
+
+.wcpa-page-login-form .btn:disabled:hover {
+    transform: none !important;
+    box-shadow: none !important;
+}
+
+.wcpa-page-login-form .form-actions {
+    margin-top: 20px !important;
+    width: 100% !important;
+}
+
+.wcpa-page-login-form .btn-full {
+    width: 100% !important;
+}
+
+.wcpa-page-login-form .message {
+    margin-top: 15px !important;
+    padding: 12px !important;
+    border-radius: 8px !important;
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    text-align: center !important;
+}
+
+.wcpa-page-login-form .message.success {
+    background: #e8f5e8 !important;
+    color: #2e7d32 !important;
+    border: 1px solid #c8e6c9 !important;
+}
+
+.wcpa-page-login-form .message.error {
+    background: #ffebee !important;
+    color: #c62828 !important;
+    border: 1px solid #ffcdd2 !important;
+}
+
+.wcpa-page-login-form .form-footer {
+    text-align: center !important;
+    margin-top: 20px !important;
+    padding-top: 20px !important;
+    border-top: 1px solid #e0e0e0 !important;
+}
+
+.wcpa-page-login-form .form-footer p {
+    color: #666 !important;
+    font-size: 12px !important;
+    margin: 0 !important;
+}
+
+.wcpa-page-login-form .form-footer a {
+    color: var(--wcpa-primary, #224190) !important;
+    text-decoration: none !important;
+    font-weight: 500 !important;
+}
+
+.wcpa-page-login-form .form-footer a:hover {
+    text-decoration: underline !important;
+}
+
+/* Logged in state for page forms */
+.wcpa-page-logged-in {
+    max-width: 500px !important;
+    margin: 20px auto !important;
+    padding: 40px !important;
+    background: linear-gradient(135deg, #e8f5e8 0%, #d4edda 100%) !important;
+    border-radius: 20px !important;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1) !important;
+    border: 1px solid #c8e6c9 !important;
+    text-align: center !important;
+}
+
+.wcpa-page-logged-in .welcome-message h2 {
+    color: #2e7d32 !important;
+    font-size: 24px !important;
+    font-weight: 700 !important;
+    margin: 0 0 10px 0 !important;
+}
+
+.wcpa-page-logged-in .welcome-message p {
+    color: #388e3c !important;
+    font-size: 16px !important;
+    margin: 0 0 30px 0 !important;
+}
+
+.wcpa-page-logged-in .user-actions {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 15px !important;
+    align-items: center !important;
+}
+
+.wcpa-page-logged-in .user-actions .btn {
+    min-width: 200px !important;
+    padding: 12px 20px !important;
+    border-radius: 8px !important;
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    text-decoration: none !important;
+    transition: all 0.3s ease !important;
+}
+
+.wcpa-page-logged-in .user-actions .btn-primary {
+    background: var(--wcpa-primary, #224190) !important;
+    color: white !important;
+}
+
+.wcpa-page-logged-in .user-actions .btn-secondary {
+    background: #6c757d !important;
+    color: white !important;
+}
+
+.wcpa-page-logged-in .user-actions .btn-outline {
+    background: transparent !important;
+    color: var(--wcpa-primary, #224190) !important;
+    border: 2px solid var(--wcpa-primary, #224190) !important;
+}
+
+/* Phone login form specific styles */
+.wcpa-login-form {
+    max-width: 500px !important;
+    margin: 20px auto !important;
+    padding: 40px !important;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%) !important;
+    border-radius: 20px !important;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1) !important;
+    border: 1px solid #e0e0e0 !important;
+}
+
+.wcpa-login-form .form-container {
+    width: 100% !important;
+}
+
+.wcpa-login-form .form-header {
+    text-align: center !important;
+    margin-bottom: 30px !important;
+}
+
+.wcpa-login-form .form-header h2 {
+    color: #333 !important;
+    font-size: 24px !important;
+    font-weight: 700 !important;
+    margin: 0 0 10px 0 !important;
+}
+
+.wcpa-login-form .form-header p {
+    color: #666 !important;
+    font-size: 14px !important;
+    margin: 0 !important;
+}
+
+.wcpa-login-form .login-form {
+    width: 100% !important;
+}
+
+.wcpa-login-form .form-group {
+    margin-bottom: 25px !important;
+    width: 100% !important;
+}
+
+.wcpa-login-form .form-group label {
+    display: block !important;
+    margin-bottom: 8px !important;
+    font-weight: 600 !important;
+    color: #333 !important;
+    font-size: 14px !important;
+    text-align: right !important;
+}
+
+.wcpa-login-form .form-group input {
+    width: 100% !important;
+    padding: 15px !important;
+    border: 2px solid #e0e0e0 !important;
+    border-radius: 10px !important;
+    font-size: 16px !important;
+    transition: all 0.3s ease !important;
+    background: white !important;
+    box-sizing: border-box !important;
+    text-align: right !important;
+    direction: rtl !important;
+}
+
+.wcpa-login-form .form-group input:focus {
+    outline: none !important;
+    border-color: var(--wcpa-primary, #224190) !important;
+    box-shadow: 0 0 0 3px rgba(34, 65, 144, 0.1) !important;
+    transform: translateY(-2px) !important;
+}
+
+.wcpa-login-form .form-text {
+    display: block !important;
+    margin-top: 5px !important;
+    font-size: 12px !important;
+    color: #666 !important;
+    text-align: right !important;
+}
+
+.wcpa-login-form .form-actions {
+    margin-top: 20px !important;
+    width: 100% !important;
+}
+
+.wcpa-login-form .btn {
+    width: 100% !important;
+    padding: 15px !important;
+    border-radius: 10px !important;
+    font-size: 16px !important;
+    font-weight: 600 !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+    border: none !important;
+    margin-top: 10px !important;
+}
+
+.wcpa-login-form .btn-primary {
+    background: linear-gradient(135deg, var(--wcpa-primary, #224190) 0%, var(--wcpa-primary, #1a3570) 100%) !important;
+    color: white !important;
+}
+
+.wcpa-login-form .btn-success {
+    background: linear-gradient(135deg, #27ae60 0%, #229954 100%) !important;
+    color: white !important;
+}
+
+.wcpa-login-form .btn:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 8px 25px rgba(34, 65, 144, 0.3) !important;
+}
+
+.wcpa-login-form .btn:disabled {
+    opacity: 0.7 !important;
+    cursor: not-allowed !important;
+    transform: none !important;
+}
+
+.wcpa-login-form .btn:disabled:hover {
+    transform: none !important;
+    box-shadow: none !important;
+}
+
+/* Logged in state for phone login form */
+.wcpa-logged-in {
+    max-width: 500px !important;
+    margin: 20px auto !important;
+    padding: 40px !important;
+    background: linear-gradient(135deg, #e8f5e8 0%, #d4edda 100%) !important;
+    border-radius: 20px !important;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1) !important;
+    border: 1px solid #c8e6c9 !important;
+    text-align: center !important;
+}
+
+.wcpa-logged-in .welcome-message h2 {
+    color: #2e7d32 !important;
+    font-size: 24px !important;
+    font-weight: 700 !important;
+    margin: 0 0 10px 0 !important;
+}
+
+.wcpa-logged-in .welcome-message p {
+    color: #388e3c !important;
+    font-size: 16px !important;
+    margin: 0 0 30px 0 !important;
+}
+
+.wcpa-logged-in .user-actions {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 15px !important;
+    align-items: center !important;
+}
+
+.wcpa-logged-in .user-actions .btn {
+    min-width: 200px !important;
+    padding: 12px 20px !important;
+    border-radius: 8px !important;
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    text-decoration: none !important;
+    transition: all 0.3s ease !important;
+}
+
+.wcpa-logged-in .user-actions .btn-primary {
+    background: var(--wcpa-primary, #224190) !important;
+    color: white !important;
+}
+
+.wcpa-logged-in .user-actions .btn-secondary {
+    background: #6c757d !important;
+    color: white !important;
+}
+
+.wcpa-logged-in .user-actions .btn-outline {
+    background: transparent !important;
+    color: var(--wcpa-primary, #224190) !important;
+    border: 2px solid var(--wcpa-primary, #224190) !important;
+}
+
+/* Responsive - Scoped to WCPA */
+@media (max-width: 768px) {
+    #wcpa-login-modal {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        padding: 10px !important;
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        bottom: 0 !important;
+        width: 100vw !important;
+        height: 100vh !important;
+        z-index: 999999 !important;
+    }
+    
+    #wcpa-login-modal.show {
+        display: flex !important;
+    }
+    
+    #wcpa-login-modal .wcpa-modal-content {
+        margin: auto !important;
+        width: 95% !important;
+        max-width: 400px !important;
+        max-height: 90vh !important;
+        overflow-y: auto !important;
+        position: relative !important;
+        z-index: 1000000 !important;
+    }
+    
+    .wcpa-login-form {
+        padding: 20px;
+    }
+    
+    .wcpa-page-login-form,
+    .wcpa-login-form,
+    .wcpa-page-logged-in,
+    .wcpa-logged-in {
+        margin: 10px auto !important;
+        padding: 20px !important;
+        border-radius: 15px !important;
+    }
+    
+    .wcpa-page-login-form .form-header h2,
+    .wcpa-login-form .form-header h2 {
+        font-size: 20px !important;
+    }
+    
+    .wcpa-page-logged-in .welcome-message h2,
+    .wcpa-logged-in .welcome-message h2 {
+        font-size: 20px !important;
+    }
+}

@@ -1,0 +1,279 @@
+# Copyright (C) 2024 WooCommerce Phone Authentication
+# This file is distributed under the same license as the WooCommerce Phone Authentication package.
+msgid ""
+msgstr ""
+"Project-Id-Version: WooCommerce Phone Authentication 1.0.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/woocommerce-phone-auth\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2024-01-01T00:00:00+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.8.1\n"
+"X-Domain: woocommerce-phone-auth\n"
+
+#: woocommerce-phone-auth.php:15
+msgid "WooCommerce Phone Authentication requires WooCommerce to be installed and active."
+msgstr ""
+
+#: includes/class-wcpa-main.php:45
+msgid "در حال ارسال کد..."
+msgstr ""
+
+#: includes/class-wcpa-main.php:46
+msgid "کد تایید ارسال شد"
+msgstr ""
+
+#: includes/class-wcpa-main.php:47
+msgid "در حال تایید..."
+msgstr ""
+
+#: includes/class-wcpa-main.php:48
+msgid "کد وارد شده صحیح نیست"
+msgstr ""
+
+#: includes/class-wcpa-main.php:49
+msgid "شماره تماس الزامی است"
+msgstr ""
+
+#: includes/class-wcpa-main.php:50
+msgid "کد تایید الزامی است"
+msgstr ""
+
+#: includes/class-wcpa-main.php:51
+msgid "ورود موفقیت‌آمیز"
+msgstr ""
+
+#: includes/class-wcpa-main.php:52
+msgid "ثبت نام موفقیت‌آمیز"
+msgstr ""
+
+#: includes/class-wcpa-main.php:53
+msgid "خطایی رخ داد"
+msgstr ""
+
+#: includes/class-wcpa-main.php:65
+msgid "شماره تماس الزامی است"
+msgstr ""
+
+#: includes/class-wcpa-main.php:70
+msgid "فرمت شماره تماس صحیح نیست"
+msgstr ""
+
+#: includes/class-wcpa-main.php:78
+msgid "کد تایید ارسال شد"
+msgstr ""
+
+#: includes/class-wcpa-main.php:90
+msgid "تمام فیلدها الزامی است"
+msgstr ""
+
+#: includes/class-wcpa-main.php:108
+msgid "تمام فیلدها الزامی است"
+msgstr ""
+
+#: includes/class-wcpa-auth.php:25
+msgid "ورود با شماره تماس"
+msgstr ""
+
+#: includes/class-wcpa-auth.php:31
+msgid "ثبت نام با شماره تماس"
+msgstr ""
+
+#: includes/class-wcpa-auth.php:45
+msgid "کاربری با این شماره تماس قبلاً ثبت نام کرده است"
+msgstr ""
+
+#: includes/class-wcpa-auth.php:52
+msgid "خطا در ایجاد کاربر"
+msgstr ""
+
+#: includes/class-wcpa-auth.php:66
+msgid "ثبت نام موفقیت‌آمیز"
+msgstr ""
+
+#: includes/class-wcpa-auth.php:75
+msgid "کاربری با این شماره تماس یافت نشد"
+msgstr ""
+
+#: includes/class-wcpa-auth.php:82
+msgid "شماره تماس تایید نشده است"
+msgstr ""
+
+#: includes/class-wcpa-auth.php:90
+msgid "ورود موفقیت‌آمیز"
+msgstr ""
+
+#: includes/class-wcpa-shortcode.php:25
+msgid "خروج"
+msgstr ""
+
+#: includes/class-wcpa-shortcode.php:30
+msgid "ورود"
+msgstr ""
+
+#: includes/class-wcpa-shortcode.php:31
+msgid "ثبت نام"
+msgstr ""
+
+#: includes/class-wcpa-shortcode.php:44
+msgid "ورود / ثبت نام"
+msgstr ""
+
+#: includes/class-wcpa-shortcode.php:50
+msgid "شماره تماس"
+msgstr ""
+
+#: includes/class-wcpa-shortcode.php:52
+msgid "شماره تماس خود را بدون صفر وارد کنید"
+msgstr ""
+
+#: includes/class-wcpa-shortcode.php:56
+msgid "کد تایید"
+msgstr ""
+
+#: includes/class-wcpa-shortcode.php:59
+msgid "ارسال مجدد"
+msgstr ""
+
+#: includes/class-wcpa-shortcode.php:63
+msgid "ارسال کد"
+msgstr ""
+
+#: includes/class-wcpa-shortcode.php:64
+msgid "تایید"
+msgstr ""
+
+#: includes/class-wcpa-sms.php:25
+msgid "کد تایید شما: %s\nاین کد 5 دقیقه معتبر است."
+msgstr ""
+
+#: includes/class-wcpa-sms.php:30
+msgid "کد تایید ارسال شد"
+msgstr ""
+
+#: includes/class-wcpa-sms.php:50
+msgid "کد وارد شده صحیح نیست یا منقضی شده است"
+msgstr ""
+
+#: includes/class-wcpa-sms.php:60
+msgid "کد تایید شد"
+msgstr ""
+
+#: includes/class-wcpa-sms.php:85
+msgid "تنظیمات پیامک تکمیل نشده است"
+msgstr ""
+
+#: includes/class-wcpa-sms.php:105
+msgid "خطا در ارسال پیامک"
+msgstr ""
+
+#: includes/class-wcpa-sms.php:115
+msgid "پیامک ارسال شد"
+msgstr ""
+
+#: includes/class-wcpa-sms.php:122
+msgid "خطا در ارسال پیامک"
+msgstr ""
+
+#: includes/class-wcpa-sms.php:130
+msgid "تست پیامک از افزونه ووکامرس"
+msgstr ""
+
+#: includes/class-wcpa-styles.php:25
+msgid "خوش آمدید!"
+msgstr ""
+
+#: includes/class-wcpa-styles.php:26
+msgid "به پنل کاربری خود خوش آمدید. از منوی سمت راست می‌توانید به بخش‌های مختلف دسترسی داشته باشید."
+msgstr ""
+
+#: admin/class-wcpa-admin.php:20
+msgid "تنظیمات ورود با شماره تماس"
+msgstr ""
+
+#: admin/class-wcpa-admin.php:21
+msgid "ورود با شماره تماس"
+msgstr ""
+
+#: admin/class-wcpa-admin.php:35
+msgid "تنظیمات پیامک"
+msgstr ""
+
+#: admin/class-wcpa-admin.php:42
+msgid "کلید API فراز اس ام اس"
+msgstr ""
+
+#: admin/class-wcpa-admin.php:48
+msgid "شماره فرستنده"
+msgstr ""
+
+#: admin/class-wcpa-admin.php:54
+msgid "مدت اعتبار کد (ثانیه)"
+msgstr ""
+
+#: admin/class-wcpa-admin.php:75
+msgid "تنظیمات ورود با شماره تماس"
+msgstr ""
+
+#: admin/class-wcpa-admin.php:82
+msgid "شورت کد"
+msgstr ""
+
+#: admin/class-wcpa-admin.php:83
+msgid "برای نمایش دکمه ورود/ثبت نام در هدر از شورت کد زیر استفاده کنید:"
+msgstr ""
+
+#: admin/class-wcpa-admin.php:87
+msgid "پارامترهای اختیاری:"
+msgstr ""
+
+#: admin/class-wcpa-admin.php:89
+msgid "نمایش نام کاربر"
+msgstr ""
+
+#: admin/class-wcpa-admin.php:90
+msgid "نمایش شماره تماس به جای نام"
+msgstr ""
+
+#: admin/class-wcpa-admin.php:95
+msgid "تست پیامک"
+msgstr ""
+
+#: admin/class-wcpa-admin.php:96
+msgid "برای تست ارسال پیامک شماره تماس خود را وارد کنید:"
+msgstr ""
+
+#: admin/class-wcpa-admin.php:100
+msgid "ارسال تست"
+msgstr ""
+
+#: admin/class-wcpa-admin.php:105
+msgid "آمار"
+msgstr ""
+
+#: admin/class-wcpa-admin.php:120
+msgid "تنظیمات مربوط به سرویس پیامک فراز اس ام اس"
+msgstr ""
+
+#: admin/class-wcpa-admin.php:125
+msgid "کلید API دریافتی از پنل فراز اس ام اس"
+msgstr ""
+
+#: admin/class-wcpa-admin.php:131
+msgid "شماره فرستنده تایید شده در پنل فراز اس ام اس"
+msgstr ""
+
+#: admin/class-wcpa-admin.php:137
+msgid "مدت اعتبار کد تایید به ثانیه (پیش‌فرض: 300 ثانیه)"
+msgstr ""
+
+#: admin/class-wcpa-admin.php:150
+msgid "کدهای ارسالی امروز:"
+msgstr ""
+
+#: admin/class-wcpa-admin.php:151
+msgid "کاربران تایید شده:"
+msgstr ""

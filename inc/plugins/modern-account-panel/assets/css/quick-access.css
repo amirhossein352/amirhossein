@@ -1,0 +1,157 @@
+/* ============================================
+   Quick Access Menu Styles - منوی دسترسی سریع
+   ============================================ */
+
+.quick-access-menu {
+    position: sticky;
+    top: calc(var(--header-height) + 1rem);
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 1rem;
+    padding: 1rem 1.5rem 1rem 3.5rem;
+    margin-bottom: 2rem;
+    box-shadow: var(--shadow-lg);
+    z-index: 50;
+    transition: var(--transition);
+    overflow: hidden;
+}
+
+.quick-access-menu.collapsed {
+    padding: 0.75rem 1.5rem 0.75rem 3.5rem;
+}
+
+.quick-access-menu.collapsed .quick-access-items {
+    display: none;
+}
+
+.quick-access-menu.collapsed .quick-access-toggle {
+    transform: rotate(180deg);
+}
+
+.quick-access-items {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.quick-access-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.625rem 1rem;
+    background-color: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border-radius: 0.5rem;
+    color: white;
+    font-size: 0.875rem;
+    font-weight: 500;
+    transition: var(--transition);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    text-decoration: none;
+}
+
+.quick-access-item:hover {
+    background-color: rgba(255, 255, 255, 0.25);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.quick-access-item.active {
+    background-color: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.quick-access-item i {
+    font-size: 1rem;
+}
+
+.quick-access-toggle {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    color: white;
+    cursor: pointer;
+    transition: var(--transition);
+    font-size: 0.875rem;
+}
+
+.quick-access-toggle:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+    transform: translateY(-50%) scale(1.1);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .quick-access-menu {
+        padding: 0.875rem 1.25rem;
+    }
+    
+    .quick-access-item {
+        padding: 0.5rem 0.75rem;
+        font-size: 0.8125rem;
+    }
+    
+    .quick-access-item span {
+        display: none;
+    }
+    
+    .quick-access-item {
+        padding: 0.625rem;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .quick-access-menu {
+        top: var(--header-height);
+        border-radius: 0;
+        margin: 0 -1rem 1.5rem -1rem;
+        padding: 0.75rem 1rem 0.75rem 1rem;
+    }
+    
+    .quick-access-toggle {
+        display: none;
+    }
+    
+    .quick-access-items {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        padding-bottom: 0.25rem;
+    }
+    
+    .quick-access-items::-webkit-scrollbar {
+        display: none;
+    }
+    
+    .quick-access-item {
+        flex-shrink: 0;
+        min-width: 60px;
+    }
+}
+
+/* Animation */
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.quick-access-menu {
+    animation: slideDown 0.3s ease;
+}
+

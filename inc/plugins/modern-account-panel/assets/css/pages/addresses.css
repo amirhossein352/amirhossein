@@ -1,0 +1,90 @@
+/* Addresses Page Styles - استایل‌های صفحه آدرس‌ها */
+
+.addresses-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.address-card {
+    background: white;
+    border: 1px solid var(--gray-200);
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    transition: var(--transition);
+}
+
+.address-card:hover {
+    box-shadow: var(--shadow-md);
+    border-color: var(--primary-color);
+}
+
+.address-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--gray-200);
+}
+
+.address-header h4 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--gray-900);
+}
+
+.address-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.address-content {
+    margin-bottom: 1rem;
+}
+
+.address-content p {
+    margin-bottom: 0.5rem;
+    color: var(--gray-700);
+    font-size: 0.875rem;
+    line-height: 1.6;
+}
+
+.address-content p:first-child {
+    font-weight: 600;
+    color: var(--gray-900);
+    font-size: 1rem;
+}
+
+.address-footer {
+    padding-top: 1rem;
+    border-top: 1px solid var(--gray-200);
+}
+
+.address-type-badge {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+
+.address-type-badge.billing {
+    background: #dbeafe;
+    color: #1e40af;
+}
+
+.address-type-badge.shipping {
+    background: #d1fae5;
+    color: #065f46;
+}
+
+/* Form Styles are now in main.css - no need to duplicate */
+
+/* Responsive */
+@media (max-width: 768px) {
+    .addresses-grid {
+        grid-template-columns: 1fr;
+    }
+}
+

@@ -1,0 +1,697 @@
+/**
+ * Navigation Menu Styles - High Priority
+ * This file fixes all menu and dropdown styling issues
+ */
+
+/* ============================================
+   Desktop Navigation Menu
+   ============================================ */
+@media (min-width: 769px) {
+    /* Main Navigation Container - برای دسکتاپ */
+    .header-middle .desktop-nav,
+    .main-navigation {
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        flex: 1 1 auto !important;
+        width: 100% !important;
+    }
+
+    /* Menu List */
+    .header-middle .desktop-nav .nav-menu,
+    .main-navigation .nav-menu,
+    .main-navigation ul.nav-menu,
+    #primary-menu.nav-menu {
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 0.25rem !important;
+        list-style: none !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        flex-wrap: wrap !important;
+    }
+
+    /* Menu Items */
+    .header-middle .desktop-nav .nav-menu li,
+    .header-middle .desktop-nav .nav-item,
+    .header-middle .desktop-nav li.nav-item,
+    .main-navigation .nav-menu li,
+    .main-navigation .nav-item,
+    .main-navigation li.nav-item {
+        display: inline-flex !important;
+        align-items: center !important;
+        position: relative !important;
+        list-style: none !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    /* Dropdown Parent Item */
+    .header-middle .desktop-nav .nav-item.dropdown,
+    .header-middle .desktop-nav li.nav-item.dropdown,
+    .header-middle .desktop-nav .menu-item-has-children,
+    .main-navigation .nav-item.dropdown,
+    .main-navigation li.nav-item.dropdown,
+    .main-navigation .menu-item-has-children {
+        position: relative !important;
+    }
+
+    /* Navigation Links */
+    .header-middle .desktop-nav .nav-link,
+    .header-middle .desktop-nav a.nav-link,
+    .main-navigation .nav-link,
+    .main-navigation a.nav-link {
+        display: inline-flex !important;
+        align-items: center !important;
+        gap: 0.5rem !important;
+        padding: 0.75rem 1.25rem !important;
+        color: #4b5563 !important;
+        text-decoration: none !important;
+        transition: all 0.3s ease !important;
+        border-radius: 10px !important;
+        white-space: nowrap !important;
+        font-weight: 500 !important;
+        font-size: 0.9rem !important;
+        position: relative !important;
+    }
+
+    .header-middle .desktop-nav .nav-link:hover,
+    .main-navigation .nav-link:hover {
+        color: #00A796 !important;
+        background: linear-gradient(135deg, #f0fdfa, #e6fffa) !important;
+        transform: translateY(-2px) !important;
+    }
+
+    /* Icons - Completely prevent any transform, transition, or animation */
+    .main-navigation .nav-icon,
+    .header-middle .desktop-nav .nav-icon {
+        font-size: 1rem !important;
+        transition: none !important;
+        flex-shrink: 0 !important;
+        transform: none !important;
+        will-change: auto !important;
+        position: relative !important;
+        display: inline-block !important;
+    }
+
+    /* Completely disable ALL hover, focus, active, or any state effects on icons */
+    .main-navigation .nav-link:hover .nav-icon,
+    .main-navigation .nav-link:focus .nav-icon,
+    .main-navigation .nav-link:active .nav-icon,
+    .main-navigation .nav-item:hover .nav-icon,
+    .main-navigation .nav-item:focus .nav-icon,
+    .main-navigation .nav-item:active .nav-icon,
+    .header-middle .desktop-nav .nav-link:hover .nav-icon,
+    .header-middle .desktop-nav .nav-link:focus .nav-icon,
+    .header-middle .desktop-nav .nav-link:active .nav-icon,
+    .header-middle .desktop-nav .nav-item:hover .nav-icon,
+    .header-middle .desktop-nav .nav-item:focus .nav-icon,
+    .header-middle .desktop-nav .nav-item:active .nav-icon {
+        transform: none !important;
+        scale: 1 !important;
+        rotate: 0deg !important;
+        transition: none !important;
+        animation: none !important;
+    }
+    
+    /* Prevent icon from inheriting parent transform - use isolation */
+    .main-navigation .nav-link,
+    .header-middle .desktop-nav .nav-link {
+        position: relative !important;
+        isolation: isolate !important;
+    }
+    
+    .main-navigation .nav-link .nav-icon,
+    .header-middle .desktop-nav .nav-link .nav-icon {
+        position: relative !important;
+        transform: none !important;
+        display: inline-block !important;
+        isolation: isolate !important;
+    }
+    
+    /* Force reset transform on icon when parent link has transform */
+    .main-navigation .nav-link:hover .nav-icon,
+    .main-navigation .nav-link:focus .nav-icon,
+    .header-middle .desktop-nav .nav-link:hover .nav-icon,
+    .header-middle .desktop-nav .nav-link:focus .nav-icon {
+        transform: none !important;
+        scale: 1 !important;
+        rotate: 0deg !important;
+        translate: 0 0 !important;
+    }
+
+    /* Dropdown Arrow */
+    .main-navigation .nav-item.dropdown .nav-link::after,
+    .main-navigation .menu-item-has-children .nav-link::after {
+        content: '▼' !important;
+        font-size: 0.65rem !important;
+        margin-right: 0.25rem !important;
+        transition: transform 0.3s ease !important;
+        display: inline-block !important;
+        opacity: 0.7 !important;
+        transform: rotate(0deg) !important;
+    }
+
+    /* Completely disable hover effect on arrow */
+    .main-navigation .nav-item.dropdown:hover .nav-link::after,
+    .main-navigation .menu-item-has-children:hover .nav-link::after,
+    .main-navigation .nav-link:hover::after {
+        transform: rotate(0deg) !important;
+        opacity: 0.7 !important;
+    }
+
+    /* Change arrow only on click (active), not on hover */
+    .main-navigation .nav-item.dropdown.active .nav-link::after,
+    .main-navigation .menu-item-has-children.active .nav-link::after {
+        transform: rotate(180deg) !important;
+        opacity: 1 !important;
+    }
+
+    /* Dropdown Menu - ONLY for NON-mega-menu items */
+    .main-navigation .nav-item.dropdown:not(.mega-menu) > .dropdown-menu,
+    .main-navigation .nav-item.dropdown:not(.mega-menu) > .sub-menu,
+    .main-navigation li.nav-item.dropdown:not(.mega-menu) > .dropdown-menu,
+    .main-navigation li.nav-item.dropdown:not(.mega-menu) > .sub-menu {
+        position: absolute !important;
+        top: 100% !important;
+        right: 0 !important;
+        background: #ffffff !important;
+        min-width: 220px !important;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15) !important;
+        border-radius: 12px !important;
+        opacity: 0 !important;
+        visibility: hidden !important;
+        transform: translateY(-10px) scale(0.95) !important;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+        z-index: 1000 !important;
+        padding: 0.75rem 0 !important;
+        margin-top: 0.5rem !important;
+        border: 1px solid rgba(0, 0, 0, 0.05) !important;
+        list-style: none !important;
+        margin-right: 0 !important;
+        margin-left: 0 !important;
+    }
+
+    /* Show Dropdown on Click - ONLY for NON-mega-menu items (hover removed) */
+    .main-navigation .nav-item.dropdown:not(.mega-menu).active > .dropdown-menu,
+    .main-navigation .nav-item.dropdown:not(.mega-menu).active > .sub-menu {
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: translateY(0) scale(1) !important;
+    }
+
+    /* Dropdown Items - ONLY inside NON-mega-menu dropdowns */
+    .main-navigation .nav-item.dropdown:not(.mega-menu) > .dropdown-menu .nav-item,
+    .main-navigation .nav-item.dropdown:not(.mega-menu) > .sub-menu .nav-item,
+    .main-navigation .nav-item.dropdown:not(.mega-menu) > .dropdown-menu li,
+    .main-navigation .nav-item.dropdown:not(.mega-menu) > .sub-menu li {
+        display: block !important;
+        margin: 0 !important;
+        width: 100% !important;
+        position: relative !important;
+        list-style: none !important;
+    }
+
+    .main-navigation .nav-item.dropdown:not(.mega-menu) > .dropdown-menu .nav-item:not(:last-child),
+    .main-navigation .nav-item.dropdown:not(.mega-menu) > .sub-menu .nav-item:not(:last-child) {
+        border-bottom: 1px solid #f3f4f6 !important;
+    }
+
+    /* Dropdown Links - ONLY inside NON-mega-menu dropdowns */
+    .main-navigation .nav-item.dropdown:not(.mega-menu) > .dropdown-menu .nav-link,
+    .main-navigation .nav-item.dropdown:not(.mega-menu) > .sub-menu .nav-link {
+        padding: 0.875rem 1.25rem !important;
+        border-radius: 0 !important;
+        color: #374151 !important;
+        font-weight: 500 !important;
+        transition: all 0.2s ease !important;
+        display: flex !important;
+        align-items: center !important;
+        gap: 0.75rem !important;
+        width: 100% !important;
+        text-align: right !important;
+        white-space: nowrap !important;
+        font-size: 0.9rem !important;
+    }
+
+    .main-navigation .nav-item.dropdown:not(.mega-menu) > .dropdown-menu .nav-link:hover,
+    .main-navigation .nav-item.dropdown:not(.mega-menu) > .sub-menu .nav-link:hover {
+        background: linear-gradient(135deg, #f0fdfa 0%, #e6fffa 100%) !important;
+        color: #00A796 !important;
+        transform: translateX(-5px) !important;
+        padding-right: 1.5rem !important;
+    }
+
+    .main-navigation .nav-item.dropdown:not(.mega-menu) > .dropdown-menu .nav-link .nav-icon,
+    .main-navigation .nav-item.dropdown:not(.mega-menu) > .sub-menu .nav-link .nav-icon {
+        font-size: 1rem !important;
+        opacity: 0.8 !important;
+        flex-shrink: 0 !important;
+    }
+
+    /* Remove hover effect on dropdown icons - only change on link hover, not icon */
+    /* .main-navigation .nav-item.dropdown:not(.mega-menu) > .dropdown-menu .nav-link:hover .nav-icon,
+    .main-navigation .nav-item.dropdown:not(.mega-menu) > .sub-menu .nav-link:hover .nav-icon {
+        opacity: 1 !important;
+        transform: scale(1.1) !important;
+    } */
+
+    /* Nested Dropdowns (Sub-Sub-Menus) - ONLY inside NON-mega-menu dropdowns */
+    .main-navigation .nav-item.dropdown:not(.mega-menu) > .dropdown-menu .dropdown-menu,
+    .main-navigation .nav-item.dropdown:not(.mega-menu) > .sub-menu .sub-menu {
+        top: 0 !important;
+        right: 100% !important;
+        margin-top: 0 !important;
+        margin-right: 0.5rem !important;
+    }
+
+    .main-navigation .nav-item.dropdown:not(.mega-menu) > .dropdown-menu .nav-item.dropdown .nav-link::after,
+    .main-navigation .nav-item.dropdown:not(.mega-menu) > .sub-menu .nav-item.dropdown .nav-link::after {
+        content: '◄' !important;
+        margin-right: auto !important;
+        margin-left: 0.5rem !important;
+        transform: none !important;
+    }
+
+    /* Remove hover effect on nested dropdown arrows - only change on click (active) */
+    /* .main-navigation .nav-item.dropdown:not(.mega-menu) > .dropdown-menu .nav-item.dropdown:hover .nav-link::after,
+    .main-navigation .nav-item.dropdown:not(.mega-menu) > .sub-menu .nav-item.dropdown:hover .nav-link::after {
+        transform: translateX(-3px) !important;
+    } */
+    
+    /* Change nested dropdown arrow only on click (active) */
+    .main-navigation .nav-item.dropdown:not(.mega-menu) > .dropdown-menu .nav-item.dropdown.active .nav-link::after,
+    .main-navigation .nav-item.dropdown:not(.mega-menu) > .sub-menu .nav-item.dropdown.active .nav-link::after {
+        transform: rotate(180deg) !important;
+        opacity: 1 !important;
+    }
+
+    /* ============================================
+       Mega Menu Styles - ONLY for items with .mega-menu class
+       ============================================ */
+    
+    /* Mega Menu Container - Only apply to items with mega-menu class */
+    .header-middle .desktop-nav .nav-item.mega-menu.dropdown,
+    .header-middle .desktop-nav li.nav-item.mega-menu.dropdown,
+    .main-navigation .nav-item.mega-menu.dropdown,
+    .main-navigation li.nav-item.mega-menu.dropdown {
+        position: static !important;
+    }
+
+    /* Override normal dropdown styles ONLY for mega menu items */
+    .header-middle .desktop-nav .nav-item.mega-menu.dropdown > .dropdown-menu,
+    .header-middle .desktop-nav .nav-item.mega-menu.dropdown > .sub-menu,
+    .header-middle .desktop-nav li.nav-item.mega-menu.dropdown > .dropdown-menu,
+    .header-middle .desktop-nav li.nav-item.mega-menu.dropdown > .sub-menu,
+    .main-navigation .nav-item.mega-menu.dropdown > .dropdown-menu,
+    .main-navigation .nav-item.mega-menu.dropdown > .sub-menu,
+    .main-navigation li.nav-item.mega-menu.dropdown > .dropdown-menu,
+    .main-navigation li.nav-item.mega-menu.dropdown > .sub-menu {
+        position: absolute !important;
+        top: 100% !important;
+        right: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+        max-width: 1200px !important;
+        margin: 0 auto !important;
+        padding: 0 !important;
+        background: #ffffff !important;
+        box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15) !important;
+        border-radius: 12px !important;
+        border: 1px solid rgba(0, 0, 0, 0.08) !important;
+        display: grid !important;
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 0 !important;
+        opacity: 0 !important;
+        visibility: hidden !important;
+        transform: translateY(-20px) scale(0.95) !important;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+        z-index: 1000 !important;
+        min-width: auto !important;
+        overflow: hidden !important;
+    }
+
+    /* Show Mega Menu on Click (hover removed) */
+    .header-middle .desktop-nav .nav-item.mega-menu.dropdown.active > .dropdown-menu,
+    .header-middle .desktop-nav .nav-item.mega-menu.dropdown.active > .sub-menu,
+    .main-navigation .nav-item.mega-menu.dropdown.active > .dropdown-menu,
+    .main-navigation .nav-item.mega-menu.dropdown.active > .sub-menu {
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: translateY(0) scale(1) !important;
+    }
+    
+    /* Mega Menu "View All" Link */
+    .main-navigation .nav-item.mega-menu.dropdown > .dropdown-menu > .mega-menu-view-all,
+    .main-navigation .nav-item.mega-menu.dropdown > .sub-menu > .mega-menu-view-all {
+        display: block !important;
+        padding: 1rem 2rem !important;
+        background: #f8f9fa !important;
+        border-bottom: 1px solid #e9ecef !important;
+        margin: 0 !important;
+        list-style: none !important;
+    }
+    
+    .main-navigation .nav-item.mega-menu.dropdown > .dropdown-menu .mega-menu-view-all-link,
+    .main-navigation .nav-item.mega-menu.dropdown > .sub-menu .mega-menu-view-all-link {
+        display: inline-flex !important;
+        align-items: center !important;
+        gap: 0.5rem !important;
+        color: var(--zs-teal-medium, #37C3B3) !important;
+        font-weight: 600 !important;
+        font-size: 0.95rem !important;
+        text-decoration: none !important;
+        transition: all 0.2s ease !important;
+    }
+    
+    .main-navigation .nav-item.mega-menu.dropdown > .dropdown-menu .mega-menu-view-all-link:hover,
+    .main-navigation .nav-item.mega-menu.dropdown > .sub-menu .mega-menu-view-all-link:hover {
+        color: var(--zs-teal-dark, #00A796) !important;
+        gap: 0.75rem !important;
+    }
+    
+    .main-navigation .nav-item.mega-menu.dropdown > .dropdown-menu .mega-menu-view-all-link svg,
+    .main-navigation .nav-item.mega-menu.dropdown > .sub-menu .mega-menu-view-all-link svg {
+        width: 16px !important;
+        height: 16px !important;
+        fill: none !important;
+        stroke: currentColor !important;
+    }
+    
+    /* Mega Menu Columns Container - Grid layout */
+    /* Default: 3 columns (if no specific column class is set) */
+    .main-navigation .nav-item.mega-menu.dropdown:not(.mega-menu-2cols):not(.mega-menu-3cols):not(.mega-menu-4cols) > .dropdown-menu,
+    .main-navigation .nav-item.mega-menu.dropdown:not(.mega-menu-2cols):not(.mega-menu-3cols):not(.mega-menu-4cols) > .sub-menu {
+        display: grid !important;
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 0 !important;
+        padding: 2rem !important;
+    }
+    
+    /* Override for view-all to be full width at top */
+    .main-navigation .nav-item.mega-menu.dropdown > .dropdown-menu > .mega-menu-view-all,
+    .main-navigation .nav-item.mega-menu.dropdown > .sub-menu > .mega-menu-view-all {
+        grid-column: 1 / -1 !important;
+        padding: 1rem 2rem !important;
+        margin: 0 !important;
+    }
+    
+    /* Columns wrapper - All items except view-all */
+    .main-navigation .nav-item.mega-menu.dropdown > .dropdown-menu > li:not(.mega-menu-view-all),
+    .main-navigation .nav-item.mega-menu.dropdown > .sub-menu > li:not(.mega-menu-view-all) {
+        display: block !important;
+        padding: 0 1.5rem !important;
+        position: relative !important;
+    }
+    
+    /* Column Title - First level submenu items become column titles */
+    .main-navigation .nav-item.mega-menu.dropdown > .dropdown-menu > li:not(.mega-menu-view-all) > .nav-link,
+    .main-navigation .nav-item.mega-menu.dropdown > .sub-menu > li:not(.mega-menu-view-all) > .nav-link {
+        display: block !important;
+        padding: 0.75rem 0 !important;
+        margin-bottom: 0.75rem !important;
+        font-weight: 700 !important;
+        font-size: 1rem !important;
+        color: #212529 !important;
+        border-bottom: none !important;
+        position: relative !important;
+        padding-right: 1rem !important;
+        text-decoration: none !important;
+    }
+    
+    /* Colored bar on the right side of column title (RTL) */
+    .main-navigation .nav-item.mega-menu.dropdown > .dropdown-menu > li:not(.mega-menu-view-all)::before,
+    .main-navigation .nav-item.mega-menu.dropdown > .sub-menu > li:not(.mega-menu-view-all)::before {
+        content: '' !important;
+        position: absolute !important;
+        right: 0 !important;
+        top: 0.75rem !important;
+        width: 4px !important;
+        height: 1.5rem !important;
+        background: var(--zs-teal-medium, #37C3B3) !important;
+        border-radius: 2px !important;
+    }
+    
+    /* Submenu items inside columns (second level) */
+    .main-navigation .nav-item.mega-menu.dropdown > .dropdown-menu > li .sub-menu,
+    .main-navigation .nav-item.mega-menu.dropdown > .sub-menu > li .sub-menu,
+    .main-navigation .nav-item.mega-menu.dropdown > .dropdown-menu > li .dropdown-menu,
+    .main-navigation .nav-item.mega-menu.dropdown > .sub-menu > li .dropdown-menu {
+        position: static !important;
+        display: block !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: none !important;
+        box-shadow: none !important;
+        border: none !important;
+        background: transparent !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        min-width: auto !important;
+        width: 100% !important;
+        list-style: none !important;
+    }
+    
+    /* Submenu items (sub-categories) */
+    .main-navigation .nav-item.mega-menu.dropdown > .dropdown-menu > li .sub-menu .nav-item,
+    .main-navigation .nav-item.mega-menu.dropdown > .sub-menu > li .sub-menu .nav-item,
+    .main-navigation .nav-item.mega-menu.dropdown > .dropdown-menu > li .dropdown-menu .nav-item,
+    .main-navigation .nav-item.mega-menu.dropdown > .sub-menu > li .dropdown-menu .nav-item {
+        display: block !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        width: 100% !important;
+        border-bottom: none !important;
+        list-style: none !important;
+    }
+    
+    /* Submenu links (sub-categories links) */
+    .main-navigation .nav-item.mega-menu.dropdown > .dropdown-menu > li .sub-menu .nav-link,
+    .main-navigation .nav-item.mega-menu.dropdown > .sub-menu > li .sub-menu .nav-link,
+    .main-navigation .nav-item.mega-menu.dropdown > .dropdown-menu > li .dropdown-menu .nav-link,
+    .main-navigation .nav-item.mega-menu.dropdown > .sub-menu > li .dropdown-menu .nav-link {
+        display: block !important;
+        padding: 0.5rem 0 !important;
+        padding-right: 1rem !important;
+        color: #495057 !important;
+        font-weight: 400 !important;
+        font-size: 0.9rem !important;
+        text-decoration: none !important;
+        transition: all 0.2s ease !important;
+        border-bottom: none !important;
+        background: transparent !important;
+        width: 100% !important;
+        text-align: right !important;
+        white-space: normal !important;
+    }
+    
+    .main-navigation .nav-item.mega-menu.dropdown > .dropdown-menu > li .sub-menu .nav-link:hover,
+    .main-navigation .nav-item.mega-menu.dropdown > .sub-menu > li .sub-menu .nav-link:hover,
+    .main-navigation .nav-item.mega-menu.dropdown > .dropdown-menu > li .dropdown-menu .nav-link:hover,
+    .main-navigation .nav-item.mega-menu.dropdown > .sub-menu > li .dropdown-menu .nav-link:hover {
+        color: var(--zs-teal-dark, #00A796) !important;
+        background: transparent !important;
+        transform: translateX(-5px) !important;
+        padding-right: 1.25rem !important;
+    }
+    
+    /* Hide icons in mega menu column titles and sub-items */
+    .main-navigation .nav-item.mega-menu.dropdown > .dropdown-menu > li > .nav-link .nav-icon,
+    .main-navigation .nav-item.mega-menu.dropdown > .sub-menu > li > .nav-link .nav-icon,
+    .main-navigation .nav-item.mega-menu.dropdown > .dropdown-menu > li .sub-menu .nav-link .nav-icon,
+    .main-navigation .nav-item.mega-menu.dropdown > .sub-menu > li .sub-menu .nav-link .nav-icon,
+    .main-navigation .nav-item.mega-menu.dropdown > .dropdown-menu > li .dropdown-menu .nav-link .nav-icon,
+    .main-navigation .nav-item.mega-menu.dropdown > .sub-menu > li .dropdown-menu .nav-link .nav-icon {
+        display: none !important;
+    }
+
+    /* Mega Menu with Image - Only for mega menu items */
+    .main-navigation .nav-item.mega-menu-with-image.dropdown > .dropdown-menu,
+    .main-navigation .nav-item.mega-menu-with-image.dropdown > .sub-menu {
+        display: grid !important;
+        grid-template-columns: 1fr 300px !important;
+        gap: 2rem !important;
+    }
+
+    .main-navigation .nav-item.mega-menu.dropdown > .dropdown-menu .mega-menu-image,
+    .main-navigation .nav-item.mega-menu.dropdown > .sub-menu .mega-menu-image {
+        width: 100% !important;
+        height: auto !important;
+        border-radius: 12px !important;
+        object-fit: cover !important;
+    }
+
+    .main-navigation .nav-item.mega-menu.dropdown > .dropdown-menu .mega-menu-image-wrapper,
+    .main-navigation .nav-item.mega-menu.dropdown > .sub-menu .mega-menu-image-wrapper {
+        position: relative !important;
+        overflow: hidden !important;
+        border-radius: 12px !important;
+    }
+
+    .main-navigation .nav-item.mega-menu.dropdown > .dropdown-menu .mega-menu-image-wrapper::after,
+    .main-navigation .nav-item.mega-menu.dropdown > .sub-menu .mega-menu-image-wrapper::after {
+        content: '' !important;
+        position: absolute !important;
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        bottom: 0 !important;
+        background: linear-gradient(135deg, rgba(0, 167, 150, 0.1), rgba(0, 167, 150, 0.05)) !important;
+        opacity: 0 !important;
+        transition: opacity 0.3s ease !important;
+    }
+
+    .main-navigation .nav-item.mega-menu.dropdown:hover > .dropdown-menu .mega-menu-image-wrapper::after,
+    .main-navigation .nav-item.mega-menu.dropdown:hover > .sub-menu .mega-menu-image-wrapper::after {
+        opacity: 1 !important;
+    }
+
+    /* Mega Menu Column Counts - Only for mega menu items */
+    /* 2 Columns */
+    .main-navigation .nav-item.mega-menu-2cols.dropdown > .dropdown-menu,
+    .main-navigation .nav-item.mega-menu-2cols.dropdown > .sub-menu {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 0 !important;
+        padding: 2rem !important;
+        max-width: 600px !important;
+    }
+    
+    /* 3 Columns */
+    .main-navigation .nav-item.mega-menu-3cols.dropdown > .dropdown-menu,
+    .main-navigation .nav-item.mega-menu-3cols.dropdown > .sub-menu {
+        display: grid !important;
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 0 !important;
+        padding: 2rem !important;
+        max-width: 900px !important;
+    }
+
+    /* 4 Columns */
+    .main-navigation .nav-item.mega-menu-4cols.dropdown > .dropdown-menu,
+    .main-navigation .nav-item.mega-menu-4cols.dropdown > .sub-menu {
+        display: grid !important;
+        grid-template-columns: repeat(4, 1fr) !important;
+        gap: 0 !important;
+        padding: 2rem !important;
+        max-width: 1200px !important;
+        grid-auto-flow: row !important;
+    }
+    
+    .main-navigation .nav-item.mega-menu-4cols.dropdown > .dropdown-menu > li:not(.mega-menu-view-all),
+    .main-navigation .nav-item.mega-menu-4cols.dropdown > .sub-menu > li:not(.mega-menu-view-all) {
+        min-width: 0 !important;
+        max-width: 100% !important;
+    }
+
+    /* Mega Menu Full Width - Only for mega menu items */
+    .main-navigation .nav-item.mega-menu-fullwidth.dropdown > .dropdown-menu,
+    .main-navigation .nav-item.mega-menu-fullwidth.dropdown > .sub-menu {
+        left: 0 !important;
+        right: 0 !important;
+        width: 100vw !important;
+        max-width: 100% !important;
+        border-radius: 0 0 12px 12px !important;
+    }
+
+    /* Mega Menu Content Blocks - Only inside mega menu */
+    .main-navigation .nav-item.mega-menu.dropdown > .dropdown-menu .mega-menu-content,
+    .main-navigation .nav-item.mega-menu.dropdown > .sub-menu .mega-menu-content {
+        padding: 1rem !important;
+        background: #f9fafb !important;
+        border-radius: 12px !important;
+        margin-top: 1rem !important;
+    }
+
+    .main-navigation .nav-item.mega-menu.dropdown > .dropdown-menu .mega-menu-content h3,
+    .main-navigation .nav-item.mega-menu.dropdown > .sub-menu .mega-menu-content h3 {
+        font-size: 1.1rem !important;
+        font-weight: 700 !important;
+        color: #1f2937 !important;
+        margin-bottom: 0.5rem !important;
+    }
+
+    .main-navigation .nav-item.mega-menu.dropdown > .dropdown-menu .mega-menu-content p,
+    .main-navigation .nav-item.mega-menu.dropdown > .sub-menu .mega-menu-content p {
+        font-size: 0.85rem !important;
+        color: #6b7280 !important;
+        line-height: 1.6 !important;
+        margin: 0 !important;
+    }
+
+    /* Mega Menu Featured Items - Only inside mega menu */
+    .main-navigation .nav-item.mega-menu.dropdown > .dropdown-menu .mega-menu-featured,
+    .main-navigation .nav-item.mega-menu.dropdown > .sub-menu .mega-menu-featured {
+        background: linear-gradient(135deg, #f0fdfa, #e6fffa) !important;
+        padding: 1.5rem !important;
+        border-radius: 12px !important;
+        border: 2px solid #00A796 !important;
+    }
+
+    .main-navigation .nav-item.mega-menu.dropdown > .dropdown-menu .mega-menu-featured .nav-link,
+    .main-navigation .nav-item.mega-menu.dropdown > .sub-menu .mega-menu-featured .nav-link {
+        font-weight: 600 !important;
+        color: #00A796 !important;
+    }
+
+    /* Responsive Mega Menu - Only for mega menu items */
+    @media (max-width: 1024px) {
+        .main-navigation .nav-item.mega-menu.dropdown > .dropdown-menu,
+        .main-navigation .nav-item.mega-menu.dropdown > .sub-menu {
+            max-width: 900px !important;
+            padding: 1.5rem !important;
+            gap: 1.5rem !important;
+        }
+
+        .main-navigation .nav-item.mega-menu-4cols.dropdown > .dropdown-menu,
+        .main-navigation .nav-item.mega-menu-4cols.dropdown > .sub-menu {
+            grid-template-columns: repeat(3, 1fr) !important;
+        }
+    }
+
+    @media (max-width: 900px) {
+        .main-navigation .nav-item.mega-menu.dropdown > .dropdown-menu,
+        .main-navigation .nav-item.mega-menu.dropdown > .sub-menu {
+            max-width: 700px !important;
+            padding: 1.25rem !important;
+            gap: 1.25rem !important;
+        }
+
+        .main-navigation .nav-item.mega-menu-3cols.dropdown > .dropdown-menu,
+        .main-navigation .nav-item.mega-menu-3cols.dropdown > .sub-menu,
+        .main-navigation .nav-item.mega-menu-4cols.dropdown > .dropdown-menu,
+        .main-navigation .nav-item.mega-menu-4cols.dropdown > .sub-menu {
+            grid-template-columns: repeat(2, 1fr) !important;
+        }
+    }
+}
+
+/* ============================================
+   Desktop Navigation - Show Menu in Desktop
+   ============================================ */
+@media (min-width: 769px) {
+    .header-middle .desktop-nav {
+        display: flex !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+    }
+}
+
+/* ============================================
+   Mobile Navigation - Hide Menu in Mobile (منو در سایدبار است)
+   ============================================ */
+@media (max-width: 768px) {
+    .header-middle .desktop-nav {
+        display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+        height: 0 !important;
+        overflow: hidden !important;
+        width: 0 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+}
+

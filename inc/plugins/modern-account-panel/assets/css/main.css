@@ -1,0 +1,469 @@
+/* ============================================
+   Main Styles - استایل‌های اصلی
+   ============================================ */
+
+:root {
+    /* Colors */
+    --primary-color: #6366f1;
+    --primary-dark: #4f46e5;
+    --primary-light: #818cf8;
+    --secondary-color: #8b5cf6;
+    --success-color: #10b981;
+    --warning-color: #f59e0b;
+    --danger-color: #ef4444;
+    --info-color: #3b82f6;
+    
+    /* Grays */
+    --gray-50: #f9fafb;
+    --gray-100: #f3f4f6;
+    --gray-200: #e5e7eb;
+    --gray-300: #d1d5db;
+    --gray-400: #9ca3af;
+    --gray-500: #6b7280;
+    --gray-600: #4b5563;
+    --gray-700: #374151;
+    --gray-800: #1f2937;
+    --gray-900: #111827;
+    
+    /* Sidebar */
+    --sidebar-width: 260px;
+    --sidebar-collapsed-width: 80px;
+    --sidebar-bg: #1e293b;
+    --sidebar-text: #cbd5e1;
+    --sidebar-hover: #334155;
+    --sidebar-active: #6366f1;
+    
+    /* Header */
+    --header-height: 70px;
+    --header-bg: #ffffff;
+    
+    /* Taskbar */
+    --taskbar-height: 56px;
+    
+    /* Shadows */
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    
+    /* Transitions */
+    --transition: all 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* Let theme font inherit naturally - don't force it on every element */
+
+/* Exceptions for monospace elements */
+body.modern-account-panel-page code,
+body.modern-account-panel-page pre,
+body.modern-account-panel-page tt,
+body.modern-account-panel-page kbd,
+body.modern-account-panel-page samp {
+    font-family: 'Courier New', Courier, monospace;
+}
+
+/* Ensure Font Awesome icons use their own font - must be after other rules with high specificity */
+body.modern-account-panel-page .fa,
+body.modern-account-panel-page .fas,
+body.modern-account-panel-page .far,
+body.modern-account-panel-page .fal,
+body.modern-account-panel-page .fab,
+body.modern-account-panel-page [class^="fa-"],
+body.modern-account-panel-page [class*=" fa-"],
+body.modern-account-panel-page i[class*="fa-"],
+body.modern-account-panel-page i.fa,
+body.modern-account-panel-page i.fas,
+body.modern-account-panel-page i.far,
+body.modern-account-panel-page i.fal,
+body.modern-account-panel-page i.fab,
+body.modern-account-panel-page span[class*="fa-"],
+body.modern-account-panel-page button [class*="fa-"],
+body.modern-account-panel-page a [class*="fa-"] {
+    font-family: "Font Awesome 6 Free", "Font Awesome 6 Pro", "Font Awesome 6 Brands", "FontAwesome" !important;
+    font-weight: 900 !important;
+    font-style: normal !important;
+    font-variant: normal !important;
+    text-rendering: auto !important;
+    -webkit-font-smoothing: antialiased !important;
+    -moz-osx-font-smoothing: grayscale !important;
+}
+
+/* Links and buttons - will be overridden by inline CSS in account page */
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button {
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* Main Layout - No wrapper needed, sidebar and main-content are siblings */
+
+.modern-account-panel-main-content,
+body.modern-account-panel-page .main-content {
+    flex: 1 1 auto !important;
+    margin-right: var(--sidebar-width) !important;
+    margin-left: 0 !important;
+    min-height: 100vh !important;
+    padding-bottom: 0 !important;
+    transition: var(--transition) !important;
+    position: relative !important;
+    width: calc(100% - var(--sidebar-width)) !important;
+    max-width: calc(100% - var(--sidebar-width)) !important;
+    min-width: 0 !important;
+    overflow: visible !important;
+    overflow-x: hidden !important;
+    overflow-y: visible !important;
+    box-sizing: border-box !important;
+    background-color: var(--gray-50) !important;
+    display: flex !important;
+    flex-direction: column !important;
+}
+
+body.modern-account-panel-page .main-content.sidebar-collapsed {
+    margin-right: var(--sidebar-collapsed-width) !important;
+    width: calc(100% - var(--sidebar-collapsed-width)) !important;
+    max-width: calc(100% - var(--sidebar-collapsed-width)) !important;
+}
+
+/* Override theme container styles that might interfere */
+body.modern-account-panel-page .main-content .container,
+body.modern-account-panel-page .main-content .row,
+body.modern-account-panel-page .main-content [class*="col-"],
+body.modern-account-panel-page .main-content .woocommerce {
+    max-width: 100% !important;
+    width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    box-sizing: border-box !important;
+}
+
+/* WooCommerce content - allow padding */
+body.modern-account-panel-page .main-content .woocommerce-MyAccount-content {
+    max-width: 100% !important;
+    width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    box-sizing: border-box !important;
+    padding: 0 !important;
+}
+
+/* Prevent content from going under sidebar */
+.modern-account-panel-main-content,
+body.modern-account-panel-page .main-content {
+    position: relative !important;
+    z-index: 1 !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    display: flex !important;
+    flex-direction: column !important;
+}
+
+body.modern-account-panel-page .sidebar {
+    z-index: 1000 !important;
+}
+
+/* Ensure page-content is visible */
+.modern-account-panel-page-content,
+body.modern-account-panel-page .page-content {
+    visibility: visible !important;
+    opacity: 1 !important;
+    display: block !important;
+    flex: 1 1 auto !important;
+    overflow: visible !important;
+    overflow-y: visible !important;
+}
+
+/* Ensure page-content has proper width */
+.modern-account-panel-page-content,
+body.modern-account-panel-page .page-content {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    min-width: 0 !important;
+    padding: 0 !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    display: block !important;
+    position: relative !important;
+    z-index: 1 !important;
+}
+
+/* Add padding to page-content when it has content */
+body.modern-account-panel-page .page-content:not(:empty) {
+    padding: 1.5rem !important;
+    padding-bottom: 1.5rem !important;
+    min-height: calc(100vh - var(--header-height, 70px)) !important;
+    overflow: visible !important;
+    overflow-y: visible !important;
+}
+
+
+/* Utility Classes */
+.text-center {
+    text-align: center;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.mt-1 { margin-top: 0.5rem; }
+.mt-2 { margin-top: 1rem; }
+.mt-3 { margin-top: 1.5rem; }
+.mt-4 { margin-top: 2rem; }
+
+.mb-1 { margin-bottom: 0.5rem; }
+.mb-2 { margin-bottom: 1rem; }
+.mb-3 { margin-bottom: 1.5rem; }
+.mb-4 { margin-bottom: 2rem; }
+
+.p-1 { padding: 0.5rem; }
+.p-2 { padding: 1rem; }
+.p-3 { padding: 1.5rem; }
+.p-4 { padding: 2rem; }
+
+/* Buttons - base styles, will be overridden by inline CSS in account page */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.625rem 1.25rem;
+    border-radius: 0.5rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    transition: var(--transition);
+    cursor: pointer;
+    border: none;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-dark);
+}
+
+.btn-secondary {
+    background-color: var(--gray-200);
+    color: var(--gray-700);
+}
+
+.btn-secondary:hover {
+    background-color: var(--gray-300);
+}
+
+.btn-success {
+    background-color: var(--success-color);
+    color: white;
+}
+
+.btn-danger {
+    background-color: var(--danger-color);
+    color: white;
+}
+
+/* Badges */
+.badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+
+.badge-success {
+    background-color: #d1fae5;
+    color: #065f46;
+}
+
+.badge-warning {
+    background-color: #fef3c7;
+    color: #92400e;
+}
+
+.badge-danger {
+    background-color: #fee2e2;
+    color: #991b1b;
+}
+
+.badge-info {
+    background-color: #dbeafe;
+    color: #1e40af;
+}
+
+/* Form Styles - استایل‌های فرم */
+.form-group {
+    margin-bottom: 1.25rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--gray-700);
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 0.625rem;
+    border: 1px solid var(--gray-300);
+    border-radius: 0.5rem;
+    font-size: 0.875rem;
+    transition: var(--transition);
+    font-family: inherit;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.form-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-end;
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--gray-200);
+}
+
+.form-actions .btn {
+    min-width: 120px;
+}
+
+.form-help {
+    display: block;
+    margin-top: 0.25rem;
+    font-size: 0.75rem;
+    color: var(--gray-500);
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    font-size: 0.875rem;
+    color: var(--gray-700);
+}
+
+.checkbox-label input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+}
+
+/* Card Subtitle */
+.card-subtitle {
+    font-size: 0.875rem;
+    color: var(--gray-600);
+    margin-top: 0.5rem;
+    font-weight: normal;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    /* Main content عرض کامل */
+    .modern-account-panel-main-content,
+body.modern-account-panel-page .main-content {
+        margin-right: 0 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+    
+    /* Page content responsive */
+    body.modern-account-panel-page .page-content,
+    body.modern-account-panel-page .woocommerce-MyAccount-content {
+        padding: 1rem !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+    }
+    
+    /* Forms responsive */
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+    
+    .form-actions {
+        flex-direction: column-reverse;
+    }
+    
+    .form-actions .btn {
+        width: 100%;
+    }
+    
+    /* Tables responsive */
+    body.modern-account-panel-page table,
+    body.modern-account-panel-page .woocommerce table {
+        width: 100% !important;
+        max-width: 100% !important;
+        display: block !important;
+        overflow-x: auto !important;
+        -webkit-overflow-scrolling: touch !important;
+    }
+    
+    /* Inputs full width */
+    body.modern-account-panel-page input,
+    body.modern-account-panel-page textarea,
+    body.modern-account-panel-page select {
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+    }
+}
+
+@media (max-width: 480px) {
+    body.modern-account-panel-page .page-content,
+    body.modern-account-panel-page .woocommerce-MyAccount-content {
+        padding: 0.75rem !important;
+    }
+    
+    body.modern-account-panel-page table {
+        font-size: 0.75rem !important;
+    }
+    
+    body.modern-account-panel-page .btn,
+    body.modern-account-panel-page .woocommerce .button {
+        width: 100% !important;
+    }
+}
+

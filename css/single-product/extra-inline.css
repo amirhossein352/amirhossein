@@ -1,0 +1,66 @@
+/* Extracted from inline single product styles - Updated like Futurepedia */
+.woocommerce div.product form.variations_form .variations {
+    margin: 15px 0 !important;
+    padding-top: 15px !important;
+    border-top: 1px solid #e5e7eb !important;
+}
+
+.woocommerce div.product form.variations_form .variations td {
+    padding: 10px 0 !important;
+}
+
+.woocommerce div.product form.variations_form .variations select {
+    width: 100% !important;
+    padding: 10px 12px !important;
+    border: 2px solid #e5e7eb !important;
+    border-radius: 8px !important;
+    font-size: 14px !important;
+    background: #ffffff !important;
+    color: #374151 !important;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease !important;
+}
+
+.woocommerce div.product form.variations_form .variations select:focus {
+    border-color: #3b82f6 !important;
+    outline: none !important;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1) !important;
+    background: #ffffff !important;
+    color: #374151 !important;
+}
+
+.woocommerce div.product form.variations_form .variations select option {
+    background: #ffffff !important;
+    color: #374151 !important;
+    padding: 8px !important;
+}
+
+.woocommerce div.product form.variations_form .variations label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: #374151 !important;
+    margin-bottom: 6px !important;
+}
+.woocommerce div.product form.variations_form .single_variation_wrap .single_variation {
+    background: #f8f9fa !important;
+    padding: 20px !important;
+    border-radius: 10px !important;
+    margin: 20px 0 !important;
+}
+.woocommerce div.product .stock {
+    font-weight: 600 !important;
+    padding: 8px 15px !important;
+    border-radius: 20px !important;
+    font-size: 14px !important;
+    display: inline-block !important;
+    margin: 10px 0 !important;
+}
+.woocommerce div.product .stock.in-stock {
+    background: rgba(39, 174, 96, 0.1) !important;
+    color: #27ae60 !important;
+}
+.woocommerce div.product .stock.out-of-stock {
+    background: rgba(231, 76, 60, 0.1) !important;
+    color: var(--zs-teal-medium, #37C3B3) !important;
+}
+

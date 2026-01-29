@@ -1,0 +1,774 @@
+/**
+ * Single Product Page - Main CSS File
+ * 
+ * این فایل اصلی CSS صفحه تک محصول است که فایل‌های CSS مختلف را import می‌کند:
+ * - header.css: استایل‌های هدر و breadcrumb
+ * - gallery.css: استایل‌های گالری و بخش محصول
+ * - features.css: استایل‌های بخش ویژگی‌های سرویس
+ * - modal.css: استایل‌های پاپ‌آپ تایید خرید
+ * - trust.css: استایل‌های بخش اعتماد
+ * - details.css: استایل‌های بخش جزئیات محصول
+ * - متغیرهای CSS و استایل‌های عمومی
+ * 
+ * @package khane_irani
+ * @version 1.1.1 - Cache bust updated
+ */
+
+/* Import CSS files for different sections */
+@import url('single-product/header.css');
+@import url('single-product/gallery.css');
+@import url('single-product/features.css');
+@import url('single-product/modal.css');
+@import url('single-product/trust.css');
+@import url('single-product/reviews.css');
+@import url('single-product/portfolio.css');
+@import url('single-product/process.css');
+@import url('single-product/counters.css');
+@import url('single-product/details.css');
+@import url('single-product/floating-button.css');
+@import url('single-product/sidebar-nav.css');
+@import url('single-product/related.css');
+/* details.css removed - FAQ styles are included directly below */
+
+/* CSS Variables */
+:root {
+    --zs-card-bg: #ffffff;
+    --zs-bg-primary: #f8fafc;
+    --zs-bg-secondary: #f1f5f9;
+    --zs-bg-tertiary: #eef2f7;
+    --zs-text-primary: var(--zs-teal-night, #042326);
+    --zs-text-secondary: #475569;
+    --zs-text-muted: #94a3b8;
+    --zs-accent-primary: var(--zs-teal-dark, #00A796);
+    --zs-accent-secondary: var(--zs-teal-medium, #37C3B3);
+    --zs-success: #22c55e;
+    --zs-danger: #f87171;
+    --zs-info: var(--zs-teal-light, #6DE0D0);
+    --zs-border-color: #e2e8f0;
+    --zs-shadow: rgba(0,0,0,.1);
+    --zs-shadow-hover: rgba(0,0,0,.15);
+    --zs-card-border: #e2e8f0;
+    --zs-btn-primary-bg: var(--zs-teal-dark, #00A796);
+    --zs-btn-primary-hover: var(--zs-teal-medium, #37C3B3);
+    --zs-btn-primary-text: #ffffff;
+    --zs-input-bg: #ffffff;
+    --zs-input-border: #e2e8f0;
+    --zs-input-focus: var(--zs-teal-light, #6DE0D0);
+    --zs-input-text: var(--zs-teal-night, #042326);
+    --zs-footer-bg: var(--zs-teal-night, #042326);
+    --zs-footer-text: #94a3b8;
+}
+
+/* Dark mode variables */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --zs-card-bg: var(--zs-teal-night, #042326);
+        --zs-bg-primary: var(--zs-teal-night, #042326);
+        --zs-bg-secondary: var(--zs-teal-night, #042326);
+        --zs-bg-tertiary: #111827;
+        --zs-text-primary: #e5e7eb;
+        --zs-text-secondary: #cbd5e1;
+        --zs-text-muted: #94a3b8;
+        --zs-accent-primary: var(--zs-teal-light, #6DE0D0);
+        --zs-accent-secondary: var(--zs-teal-light, #6DE0D0);
+        --zs-success: #22c55e;
+        --zs-danger: #f87171;
+        --zs-info: var(--zs-teal-light, #6DE0D0);
+        --zs-border-color: var(--zs-teal-night, #042326);
+        --zs-shadow: rgba(0,0,0,.35);
+        --zs-shadow-hover: rgba(0,0,0,.5);
+        --zs-card-border: var(--zs-teal-night, #042326);
+        --zs-btn-primary-bg: var(--zs-teal-light, #6DE0D0);
+        --zs-btn-primary-hover: #67e8f9;
+        --zs-btn-primary-text: var(--zs-teal-night, #042326);
+        --zs-input-bg: var(--zs-teal-night, #042326);
+        --zs-input-border: var(--zs-teal-night, #042326);
+        --zs-input-focus: var(--zs-teal-light, #6DE0D0);
+        --zs-input-text: #e5e7eb;
+        --zs-footer-bg: var(--zs-teal-night, #042326);
+        --zs-footer-text: #cbd5e1;
+    }
+}
+
+/* General Single Product Styles */
+.zs-premium-single-product {
+    background: var(--zs-bg-primary);
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Hide default WooCommerce add to cart button */
+.single-product .single_add_to_cart_button {
+    display: none !important;
+}
+
+/* Trust and features icon sizing for visual parity */
+.trust-icon,
+.feature-icon {
+    line-height: 1;
+}
+
+/* Enhanced FAQ Section - Force Load */
+.zs-faq-section {
+    margin-bottom: 48px !important;
+    display: block !important;
+}
+
+.zs-faq-header {
+    text-align: center !important;
+    margin-bottom: 40px !important;
+}
+
+.zs-faq-title {
+    font-size: 1.8rem !important;
+    font-weight: 900 !important;
+    margin: 0 0 8px 0 !important;
+    color: var(--zs-text-primary) !important;
+    background: linear-gradient(135deg, var(--zs-text-primary), var(--zs-accent-primary)) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+}
+
+.zs-faq-subtitle {
+    font-size: 1.1rem !important;
+    color: var(--zs-text-secondary) !important;
+    margin: 0 !important;
+    font-weight: 400 !important;
+}
+
+.zs-faq-container {
+    background: #fff !important;
+    border-radius: 20px !important;
+    padding: 32px !important;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08) !important;
+    border: 1px solid var(--zs-card-border) !important;
+}
+
+.zs-faq-list {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 20px !important;
+}
+
+.zs-faq-item {
+    position: relative !important;
+}
+
+.zs-faq-card {
+    background: #fff !important;
+    border: 1px solid var(--zs-border-color) !important;
+    border-radius: 16px !important;
+    overflow: hidden !important;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05) !important;
+}
+
+.zs-faq-card:hover {
+    border-color: var(--zs-accent-primary) !important;
+    box-shadow: 0 12px 30px rgba(0, 54, 197, 0.15) !important;
+    transform: translateY(-2px) !important;
+}
+
+.zs-faq-question {
+    width: 100% !important;
+    padding: 0 !important;
+    border: none !important;
+    background: none !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+}
+
+.zs-faq-question-content {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    padding: 24px !important;
+    text-align: right !important;
+}
+
+.zs-faq-question-text {
+    flex: 1 !important;
+    font-size: 1.2rem !important;
+    font-weight: 700 !important;
+    color: var(--zs-text-primary) !important;
+    line-height: 1.4 !important;
+}
+
+.zs-faq-question-icon {
+    margin-right: 16px !important;
+    width: 40px !important;
+    height: 40px !important;
+    background: var(--zs-bg-primary) !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    transition: all 0.3s ease !important;
+}
+
+.zs-faq-card:hover .zs-faq-question-icon {
+    background: var(--zs-accent-primary) !important;
+    transform: scale(1.1) !important;
+}
+
+.zs-faq-question-icon i {
+    color: var(--zs-text-secondary) !important;
+    font-size: 1.1rem !important;
+    transition: all 0.3s ease !important;
+}
+
+.zs-faq-card:hover .zs-faq-question-icon i {
+    color: #fff !important;
+}
+
+.zs-faq-item.active .zs-faq-question-icon {
+    background: var(--zs-accent-primary) !important;
+    transform: rotate(45deg) !important;
+}
+
+.zs-faq-item.active .zs-faq-question-icon i {
+    color: #fff !important;
+}
+
+.zs-faq-answer {
+    display: none !important;
+    padding: 0 24px 24px !important;
+    background: var(--zs-bg-primary) !important;
+}
+
+.zs-faq-item.active .zs-faq-answer {
+    display: block !important;
+    animation: zsFaqSlideDown 0.4s ease-out !important;
+}
+
+.zs-faq-answer-content {
+    padding: 20px 0 !important;
+}
+
+.zs-faq-answer-content p {
+    color: var(--zs-text-secondary) !important;
+    line-height: 1.7 !important;
+    margin: 0 !important;
+    font-size: 1.1rem !important;
+}
+
+@keyframes zsFaqSlideDown {
+    from {
+        opacity: 0 !important;
+        transform: translateY(-15px) !important;
+        max-height: 0 !important;
+    }
+    to {
+        opacity: 1 !important;
+        transform: translateY(0) !important;
+        max-height: 200px !important;
+    }
+}
+
+/* Mobile FAQ Styles */
+@media (max-width: 768px) {
+    .zs-faq-section {
+        margin-bottom: 32px !important;
+    }
+    
+    .zs-faq-header {
+        margin-bottom: 24px !important;
+    }
+    
+    .zs-faq-title {
+        font-size: 1.3rem !important;
+        line-height: 1.3 !important;
+    }
+    
+    .zs-faq-subtitle {
+        font-size: 0.9rem !important;
+    }
+    
+    .zs-faq-container {
+        padding: 20px 16px !important;
+        border-radius: 16px !important;
+    }
+    
+    .zs-faq-list {
+        gap: 12px !important;
+    }
+    
+    .zs-faq-question-content {
+        padding: 16px !important;
+        flex-wrap: wrap !important;
+    }
+    
+    .zs-faq-question-text {
+        font-size: 0.95rem !important;
+        line-height: 1.4 !important;
+    }
+    
+    .zs-faq-question-icon {
+        width: 32px !important;
+        height: 32px !important;
+        margin-right: 10px !important;
+        flex-shrink: 0 !important;
+    }
+    
+    .zs-faq-answer {
+        padding: 0 16px 16px !important;
+    }
+    
+    .zs-faq-answer-content {
+        padding: 12px 0 !important;
+    }
+    
+    .zs-faq-answer-content p {
+        font-size: 0.9rem !important;
+        line-height: 1.6 !important;
+    }
+}
+
+/* Modern Reviews Section */
+.zs-reviews-section {
+    margin-bottom: 60px !important;
+    position: relative !important;
+    overflow: hidden !important;
+}
+
+.zs-reviews-section::before {
+    content: '' !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    background: linear-gradient(135deg, rgba(0, 54, 197, 0.03), rgba(0, 54, 197, 0.01)) !important;
+    pointer-events: none !important;
+}
+
+.zs-reviews-header {
+    text-align: center !important;
+    margin-bottom: 50px !important;
+    position: relative !important;
+    z-index: 2 !important;
+}
+
+.zs-reviews-title {
+    font-size: 2.2rem !important;
+    font-weight: 800 !important;
+    margin: 0 0 12px 0 !important;
+    color: var(--zs-text-primary) !important;
+    background: linear-gradient(135deg, #1a1a1a, var(--zs-teal-dark, #00A796), var(--zs-teal-dark, #00A796)) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+    position: relative !important;
+}
+
+
+
+
+.zs-reviews-subtitle {
+    font-size: 1.2rem !important;
+    color: var(--zs-text-secondary) !important;
+    margin: 0 !important;
+    font-weight: 400 !important;
+    opacity: 0.8 !important;
+}
+
+.zs-reviews-container {
+    background: linear-gradient(135deg, #ffffff, #f8fafc) !important;
+    border-radius: 24px !important;
+    padding: 40px !important;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08) !important;
+    border: 1px solid rgba(0, 54, 197, 0.1) !important;
+    position: relative !important;
+    z-index: 2 !important;
+    backdrop-filter: blur(20px) !important;
+}
+
+.zs-reviews-wrapper {
+    position: relative !important;
+}
+
+/* WooCommerce Reviews Styling */
+.woocommerce-Reviews {
+    margin: 0 !important;
+}
+
+.woocommerce-Reviews-title {
+    font-size: 1.5rem !important;
+    font-weight: 700 !important;
+    color: var(--zs-text-primary) !important;
+    margin: 0 0 24px 0 !important;
+    text-align: center !important;
+}
+
+
+.commentlist {
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.commentlist .review {
+    background: linear-gradient(135deg, #ffffff, #f8fafc) !important;
+    border-radius: 20px !important;
+    padding: 32px !important;
+    margin-bottom: 24px !important;
+    border: 1px solid rgba(0, 54, 197, 0.1) !important;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    position: relative !important;
+    overflow: hidden !important;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06) !important;
+}
+
+.commentlist .review::before {
+    content: '' !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    height: 4px !important;
+    background: linear-gradient(90deg, var(--zs-teal-dark, #00A796), var(--zs-teal-dark, #00A796)) !important;
+    opacity: 0 !important;
+    transition: all 0.3s ease !important;
+}
+
+.commentlist .review:hover {
+    transform: translateY(-4px) !important;
+    box-shadow: 0 20px 40px rgba(0, 54, 197, 0.15) !important;
+    border-color: rgba(0, 54, 197, 0.2) !important;
+}
+
+.commentlist .review:hover::before {
+    opacity: 1 !important;
+}
+
+.commentlist .comment-text {
+    margin-top: 16px !important;
+    color: var(--zs-text-secondary) !important;
+    line-height: 1.6 !important;
+    font-size: 1rem !important;
+}
+
+.commentlist .meta {
+    display: flex !important;
+    align-items: center !important;
+    gap: 16px !important;
+    margin-bottom: 12px !important;
+}
+
+.woocommerce-review__author {
+    font-weight: 700 !important;
+    color: var(--zs-text-primary) !important;
+    font-size: 1.1rem !important;
+}
+
+.woocommerce-review__published-date {
+    color: var(--zs-text-secondary) !important;
+    font-size: 0.9rem !important;
+}
+
+.star-rating {
+    color: var(--zs-teal-light, #6DE0D0) !important;
+    font-size: 1.2rem !important;
+    margin-bottom: 8px !important;
+    position: relative !important;
+    display: inline-block !important;
+    overflow: hidden !important;
+}
+
+.star-rating:before {
+    content: "★★★★★" !important;
+    color: #e9ecef !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    z-index: 1 !important;
+}
+
+.star-rating span {
+    color: var(--zs-teal-light, #6DE0D0) !important;
+    position: relative !important;
+    z-index: 2 !important;
+    display: inline-block !important;
+    overflow: hidden !important;
+}
+
+.star-rating span:before {
+    content: "★★★★★" !important;
+    color: var(--zs-teal-light, #6DE0D0) !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+}
+
+/* WooCommerce specific star rating fixes */
+.woocommerce .star-rating {
+    float: none !important;
+    margin: 0 !important;
+    font-size: 1.2rem !important;
+    line-height: 1 !important;
+    height: auto !important;
+    width: auto !important;
+}
+
+.woocommerce .star-rating:before {
+    content: "★★★★★" !important;
+    color: #e9ecef !important;
+    float: left !important;
+    top: 0 !important;
+    left: 0 !important;
+    position: absolute !important;
+}
+
+.woocommerce .star-rating span {
+    padding-top: 0 !important;
+    color: var(--zs-teal-light, #6DE0D0) !important;
+    float: left !important;
+    top: 0 !important;
+    left: 0 !important;
+    position: absolute !important;
+    overflow: hidden !important;
+}
+
+.woocommerce .star-rating span:before {
+    content: "★★★★★" !important;
+    color: var(--zs-teal-light, #6DE0D0) !important;
+    top: 0 !important;
+    left: 0 !important;
+    position: absolute !important;
+}
+
+/* Modern Review Form Styling */
+.comment-respond {
+    background: linear-gradient(135deg, #ffffff, #f8fafc) !important;
+    border-radius: 24px !important;
+    padding: 40px !important;
+    margin-top: 40px !important;
+    border: 1px solid rgba(0, 54, 197, 0.1) !important;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08) !important;
+    position: relative !important;
+    overflow: hidden !important;
+}
+
+.comment-respond::before {
+    content: '' !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    height: 4px !important;
+    background: linear-gradient(90deg, var(--zs-teal-dark, #00A796), var(--zs-teal-dark, #00A796)) !important;
+}
+
+.comment-reply-title {
+    font-size: 1.8rem !important;
+    font-weight: 800 !important;
+    color: var(--zs-text-primary) !important;
+    margin: 0 0 32px 0 !important;
+    text-align: center !important;
+    background: linear-gradient(135deg, #1a1a1a, var(--zs-teal-dark, #00A796)) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+}
+
+.comment-respond textarea {
+    width: 100% !important;
+    min-height: 140px !important;
+    padding: 20px !important;
+    border: 2px solid rgba(0, 54, 197, 0.1) !important;
+    border-radius: 16px !important;
+    font-size: 1.1rem !important;
+    color: var(--zs-text-primary) !important;
+    background: #fff !important;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    resize: vertical !important;
+    font-family: inherit !important;
+    line-height: 1.6 !important;
+}
+
+.comment-respond textarea:focus {
+    border-color: var(--zs-teal-dark, #00A796) !important;
+    outline: none !important;
+    box-shadow: 0 0 0 4px rgba(0, 54, 197, 0.1) !important;
+    transform: translateY(-2px) !important;
+}
+
+.comment-respond textarea::placeholder {
+    color: var(--zs-text-secondary) !important;
+    opacity: 0.7 !important;
+}
+
+.comment-respond input[type="submit"] {
+    background: linear-gradient(135deg, var(--zs-teal-dark, #00A796), var(--zs-teal-dark, #00A796), var(--zs-teal-dark, #00A796)) !important;
+    background-size: 200% 200% !important;
+    color: #fff !important;
+    border: none !important;
+    padding: 18px 40px !important;
+    border-radius: 16px !important;
+    font-size: 1.1rem !important;
+    font-weight: 700 !important;
+    cursor: pointer !important;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    text-transform: uppercase !important;
+    letter-spacing: 1px !important;
+    position: relative !important;
+    overflow: hidden !important;
+    box-shadow: 0 8px 25px rgba(0, 54, 197, 0.3) !important;
+}
+
+.comment-respond input[type="submit"]:hover {
+    transform: translateY(-3px) !important;
+    box-shadow: 0 15px 35px rgba(0, 54, 197, 0.4) !important;
+    background-position: 100% 0 !important;
+}
+
+.comment-respond input[type="submit"]:active {
+    transform: translateY(-1px) !important;
+}
+
+/* Mobile Reviews Styles */
+@media (max-width: 768px) {
+    .zs-reviews-section {
+        margin-bottom: 40px !important;
+        padding: 0 15px !important;
+    }
+    
+    .zs-reviews-header {
+        margin-bottom: 24px !important;
+    }
+    
+    .zs-reviews-title {
+        font-size: 1.3rem !important;
+        line-height: 1.3 !important;
+        margin-bottom: 6px !important;
+    }
+    
+    .zs-reviews-subtitle {
+        font-size: 0.9rem !important;
+        line-height: 1.4 !important;
+    }
+    
+    .zs-reviews-container {
+        padding: 20px 16px !important;
+        border-radius: 16px !important;
+    }
+    
+    .woocommerce-Reviews-title {
+        font-size: 1.2rem !important;
+        margin-bottom: 16px !important;
+    }
+    
+    .commentlist .review {
+        padding: 16px !important;
+        margin-bottom: 16px !important;
+        border-radius: 16px !important;
+    }
+    
+    .commentlist .meta {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 6px !important;
+        margin-bottom: 8px !important;
+    }
+    
+    .woocommerce-review__author {
+        font-size: 1rem !important;
+    }
+    
+    .woocommerce-review__published-date {
+        font-size: 0.8rem !important;
+    }
+    
+    .star-rating {
+        font-size: 1rem !important;
+        margin-bottom: 6px !important;
+    }
+    
+    .commentlist .comment-text {
+        font-size: 0.9rem !important;
+        line-height: 1.6 !important;
+        margin-top: 12px !important;
+    }
+    
+    .comment-respond {
+        padding: 20px 16px !important;
+        border-radius: 16px !important;
+        margin-top: 24px !important;
+    }
+    
+    .comment-reply-title {
+        font-size: 1.2rem !important;
+        margin-bottom: 16px !important;
+    }
+    
+    .comment-respond textarea {
+        padding: 16px !important;
+        font-size: 0.9rem !important;
+        min-height: 120px !important;
+    }
+    
+    .comment-respond input[type="submit"] {
+        padding: 14px 24px !important;
+        font-size: 0.9rem !important;
+        width: 100% !important;
+    }
+}
+
+/* Star Rating Form Styling */
+.woocommerce .stars {
+    display: inline-block !important;
+    margin: 0 !important;
+}
+
+.woocommerce .stars a {
+    display: inline-block !important;
+    font-weight: 700 !important;
+    margin-right: 2px !important;
+    text-indent: -9999px !important;
+    position: relative !important;
+    color: var(--zs-teal-light, #6DE0D0) !important;
+    text-decoration: none !important;
+    font-size: 1.2rem !important;
+    width: 20px !important;
+    height: 20px !important;
+}
+
+.woocommerce .stars a:before {
+    font-family: "Font Awesome 5 Free" !important;
+    font-weight: 900 !important;
+    content: "\f005" !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    text-indent: 0 !important;
+    color: #e9ecef !important;
+}
+
+.woocommerce .stars a:hover:before,
+.woocommerce .stars a.active:before {
+    color: var(--zs-teal-light, #6DE0D0) !important;
+}
+
+.woocommerce .stars a:hover ~ a:before {
+    color: #e9ecef !important;
+}
+
+/* Hide text labels for star ratings */
+.woocommerce .stars a[href*="star_1"]:before { content: "۱" !important; }
+.woocommerce .stars a[href*="star_2"]:before { content: "۲" !important; }
+.woocommerce .stars a[href*="star_3"]:before { content: "۳" !important; }
+.woocommerce .stars a[href*="star_4"]:before { content: "۴" !important; }
+.woocommerce .stars a[href*="star_5"]:before { content: "۵" !important; }
+
+/* Better star rating display */
+.woocommerce .stars a[href*="star_1"]:before { content: "★" !important; }
+.woocommerce .stars a[href*="star_2"]:before { content: "★★" !important; }
+.woocommerce .stars a[href*="star_3"]:before { content: "★★★" !important; }
+.woocommerce .stars a[href*="star_4"]:before { content: "★★★★" !important; }
+.woocommerce .stars a[href*="star_5"]:before { content: "★★★★★" !important; }

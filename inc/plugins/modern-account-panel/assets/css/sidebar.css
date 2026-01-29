@@ -1,0 +1,272 @@
+/* ============================================
+   Sidebar Styles - استایل‌های سایدبار حرفه‌ای
+   همه استایل‌ها فقط برای حساب کاربری - Scoped to body.modern-account-panel-page
+   ============================================ */
+
+.modern-account-panel-sidebar,
+body.modern-account-panel-page .sidebar {
+    position: fixed !important;
+    right: 0 !important;
+    top: 0 !important;
+    width: var(--sidebar-width) !important;
+    height: 100vh !important;
+    max-height: 100vh !important;
+    min-height: 100vh !important;
+    background: linear-gradient(180deg, #1e293b 0%, #0f172a 100%) !important;
+    color: var(--sidebar-text) !important;
+    z-index: 1000 !important;
+    transition: var(--transition) !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    padding-bottom: 0 !important;
+    box-shadow: -4px 0 20px rgba(0, 0, 0, 0.3) !important;
+    border-left: 1px solid rgba(255, 255, 255, 0.1) !important;
+    box-sizing: border-box !important;
+}
+
+body.modern-account-panel-page .sidebar.collapsed {
+    width: var(--sidebar-collapsed-width) !important;
+    min-width: var(--sidebar-collapsed-width) !important;
+    max-width: var(--sidebar-collapsed-width) !important;
+}
+
+body.modern-account-panel-page .sidebar::-webkit-scrollbar {
+    width: 8px;
+}
+
+body.modern-account-panel-page .sidebar::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+}
+
+body.modern-account-panel-page .sidebar::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #475569 0%, #334155 100%);
+    border-radius: 4px;
+    border: 2px solid rgba(0, 0, 0, 0.2);
+}
+
+body.modern-account-panel-page .sidebar::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #64748b 0%, #475569 100%);
+}
+
+body.modern-account-panel-page .sidebar-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.75rem 1.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    min-height: var(--header-height);
+    background: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+body.modern-account-panel-page .logo {
+    display: flex;
+    align-items: center;
+    gap: 0.875rem;
+    font-size: 1.375rem;
+    font-weight: 800;
+    color: white;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    letter-spacing: -0.5px;
+}
+
+body.modern-account-panel-page .logo i {
+    font-size: 1.75rem;
+    background: linear-gradient(135deg, #818cf8 0%, #6366f1 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    filter: drop-shadow(0 2px 4px rgba(99, 102, 241, 0.4));
+}
+
+body.modern-account-panel-page .sidebar.collapsed .logo span {
+    display: none !important;
+}
+
+body.modern-account-panel-page .sidebar.collapsed .sidebar-header {
+    justify-content: center !important;
+    padding: 1.5rem 0.5rem !important;
+}
+
+body.modern-account-panel-page .sidebar.collapsed .logo {
+    justify-content: center !important;
+}
+
+body.modern-account-panel-page .sidebar-toggle {
+    display: block !important;
+    color: var(--sidebar-text) !important;
+    font-size: 1.25rem !important;
+    padding: 0.625rem !important;
+    border-radius: 0.5rem !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    cursor: pointer !important;
+    border: none !important;
+    background: rgba(255, 255, 255, 0.05) !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+}
+
+body.modern-account-panel-page .sidebar-toggle:hover {
+    background: rgba(255, 255, 255, 0.15) !important;
+    color: white !important;
+    transform: scale(1.05) !important;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2) !important;
+}
+
+body.modern-account-panel-page .sidebar-toggle:active {
+    transform: scale(0.95) !important;
+}
+
+body.modern-account-panel-page .sidebar-nav {
+    padding: 1.25rem 0.75rem;
+}
+
+body.modern-account-panel-page .nav-menu {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+body.modern-account-panel-page .nav-item {
+    margin: 0.375rem 0;
+}
+
+body.modern-account-panel-page .nav-link {
+    display: flex;
+    align-items: center;
+    gap: 0.875rem;
+    padding: 1rem 1.25rem;
+    color: rgba(203, 213, 225, 0.9);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    font-size: 0.9375rem;
+    font-weight: 500;
+    border-radius: 0.75rem;
+    margin: 0 0.5rem;
+    text-decoration: none;
+    overflow: hidden;
+}
+
+body.modern-account-panel-page .nav-link::before {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%) scaleY(0);
+    width: 4px;
+    height: 0;
+    background: linear-gradient(180deg, #818cf8 0%, #6366f1 100%);
+    border-radius: 2px 0 0 2px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+body.modern-account-panel-page .nav-link:hover {
+    background: linear-gradient(90deg, rgba(99, 102, 241, 0.15) 0%, rgba(99, 102, 241, 0.05) 100%);
+    color: white;
+    transform: translateX(-4px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+body.modern-account-panel-page .nav-link:hover::before {
+    transform: translateY(-50%) scaleY(1);
+    height: 60%;
+}
+
+body.modern-account-panel-page .nav-link i {
+    font-size: 1.25rem;
+    width: 24px;
+    text-align: center;
+    transition: all 0.3s ease;
+    color: rgba(203, 213, 225, 0.8);
+}
+
+body.modern-account-panel-page .nav-link:hover i {
+    color: #818cf8;
+    transform: scale(1.1);
+}
+
+body.modern-account-panel-page .nav-item.active .nav-link {
+    background: linear-gradient(90deg, rgba(99, 102, 241, 0.25) 0%, rgba(99, 102, 241, 0.1) 100%);
+    color: white;
+    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+    border: 1px solid rgba(99, 102, 241, 0.3);
+}
+
+body.modern-account-panel-page .nav-item.active .nav-link::before {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%) scaleY(1);
+    width: 4px;
+    height: 60%;
+    background: linear-gradient(180deg, #818cf8 0%, #6366f1 100%);
+    border-radius: 2px 0 0 2px;
+    box-shadow: 0 0 8px rgba(99, 102, 241, 0.6);
+}
+
+body.modern-account-panel-page .nav-item.active .nav-link i {
+    color: #818cf8;
+    transform: scale(1.15);
+}
+
+body.modern-account-panel-page .sidebar.collapsed .nav-link span {
+    display: none;
+}
+
+body.modern-account-panel-page .sidebar.collapsed .nav-link {
+    justify-content: center !important;
+    padding: 0.875rem !important;
+    gap: 0 !important;
+}
+
+body.modern-account-panel-page .sidebar.collapsed .nav-link i {
+    margin: 0 auto !important;
+}
+
+body.modern-account-panel-page .nav-divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.15) 50%, transparent 100%);
+    margin: 1.5rem 1.25rem;
+    position: relative;
+}
+
+body.modern-account-panel-page .nav-divider::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 50%;
+    transform: translateX(50%);
+    width: 40px;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.3);
+}
+
+body.modern-account-panel-page .sidebar.collapsed .nav-divider {
+    margin: 1.5rem 0.75rem;
+}
+
+@media (max-width: 768px) {
+    .modern-account-panel-sidebar,
+body.modern-account-panel-page .sidebar {
+        position: fixed;
+        transform: translateX(100%);
+        z-index: 2000;
+        height: 100vh !important;
+        max-height: 100vh !important;
+        min-height: 100vh !important;
+    }
+    
+    body.modern-account-panel-page .sidebar.active {
+        transform: translateX(0);
+    }
+    
+    body.modern-account-panel-page .sidebar-toggle {
+        display: block;
+    }
+}

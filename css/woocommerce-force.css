@@ -1,0 +1,95 @@
+/* Extracted from inline head force styles */
+.zs-shop-layout{display:flex!important;gap:30px!important;margin:40px 0!important}
+/* Shop header width fix - افزایش عرض */
+.zs-shop-page-header .container{max-width:1400px!important;margin:0 auto!important;padding:0 20px!important}
+/* افزایش عرض container اصلی */
+.zs-shop-wrapper .container{max-width:1400px!important;margin:0 auto!important;padding:0 20px!important}
+
+/* Mobile filter toggle styling */
+.mobile-filter-toggle{display:inline-flex;align-items:center;gap:8px;background:var(--zs-teal-night, #042326);color:#fff;border:none;border-radius:10px;padding:10px 14px;font-weight:700;cursor:pointer;box-shadow:0 6px 16px rgba(15,23,42,.25);transition:transform .2s ease}
+.mobile-filter-toggle:hover{transform:translateY(-1px)}
+.mobile-filter-toggle:active{transform:translateY(0)}
+@media (min-width: 769px){
+  .mobile-filter-toggle{display:none!important;}
+}
+
+/* Sticky floating filter button on mobile */
+@media (max-width: 768px){
+  .mobile-filter-toggle{
+    position:fixed!important;
+    left:50%!important;
+    transform:translateX(-50%)!important;
+    bottom:calc(16px + env(safe-area-inset-bottom))!important;
+    z-index:9996!important;
+    padding:14px 18px!important;
+    border-radius:14px!important;
+    background:linear-gradient(135deg,var(--zs-teal-dark, #00A796),var(--zs-teal-medium, #37C3B3))!important;
+    box-shadow:0 12px 30px rgba(0,54,197,.35)!important;
+  }
+  .mobile-filter-toggle::before{content:'⚙️';display:inline-block;margin-left:6px}
+  body.sidebar-open .mobile-filter-toggle{display:none!important}
+}
+
+.zs-shop-sidebar{width:280px!important;background:#f8f9fa!important;padding:25px!important;border-radius:15px!important;box-shadow:0 4px 15px rgba(0,0,0,.1)!important;display:block!important;flex-shrink:0!important}
+.zs-shop-content{flex:1!important}
+.woocommerce ul.products,
+ul.products.columns-3,
+ul.products.columns-4{display:grid!important;grid-template-columns:repeat(4,1fr)!important;gap:25px!important;list-style:none!important;padding:0!important;margin:0!important}
+
+/* Mobile: two columns in archive/shop/product lists */
+@media (max-width: 768px){
+  .woocommerce ul.products,
+  .woocommerce-page ul.products,
+  ul.products.columns-3,
+  ul.products.columns-4{
+    grid-template-columns:repeat(2,1fr)!important;
+    gap:12px!important;
+  }
+  .woocommerce ul.products li.product,
+  .woocommerce-page ul.products li.product,
+  ul.products.columns-3 li.product,
+  ul.products.columns-4 li.product{
+    width:100%!important;
+  }
+}
+/* Responsive: 3 columns on large tablet */
+@media (max-width: 1200px) and (min-width: 993px){
+  .woocommerce ul.products{grid-template-columns:repeat(3,1fr)!important;gap:20px!important}
+}
+/* Responsive: 2 columns on tablet */
+@media (max-width: 992px) and (min-width: 769px){
+  .woocommerce ul.products{grid-template-columns:repeat(2,1fr)!important;gap:20px!important}
+}
+.woocommerce ul.products li.product{background:none!important;border:none!important;margin:0!important;padding:0!important}
+.zs-simple-product-card{background:#ffffff!important;border-radius:15px!important;box-shadow:0 4px 15px rgba(0,0,0,.1)!important;overflow:hidden!important;transition:all .3s ease!important;height:100%!important;display:flex!important;flex-direction:column!important}
+.zs-simple-product-card:hover{transform:translateY(-5px)!important;box-shadow:0 8px 25px rgba(0,0,0,.15)!important}
+.zs-simple-product-image{height:250px!important;overflow:hidden!important;position:relative!important}
+.zs-simple-product-image img{width:100%!important;height:100%!important;object-fit:cover!important}
+.zs-simple-product-info{padding:20px!important;flex:1!important;display:flex!important;flex-direction:column!important}
+.zs-order-btn{background:linear-gradient(135deg,var(--zs-teal-medium, #37C3B3),var(--zs-teal-dark, #00A796))!important;color:#fff!important;padding:14px 20px!important;border-radius:10px!important;text-decoration:none!important;text-align:center!important;font-weight:700!important;display:block!important;margin-top:auto!important;transition:all .3s ease!important;box-shadow:0 4px 15px rgba(52,152,219,.3)!important}
+.zs-order-btn:hover{transform:translateY(-2px)!important;box-shadow:0 8px 25px rgba(52,152,219,.5)!important;background:linear-gradient(135deg,var(--zs-teal-dark, #00A796),var(--zs-teal-medium, #37C3B3))!important}
+.zs-simple-cart-btn{background:var(--zs-teal-medium, #37C3B3)!important;color:#fff!important;padding:12px!important;border-radius:8px!important;text-decoration:none!important;text-align:center!important;font-weight:600!important;display:block!important;margin-top:auto!important}
+ .zs-shop-sidebar{background:#2d2d2d!important;color:#ffffff!important}
+ .zs-simple-product-card{background:#2d2d2d!important}
+ .zs-simple-product-title a{color:#ffffff!important}
+ .zs-simple-price .price{color:var(--zs-teal-light, #6DE0D0)!important}
+
+/* Mobile fixes: prevent overflow and stack layout */
+@media (max-width: 768px){
+  body.woocommerce { overflow-x: hidden !important; }
+  .zs-shop-layout{flex-direction:column!important;gap:16px!important;margin:16px 0!important}
+  /* Off-canvas sidebar */
+  .zs-shop-sidebar,
+  .zs-ultra-modern-sidebar{position:fixed!important;top:0!important;right:-100%!important;width:85vw!important;max-width:360px!important;height:100vh!important;overflow-y:auto!important;background:#fff!important;padding:16px!important;border-radius:12px 0 0 12px!important;box-shadow: -10px 0 30px rgba(0,0,0,.15)!important;z-index:9998!important;transition:right .3s ease!important}
+  .zs-shop-sidebar.mobile-open,
+  .zs-ultra-modern-sidebar.mobile-open{right:0!important}
+  body.sidebar-open { overflow:hidden !important; }
+  .sidebar-overlay{position:fixed!important;inset:0!important;background:rgba(0,0,0,.45)!important;z-index:9997!important}
+  .zs-shop-content{width:100%!important}
+  .woocommerce ul.products{grid-template-columns:1fr!important;gap:12px!important}
+}
+
+/* Ensure mobile menu overlay/panel are on top on shop pages */
+.woocommerce .mobile-menu-overlay,
+.woocommerce .mobile-menu-panel{position:fixed!important;z-index:9999!important}
+

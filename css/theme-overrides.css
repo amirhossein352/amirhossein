@@ -1,0 +1,945 @@
+/**
+ * Theme Overrides - High Priority CSS
+ * This file contains high-priority styles that override default theme styles
+ */
+
+/* Header layout improvements */
+/* Hide order button in header on mobile */
+@media (max-width: 768px) {
+    .header-buttons .btn-primary {
+        display: none !important;
+    }
+}
+
+/* ============================================
+   Header Redesign - Modern & Attractive
+   ============================================ */
+
+.header-content {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0 !important;
+    width: 100% !important;
+}
+
+/* خط اول: لوگو + دکمه ورود/ثبت نام */
+.header-top {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 1rem !important;
+    width: 100% !important;
+    padding: 0.5rem 0 !important;
+    flex-wrap: nowrap !important;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05) !important;
+}
+
+/* خط دوم: منو (دسکتاپ) + جستجو + سبد خرید */
+.header-middle {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 1rem !important;
+    width: 100% !important;
+    padding: 0.5rem 0 !important;
+    flex-wrap: nowrap !important;
+}
+
+/* منو در دسکتاپ - نمایش داده می‌شود */
+.header-middle .desktop-nav {
+    display: flex !important;
+    flex: 1 1 auto !important;
+    min-width: 0 !important;
+}
+
+/* در موبایل منو را مخفی کن */
+@media (max-width: 768px) {
+    .header-middle .desktop-nav {
+        display: none !important;
+    }
+}
+
+/* دکمه ورود/ثبت نام */
+.header-auth {
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
+    flex-shrink: 0 !important;
+    /* Prevent CLS - fixed dimensions */
+    min-width: 120px;
+    min-height: 40px;
+    contain: layout style;
+}
+
+/* Login/Register Button - Support both link and button */
+.btn-auth,
+button.btn-auth {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
+    padding: 0.6rem 1.25rem !important;
+    border-radius: 10px !important;
+    font-weight: 600 !important;
+    font-size: 0.9rem !important;
+    text-decoration: none !important;
+    transition: all 0.3s ease !important;
+    white-space: nowrap !important;
+    cursor: pointer !important;
+    font-family: inherit !important;
+    /* Prevent CLS - fixed dimensions */
+    min-width: 120px;
+    min-height: 40px;
+    box-sizing: border-box;
+    contain: layout style;
+}
+
+.btn-auth.btn-primary,
+button.btn-auth.btn-primary {
+    background: linear-gradient(135deg, var(--zs-teal-medium, #37C3B3), var(--zs-teal-dark, #00A796)) !important;
+    color: #ffffff !important;
+    border: none !important;
+}
+
+.btn-auth.btn-primary:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 4px 12px rgba(55, 195, 179, 0.3) !important;
+}
+
+.btn-auth i {
+    font-size: 0.9rem !important;
+}
+
+/* Logo Section - Right Side */
+.header-left {
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
+    flex-shrink: 0 !important;
+    min-width: 150px !important;
+    max-width: 200px !important;
+}
+
+/* Search Section - Center (Flexible) - در خط دوم */
+.header-middle .header-center {
+    flex: 1 1 auto !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    min-width: 0 !important;
+    max-width: 600px !important;
+    margin: 0 auto !important;
+}
+
+/* Actions Section - Left Side - در خط دوم */
+.header-middle .header-actions {
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.75rem !important;
+    flex-shrink: 0 !important;
+    min-width: fit-content !important;
+}
+
+/* Navigation - در header-middle است */
+.header-bottom {
+    display: none !important;
+}
+
+/* Reduce header height - Desktop */
+.site-header {
+    padding: 0 !important;
+    position: relative !important;
+    width: 100% !important;
+    z-index: 9999 !important;
+    background: #ffffff !important;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08) !important;
+}
+
+/* Mobile - Sticky Header */
+@media (max-width: 768px) {
+    .site-header {
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        backdrop-filter: blur(10px) !important;
+    }
+}
+
+.site-header .container,
+.site-header .wrap {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+}
+
+@media (min-width: 1200px) {
+    .site-header .container,
+    .site-header .wrap {
+        max-width: 1200px !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+}
+
+/* Reduce header height - Mobile */
+@media (max-width: 768px) {
+    .site-header {
+        padding: 0 !important;
+    }
+    
+    .header-content {
+        display: flex !important;
+        flex-direction: column !important;
+    }
+    
+    .header-top {
+        height: auto !important;
+        min-height: 50px !important;
+        max-height: none !important;
+        padding: 0.4rem 0 !important;
+        display: flex !important;
+        order: 1 !important;
+        overflow: visible !important;
+    }
+    
+    .header-middle {
+        height: auto !important;
+        min-height: 50px !important;
+        max-height: none !important;
+        padding: 0.4rem 0 !important;
+        display: flex !important;
+        order: 2 !important;
+        overflow: visible !important;
+        align-items: center !important;
+    }
+    
+    .header-bottom {
+        display: none !important;
+    }
+    
+    body {
+        padding-top: 110px !important;
+    }
+    
+    .logo-image img,
+    .header-logo-image {
+        max-height: 40px !important;
+    }
+    
+    /* مطمئن شو که لوگو نمایش داده می‌شود */
+    .header-left,
+    .site-branding,
+    .logo-container {
+        display: flex !important;
+        visibility: visible !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .site-header {
+        padding: 0 !important;
+    }
+    
+    .header-top {
+        min-height: 45px;
+        padding: 0.3rem 0 !important;
+    }
+    
+    .header-middle {
+        min-height: 45px;
+        padding: 0.3rem 0 !important;
+    }
+    
+    body {
+        padding-top: 100px !important;
+    }
+    
+    .logo-image img,
+    .header-logo-image {
+        max-height: 35px !important;
+    }
+    
+    .header-middle .header-actions {
+        gap: 0.4rem !important;
+    }
+    
+    #zs-cart-btn {
+        padding: 0.45rem 0.5rem !important;
+    }
+    
+    .mobile-menu-toggle {
+        width: 34px !important;
+        height: 34px !important;
+        padding: 0.45rem !important;
+    }
+}
+
+/* Desktop header height reduction */
+@media (min-width: 769px) {
+    body {
+        padding-top: 0 !important;
+    }
+    
+    .site-header {
+        padding: 0 !important;
+        position: relative !important;
+    }
+    
+    .header-top {
+        padding: 0.6rem 0 !important;
+    }
+    
+    .header-middle {
+        padding: 0.5rem 0 !important;
+    }
+    
+    /* در دسکتاپ منو را نمایش بده */
+    .header-middle .desktop-nav {
+        display: flex !important;
+    }
+}
+
+/* منو در header-middle - دسکتاپ */
+.header-middle .desktop-nav {
+    flex: 1 1 auto;
+    min-width: 0;
+    max-width: none;
+}
+
+.header-buttons {
+    display: flex !important;
+}
+
+.logo-container.has-logo-image .logo-symbol {
+    display: none !important;
+}
+
+.logo-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.logo-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 0;
+}
+
+.logo-image img,
+.header-logo-image {
+    display: block !important;
+    width: auto !important;
+    height: auto !important;
+    max-width: 100% !important;
+    max-height: 60px !important;
+    object-fit: contain !important;
+    object-position: center !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.logo-container {
+    display: flex !important;
+    align-items: center !important;
+    transition: transform 0.3s ease !important;
+}
+
+.logo-container:hover {
+    transform: scale(1.05) !important;
+}
+
+.site-branding {
+    display: flex !important;
+    align-items: center !important;
+}
+
+/* Header Scroll Effect */
+.site-header.scrolled {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12) !important;
+    backdrop-filter: blur(15px) !important;
+}
+
+/* Smooth transitions */
+.site-header,
+.header-top,
+.header-bottom,
+.header-content {
+    transition: all 0.3s ease !important;
+}
+
+/* ============================================
+   Search Bar - Modern Design
+   ============================================ */
+.header-search {
+    width: 100% !important;
+    max-width: 500px !important;
+    /* Prevent CLS - fixed dimensions */
+    min-height: 40px;
+    contain: layout style;
+}
+
+.header-search-form {
+    display: flex !important;
+    align-items: stretch !important;
+    background: #f8f9fa !important;
+    border-radius: 12px !important;
+    overflow: hidden !important;
+    border: 2px solid transparent !important;
+    transition: all 0.3s ease !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05) !important;
+}
+
+.header-search-form:focus-within {
+    border-color: var(--zs-teal-medium, #37C3B3) !important;
+    box-shadow: 0 4px 16px rgba(55, 195, 179, 0.15) !important;
+    background: #ffffff !important;
+}
+
+.search-field-wrapper {
+    display: flex !important;
+    align-items: center !important;
+    flex: 1 1 auto !important;
+    padding: 0.5rem 1rem !important;
+    gap: 0.75rem !important;
+}
+
+.search-icon {
+    display: flex !important;
+    align-items: center !important;
+    color: #6b7280 !important;
+    flex-shrink: 0 !important;
+    /* Prevent CLS - fixed dimensions */
+    width: 18px;
+    height: 18px;
+    min-width: 18px;
+    min-height: 18px;
+    contain: layout style;
+}
+
+.search-input {
+    border: none !important;
+    background: transparent !important;
+    flex: 1 1 auto !important;
+    font-size: 0.9rem !important;
+    color: #1f2937 !important;
+    min-width: 0 !important;
+    /* Prevent CLS - fixed height */
+    min-height: 40px;
+    height: 40px;
+    box-sizing: border-box;
+    contain: layout style;
+}
+
+.search-input:focus {
+    outline: none !important;
+}
+
+.search-input::placeholder {
+    color: #9ca3af !important;
+    font-size: 0.9rem !important;
+}
+
+.search-category {
+    border-left: 1px solid rgba(148, 163, 184, 0.3) !important;
+    padding: 0 0.75rem !important;
+    display: flex !important;
+    align-items: center !important;
+}
+
+.search-select {
+    border: none !important;
+    background: transparent !important;
+    font-size: 0.85rem !important;
+    color: #4b5563 !important;
+    cursor: pointer !important;
+    padding: 0.25rem 0 !important;
+    min-width: 100px !important;
+}
+
+.search-select:focus {
+    outline: none !important;
+}
+
+.search-submit-btn {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
+    background: linear-gradient(135deg, var(--zs-teal-medium, #37C3B3), var(--zs-teal-dark, #00A796)) !important;
+    color: #ffffff !important;
+    border: none !important;
+    padding: 0.6rem 1.25rem !important;
+    font-weight: 600 !important;
+    font-size: 0.9rem !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+    white-space: nowrap !important;
+}
+
+.search-submit-btn:hover {
+    transform: translateY(-1px) !important;
+    box-shadow: 0 4px 12px rgba(55, 195, 179, 0.3) !important;
+}
+
+/* ============================================
+   Contact & Actions - Modern Design
+   ============================================ */
+.header-contact {
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
+}
+
+.header-contact-item {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 0.4rem !important;
+    padding: 0.5rem 0.75rem !important;
+    border-radius: 8px !important;
+    text-decoration: none !important;
+    color: #4b5563 !important;
+    font-size: 0.85rem !important;
+    transition: all 0.2s ease !important;
+    white-space: nowrap !important;
+}
+
+.header-contact-item:hover {
+    color: var(--zs-teal-dark, #00A796) !important;
+    background: #f0fdfa !important;
+    transform: translateY(-1px) !important;
+}
+
+.header-contact-item .contact-icon {
+    font-size: 1rem !important;
+    line-height: 1 !important;
+}
+
+.header-contact-item .contact-text {
+    line-height: 1.2 !important;
+    font-weight: 500 !important;
+}
+
+/* Cart Button */
+.zs-header-cart {
+    position: relative !important;
+    display: inline-block !important;
+}
+
+#zs-cart-btn {
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef) !important;
+    border: 2px solid transparent !important;
+    border-radius: 10px !important;
+    padding: 0.6rem 0.75rem !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+    position: relative !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+#zs-cart-btn:hover {
+    background: linear-gradient(135deg, var(--zs-teal-medium, #37C3B3), var(--zs-teal-dark, #00A796)) !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 4px 12px rgba(55, 195, 179, 0.3) !important;
+}
+
+#zs-cart-btn:hover .zs-cart-icon {
+    filter: brightness(0) invert(1) !important;
+}
+
+.zs-cart-icon {
+    font-size: 1.3rem !important;
+    transition: all 0.3s ease !important;
+}
+
+#zs-header-cart-count {
+    position: absolute !important;
+    top: -4px !important;
+    right: -4px !important;
+    background: linear-gradient(135deg, #dc3545, #c82333) !important;
+    color: #fff !important;
+    border-radius: 12px !important;
+    min-width: 20px !important;
+    height: 20px !important;
+    font-size: 0.7rem !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 0 6px !important;
+    font-weight: 700 !important;
+    box-shadow: 0 2px 6px rgba(220, 53, 69, 0.4) !important;
+    border: 2px solid #ffffff !important;
+}
+
+/* Mobile Menu Toggle - فقط در موبایل نمایش داده می‌شود */
+.mobile-menu-toggle {
+    background: linear-gradient(135deg, var(--zs-teal-medium, #37C3B3), var(--zs-teal-dark, #00A796)) !important;
+    border: none !important;
+    border-radius: 10px !important;
+    padding: 0.5rem !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+    display: none !important; /* به صورت پیش‌فرض مخفی */
+    flex-direction: column !important;
+    justify-content: space-around !important;
+    align-items: center !important;
+    width: 40px !important;
+    height: 40px !important;
+    box-shadow: 0 4px 12px rgba(55, 195, 179, 0.3) !important;
+}
+
+/* در دسکتاپ دکمه منو را مخفی کن */
+@media (min-width: 769px) {
+    .mobile-menu-toggle {
+        display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+        width: 0 !important;
+        height: 0 !important;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+}
+
+.mobile-menu-toggle:hover {
+    background: linear-gradient(135deg, var(--zs-teal-dark, #00A796), var(--zs-teal-medium, #37C3B3)) !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 16px rgba(55, 195, 179, 0.4) !important;
+}
+
+.mobile-menu-toggle .hamburger-line {
+    background: #ffffff !important;
+    width: 22px !important;
+    height: 3px !important;
+    min-width: 22px !important;
+    min-height: 3px !important;
+    contain: layout style !important;
+}
+
+/* ============================================
+   Responsive Design
+   ============================================ */
+@media (max-width: 1024px) {
+    .header-middle .header-center,
+    .header-middle .header-search {
+        display: none !important;
+    }
+    
+    .header-contact {
+        display: none !important;
+    }
+
+    .header-top {
+        gap: 0.75rem !important;
+        padding: 0.4rem 0 !important;
+    }
+    
+    .header-left {
+        max-width: 180px !important;
+    }
+    
+    .header-middle {
+        gap: 0.75rem !important;
+        padding: 0.4rem 0 !important;
+    }
+}
+
+@media (max-width: 768px) {
+    /* خط اول: لوگو + دکمه ثبت نام - باید نمایش داده شود */
+    .header-top {
+        gap: 0.5rem !important;
+        padding: 0.35rem 0 !important;
+        display: flex !important;
+        order: 1 !important;
+    }
+    
+    .header-left {
+        max-width: 150px !important;
+        min-width: 120px !important;
+        display: flex !important;
+    }
+    
+    .header-top {
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        gap: 5.5rem !important;
+        padding: 0.5rem 0 !important;
+        width: 100% !important;
+    }
+    
+    .header-left {
+        flex: 0 0 auto !important;
+        margin-left: 0 !important;
+        max-width: 150px !important;
+    }
+    
+    .header-auth {
+        display: flex !important;
+        /* Prevent CLS - fixed dimensions on mobile */
+        min-width: 40px !important;
+        min-height: 40px !important;
+        contain: layout style !important;
+        margin-right: 0 !important;
+        margin-left: auto !important; /* Push login button to the right, away from logo */
+        flex-shrink: 0 !important;
+    }
+    
+    .btn-auth {
+        padding: 0.5rem 1rem !important;
+        font-size: 0.85rem !important;
+        /* Prevent CLS - fixed dimensions on mobile */
+        min-width: 40px;
+        min-height: 40px;
+        box-sizing: border-box;
+    }
+    
+    .btn-auth span {
+        display: none !important;
+    }
+    
+    .btn-auth i {
+        margin: 0 !important;
+        /* Prevent CLS - fixed dimensions */
+        width: 16px;
+        height: 16px;
+        min-width: 16px;
+        min-height: 16px;
+    }
+    
+    /* خط دوم: جستجو + سبد خرید */
+    .header-middle {
+        gap: 0.5rem !important;
+        padding: 0.35rem 0 !important;
+        flex-wrap: nowrap !important;
+        display: flex !important;
+        order: 2 !important;
+    }
+    
+    .header-middle .header-actions {
+        gap: 0.5rem !important;
+    }
+    
+    #zs-cart-btn {
+        padding: 0.5rem 0.6rem !important;
+    }
+    
+    /* در موبایل دکمه منو را نمایش بده */
+    .mobile-menu-toggle {
+        display: flex !important;
+        /* Prevent CLS - fixed dimensions */
+        width: 36px !important;
+        height: 36px !important;
+        min-width: 36px !important;
+        min-height: 36px !important;
+        max-width: 36px !important;
+        max-height: 36px !important;
+        padding: 0.5rem !important;
+        box-sizing: border-box !important;
+        contain: layout style !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        width: 36px !important;
+        height: 36px !important;
+        padding: 0.5rem !important;
+        margin: 0 !important;
+    }
+    
+    /* نمایش جستجو و سبد خرید در خط دوم در موبایل */
+    .header-middle .header-center {
+        display: flex !important;
+        flex: 1 1 auto !important;
+        min-width: 0 !important;
+        max-width: calc(100% - 100px) !important;
+        margin-left: 0.5rem !important;
+    }
+    
+    .header-middle .header-search {
+        display: flex !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+        height: 32px !important;
+        min-height: 32px !important;
+        max-height: 32px !important;
+    }
+    
+    .header-middle .header-search-form {
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+        flex-shrink: 1 !important;
+        padding: 0.15rem !important;
+        height: 32px !important;
+        min-height: 32px !important;
+        max-height: 32px !important;
+        display: flex !important;
+        align-items: center !important;
+    }
+    
+    .header-middle .search-field-wrapper {
+        height: 26px !important;
+        min-height: 26px !important;
+        max-height: 26px !important;
+        display: flex !important;
+        align-items: center !important;
+        flex: 1 1 auto !important;
+    }
+    
+    .header-middle .search-icon {
+        width: 14px !important;
+        height: 14px !important;
+        flex-shrink: 0 !important;
+    }
+    
+    .header-middle .search-input {
+        min-width: 0 !important;
+        width: 100% !important;
+        flex: 1 1 auto !important;
+        font-size: 0.7rem !important;
+        padding: 0.25rem 0.35rem !important;
+        height: 26px !important;
+        min-height: 26px !important;
+        max-height: 26px !important;
+        line-height: 1.2 !important;
+        border: none !important;
+    }
+    
+    .header-middle .search-submit-btn {
+        padding: 0.25rem 0.5rem !important;
+        font-size: 0.7rem !important;
+        height: 26px !important;
+        min-height: 26px !important;
+        max-height: 26px !important;
+        line-height: 1 !important;
+        flex-shrink: 0 !important;
+        white-space: nowrap !important;
+    }
+    
+    .header-middle .header-actions {
+        flex-shrink: 0 !important;
+        display: flex !important;
+        align-items: center !important;
+        gap: 0.4rem !important;
+        min-width: fit-content !important;
+    }
+    
+    .header-middle {
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+    }
+    
+    #zs-header-cart {
+        flex-shrink: 0 !important;
+    }
+    
+    #zs-cart-btn {
+        width: auto !important;
+        min-width: 40px !important;
+        flex-shrink: 0 !important;
+    }
+    
+    /* در موبایل منو در سایدبار است */
+}
+
+.mobile-contact-info {
+    margin-top: 1.5rem;
+}
+
+.mobile-menu-panel .mobile-contact-info a,
+.mobile-menu-panel .mobile-contact-info span {
+    display: flex;
+}
+
+.mobile-menu-panel .mobile-contact-info .contact-icon {
+    font-size: 1rem;
+}
+
+.mobile-menu-panel .mobile-contact-info .contact-text {
+    font-size: 0.95rem;
+}
+
+/* Desktop - Always relative (not sticky) */
+.site-header.header-static,
+.site-header {
+    position: relative !important;
+}
+
+.site-header.header-static.hidden,
+.site-header.header-static.scrolled,
+.site-header.hidden,
+.site-header.scrolled {
+    transform: none !important;
+}
+
+/* Mobile - Override to sticky */
+@media (max-width: 768px) {
+    .site-header.header-static,
+    .site-header {
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        z-index: 9999 !important;
+        width: 100% !important;
+        transition: transform 0.3s ease !important;
+    }
+    
+    /* در موبایل هدر با اسکرول به پایین مخفی می‌شود */
+    .site-header.hidden {
+        transform: translateY(-100%) !important;
+    }
+    
+    /* هدر در موبایل همیشه fixed است */
+    .site-header.scrolled {
+        position: fixed !important;
+        top: 0 !important;
+    }
+}
+
+body.no-sticky-header {
+    padding-top: 0 !important;
+}
+
+/* Desktop - No sticky header */
+@media (min-width: 769px) {
+    body.no-sticky-header,
+    body {
+        padding-top: 0 !important;
+    }
+}
+
+/* Navigation styles moved to css/navigation-menu.css */
+
+/* Force disable icon transforms on hover - Highest Priority */
+.main-navigation .nav-icon,
+.header-middle .desktop-nav .nav-icon,
+.main-navigation .nav-link .nav-icon,
+.header-middle .desktop-nav .nav-link .nav-icon {
+    transform: none !important;
+    transition: none !important;
+    animation: none !important;
+    scale: 1 !important;
+    rotate: 0deg !important;
+}
+
+.main-navigation .nav-link:hover .nav-icon,
+.main-navigation .nav-link:focus .nav-icon,
+.main-navigation .nav-link:active .nav-icon,
+.main-navigation .nav-item:hover .nav-icon,
+.header-middle .desktop-nav .nav-link:hover .nav-icon,
+.header-middle .desktop-nav .nav-link:focus .nav-icon,
+.header-middle .desktop-nav .nav-link:active .nav-icon,
+.header-middle .desktop-nav .nav-item:hover .nav-icon {
+    transform: none !important;
+    scale: 1 !important;
+    rotate: 0deg !important;
+    transition: none !important;
+    animation: none !important;
+}
+
+
+

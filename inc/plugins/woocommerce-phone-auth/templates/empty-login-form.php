@@ -1,0 +1,1 @@
+<?php // Empty template to prevent default WooCommerce login form ?>

@@ -1,0 +1,20 @@
+/* Local self-hosted font - IranYekan */
+@font-face {
+    font-family: 'IranYekan';
+    src: url('../fonts/iranyekanwebregular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* Optional: Farsi digits variant if needed */
+@font-face {
+    font-family: 'IranYekan';
+    src: url('../fonts/iranyekanwebregularfanum.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+    unicode-range: U+0030-0039; /* 0-9 */
+}
+
+

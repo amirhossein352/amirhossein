@@ -1,0 +1,24 @@
+/* Extracted from force products grid inline css */
+.woocommerce ul.products{display:grid!important;grid-template-columns:repeat(auto-fill,minmax(300px,1fr))!important;gap:25px!important;list-style:none!important;padding:0!important;margin:0!important}
+.woocommerce ul.products li.product{margin:0!important;padding:0!important;background:none!important}
+
+@media (max-width:768px){
+    .woocommerce ul.products{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:16px!important}
+}
+
+@media (max-width:480px){
+    .woocommerce ul.products{gap:12px!important}
+}
+
+/* Shop features block on archive/shop: two-column on mobile */
+@media (max-width:768px){
+  .zs-shop-features .features-grid{
+    display:grid!important;
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+    gap:12px!important;
+  }
+  .zs-shop-features .feature-item{
+    padding:14px!important;
+  }
+}
+
