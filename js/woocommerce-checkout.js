@@ -356,7 +356,7 @@
         /**
          * Place Order Button Handler
          */
-        $('#place_order, .wc-block-components-checkout-place-order-button').on('click', function(e) {
+        $(document.body).on('click', '#place_order, .wc-block-components-checkout-place-order-button', function(e) {
             if (!validateCheckoutForm()) {
                 e.preventDefault();
                 e.stopPropagation();
@@ -404,7 +404,7 @@
         /**
          * Payment Method Selection Animation
          */
-        $('.wc_payment_methods input[type="radio"]').on('change', function() {
+        $(document.body).on('change', '.wc_payment_methods input[type="radio"]', function() {
             // Hide all payment boxes
             $('.payment_box').slideUp(200);
             
@@ -445,7 +445,7 @@
         /**
          * Smooth Scroll to Payment Section
          */
-        $('.wc_payment_methods input[type="radio"]').on('change', function() {
+        $(document.body).on('change', '.wc_payment_methods input[type="radio"]', function() {
             if ($(window).width() <= 992) {
                 setTimeout(function() {
                     var offset = $('.woocommerce-checkout-payment').offset().top - 80;
@@ -459,7 +459,7 @@
         /**
          * Terms and Conditions Checkbox Handler
          */
-        $('#terms').on('change', function() {
+        $(document.body).on('change', '#terms', function() {
             var $placeOrder = $('#place_order');
             if ($(this).is(':checked')) {
                 $placeOrder.prop('disabled', false);

@@ -48,15 +48,7 @@ if (!$checkout->is_registration_enabled() && $checkout->is_registration_required
             // Coupon form (hidden by default, shown by JS)
             woocommerce_checkout_coupon_form();
             // Payment methods below form
-            wc_get_template('checkout/payment.php');
-            ?>
-
-            <?php // Terms + Place order right after payment (kept in left column)
-            wc_get_template('checkout/terms.php');
-            do_action('woocommerce_review_order_before_submit');
-            echo apply_filters('woocommerce_order_button_html', '<button type="submit" class="button alt" name="woocommerce_checkout_place_order" id="place_order" value="' . esc_attr(__('Place order', 'woocommerce')) . '" data-value="' . esc_attr(__('Place order', 'woocommerce')) . '">' . esc_html__('Place order', 'woocommerce') . '</button>');
-            do_action('woocommerce_review_order_after_submit');
-            wp_nonce_field('woocommerce-process_checkout', 'woocommerce-process-checkout-nonce');
+            woocommerce_checkout_payment();
             ?>
         </div>
 
