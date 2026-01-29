@@ -38,11 +38,35 @@ get_header(); ?>
             <?php
             wc_print_notices();
 
-            do_action('woocommerce_before_checkout_form', WC()->checkout());
+            $checkout = WC()->checkout();
 
-            wc_get_template('checkout/form-checkout.php', array('checkout' => WC()->checkout()));
+            if ( is_wc_endpoint_url( 'order-pay' ) ) {
+                $order_id = absint( get_query_var( 'order-pay' ) );
+                $order    = wc_get_order( $order_id );
 
-            do_action('woocommerce_after_checkout_form', WC()->checkout());
+                if ( $order ) {
+                    wc_get_template( 'checkout/form-pay.php', array(
+                        'order'    => $order,
+                        'order_id' => $order_id,
+                    ) );
+                } else {
+                    wc_print_notice( esc_html__( 'Sorry, this order is invalid.', 'woocommerce' ), 'error' );
+                }
+            } elseif ( is_wc_endpoint_url( 'order-received' ) ) {
+                $order_id = absint( get_query_var( 'order-received' ) );
+                $order    = wc_get_order( $order_id );
+
+                wc_get_template( 'checkout/thankyou.php', array(
+                    'order'    => $order,
+                    'order_id' => $order_id,
+                ) );
+            } else {
+                do_action( 'woocommerce_before_checkout_form', $checkout );
+
+                wc_get_template( 'checkout/form-checkout.php', array( 'checkout' => $checkout ) );
+
+                do_action( 'woocommerce_after_checkout_form', $checkout );
+            }
             ?>
 
             <?php
