@@ -10,8 +10,38 @@ if ( ! is_ajax() ) {
     do_action( 'woocommerce_review_order_before_payment' );
 }
 
-if ( WC()->cart->needs_payment() ) {
+$order = null;
+if ( function_exists( 'is_wc_endpoint_url' ) && is_wc_endpoint_url( 'order-pay' ) ) {
+    $order_id = absint( get_query_var( 'order-pay' ) );
+    if ( $order_id ) {
+        $order = wc_get_order( $order_id );
+    }
+}
+
+$needs_payment = ( WC()->cart && WC()->cart->needs_payment() );
+if ( $order instanceof WC_Order ) {
+    $needs_payment = $order->needs_payment();
+
+    if ( WC()->customer && $order->get_billing_country() ) {
+        WC()->customer->set_billing_country( $order->get_billing_country() );
+        WC()->customer->set_billing_state( $order->get_billing_state() );
+        WC()->customer->set_shipping_country( $order->get_shipping_country() );
+        WC()->customer->set_shipping_state( $order->get_shipping_state() );
+    }
+}
+
+if ( $needs_payment ) {
     $available_gateways = isset( $available_gateways ) ? $available_gateways : WC()->payment_gateways()->get_available_payment_gateways();
+
+    if ( empty( $available_gateways ) && WC()->customer ) {
+        $base_country = WC()->countries->get_base_country();
+        if ( $base_country && ! WC()->customer->get_billing_country() ) {
+            WC()->customer->set_billing_country( $base_country );
+            WC()->customer->set_shipping_country( $base_country );
+            $available_gateways = WC()->payment_gateways()->get_available_payment_gateways();
+        }
+    }
+
     WC()->payment_gateways()->set_current_gateway( $available_gateways );
 } else {
     $available_gateways = array();
@@ -22,7 +52,7 @@ $order_button_text = apply_filters( 'woocommerce_order_button_text', __( 'Place 
 
 <div id="payment" class="woocommerce-checkout-payment">
     <div class="zs-payment-section">
-        <?php if ( WC()->cart->needs_payment() ) : ?>
+        <?php if ( $needs_payment ) : ?>
             <h3 class="zs-section-title"><?php esc_html_e( 'انتخاب روش پرداخت', 'woocommerce' ); ?></h3>
 
             <?php if ( ! empty( $available_gateways ) ) : ?>

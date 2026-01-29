@@ -289,6 +289,20 @@ if (!function_exists('khane_irani_woocommerce_scripts')) {
                 khane_irani_asset_version('/js/woocommerce-checkout.js'),
                 true
             );
+
+            // Ensure WooCommerce core checkout scripts are loaded (critical for gateways)
+            if (wp_script_is('wc-checkout', 'registered')) {
+                wp_enqueue_script('wc-checkout');
+            }
+            if (wp_script_is('wc-country-select', 'registered')) {
+                wp_enqueue_script('wc-country-select');
+            }
+            if (wp_script_is('wc-address-i18n', 'registered')) {
+                wp_enqueue_script('wc-address-i18n');
+            }
+            if (wp_script_is('selectWoo', 'registered')) {
+                wp_enqueue_script('selectWoo');
+            }
         }
         
         // Shop/Category/Tag pages - load shop-specific assets
